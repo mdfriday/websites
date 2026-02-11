@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="light">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+<title>服务器连接性检查 | Friday 帮助文档</title>
+
+
+<meta name="description" content="">
+<link rel="canonical" href="/architecture/server-connectivity.html">
+
+<!-- Meta Tags --><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Friday 帮助文档",
+    
+    "url": "/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "MDFriday",
+  "url": "/",
+   "description": "Turn markdown to website, in minutes.",
+   "vision": "Make site generation easy and accessible for everyone.",
+   "logo": "https://gohugo.net/mdfriday.svg",
+   "address": "Cang long Street, Wuhan, China",
+   "email": "support@mdfriday.com",
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "/architecture/server-connectivity.html",
+          "name": "服务器连接性检查"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "MDFriday"
+  },
+  "headline": "服务器连接性检查",
+  "description" : "Friday 同步插件实现了智能的服务器连接性检查机制，能够在同步操作前验证服务器可达性，从而提供准确的错误归因和无缝的离线模式支持。
+为什么需要连接性检…",
+  "inLanguage" : "zh",
+  "wordCount": 1021,
+  "datePublished" : "Tue Feb 10 2026 08:00:00 GMT+0800 (China Standard Time)",
+  "dateModified" : "Tue Feb 10 2026 08:00:00 GMT+0800 (China Standard Time)",
+  "image" : "/",
+  "keywords" : [ "同步, 架构, 网络" ],
+  "mainEntityOfPage" : "/architecture/server-connectivity.html",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="服务器连接性检查" />
+<meta property="og:url" content="/architecture/server-connectivity.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Friday 帮助文档" />
+
+  <meta name="twitter:title" content="服务器连接性检查" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&display=swap">
+
+
+<link rel="stylesheet" href="/css/quartz.css">
+<link rel="stylesheet" href="/css/clipboard.css">
+<link rel="stylesheet" href="/css/callout.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" crossorigin="anonymous"></script>
+<script defer src="/js/katex-render.js"></script>
+
+
+<script type="module" defer src="/js/mermaid-render.js"></script>
+
+
+<meta name="theme-color" content="#faf8f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161618" media="(prefers-color-scheme: dark)">
+
+
+<script>
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+})();
+</script>
+
+</head>
+<body>
+    
+    
+    <div class="page">
+        <div id="quartz-body">
+            
+            <aside class="sidebar left"><h1 class="page-title">
+    <a href="/index.html">Friday 帮助文档</a>
+</h1>
+
+<div class="spacer mobile-only"></div>
+
+
+                <div class="flex-component" style="display: flex; flex-direction: row; gap: 0.5rem; align-items: center;">
+                    
+                    <div style="flex-grow: 1; flex-shrink: 1; min-width: 0;">
+<div class="search">
+    <button class="search-button" aria-label="Search">
+        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7">
+            <title>Search</title>
+            <g class="search-path" fill="none">
+                <path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4" />
+                <circle cx="8" cy="8" r="7" />
+            </g>
+        </svg>
+        <p>搜索</p>
+    </button>
+    <div class="search-container">
+        <div class="search-space">
+            <input
+                autocomplete="off"
+                class="search-bar"
+                name="search"
+                type="text"
+                aria-label="搜索内容..."
+                placeholder="搜索内容..."
+            />
+            <div class="search-layout" data-preview="true"></div>
+        </div>
+    </div>
+</div>
+
+</div>
+                    
+                    <div style="flex-grow: 0; flex-shrink: 0;"><div class="darkmode">
+    <button 
+        id="darkmode-toggle" 
+        class="darkmode-toggle"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode">
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="3" fill="currentColor"/>
+            <line x1="10" y1="2" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="16" x2="10" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="16" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.34" y1="4.34" x2="5.76" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.24" y1="14.24" x2="15.66" y2="15.66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.34" y1="15.66" x2="5.76" y2="14.24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.24" y1="5.76" x2="15.66" y2="4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" style="display: none;">
+            <path d="M17.5 11.5A7.5 7.5 0 0 1 9 3.5c0-.5.1-1 .2-1.5A8.5 8.5 0 1 0 18.5 11c-.5.1-1 .2-1.5.2-.2 0-.3 0-.5.3z" fill="currentColor"/>
+        </svg>
+    </button>
+</div>
+
+</div>
+                    <div style="flex-grow: 0; flex-shrink: 0;">
+<button class="readermode" aria-label="阅读模式" title="阅读模式">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        class="readerIcon"
+        fill="currentColor"
+        stroke="currentColor"
+        stroke-width="0.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        width="64px"
+        height="64px"
+        viewBox="0 0 24 24">
+        <title>阅读模式</title>
+        <g transform="translate(-1.8, -1.8) scale(1.15, 1.2)">
+            <path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z" />
+        </g>
+    </svg>
+</button>
+
+</div></div><div class="explorer" 
+     data-behavior="link" 
+     data-collapsed="collapsed" 
+     data-savestate="true">
+    
+    
+    <button type="button" 
+            class="explorer-toggle mobile-explorer hide-until-loaded" 
+            data-mobile="true"
+            aria-controls="explorer-content"
+            aria-label="切换文件浏览器">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             width="24" 
+             height="24" 
+             viewBox="0 0 24 24" 
+             stroke-width="2" 
+             stroke="currentColor"
+             fill="none"
+             stroke-linecap="round" 
+             stroke-linejoin="round" 
+             class="lucide-menu">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+    </button>
+    
+    
+    <button type="button" 
+            class="title-button explorer-toggle desktop-explorer" 
+            data-mobile="false"
+            aria-expanded="true"
+            aria-label="切换文件浏览器">
+        <h2>文件浏览器</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             width="14" 
+             height="14" 
+             viewBox="5 8 14 8" 
+             fill="none" 
+             stroke="currentColor" 
+             stroke-width="2" 
+             stroke-linecap="round" 
+             stroke-linejoin="round" 
+             class="fold">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+    
+    
+    <div id="explorer-content" 
+         class="explorer-content" 
+         aria-expanded="false" 
+         role="group">
+        <ul class="explorer-ul"></ul>
+    </div>
+    
+    
+    <template id="template-file">
+        <li>
+            <a href="#"></a>
+        </li>
+    </template>
+    
+    <template id="template-folder">
+        <li>
+            <div class="folder-container">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     width="12" 
+                     height="12" 
+                     viewBox="5 8 14 8" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     stroke-width="2" 
+                     stroke-linecap="round" 
+                     stroke-linejoin="round" 
+                     class="folder-icon">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+                <div>
+                    <button class="folder-button">
+                        <span class="folder-title"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="folder-outer">
+                <ul class="content"></ul>
+            </div>
+        </li>
+    </template>
+</div>
+
+</aside>
+            
+            
+            <div class="center">
+                <div class="page-header">
+                    
+                    <div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs">
+    <ul class="breadcrumbs">
+        
+        <li class="breadcrumb-element">
+            <a href="/index.html">Home</a>
+            <p aria-hidden="true"> ❯ </p>
+        </li>
+        
+        
+                <li class="breadcrumb-element">
+                    <a href="/architecture/">Architecture</a>
+                    <p aria-hidden="true"> ❯ </p>
+                </li>
+                <li class="breadcrumb-element">
+                    <a href="/architecture/server-connectivity.html">服务器连接性检查</a>
+                </li></ul>
+</nav></div>
+                </div>
+<article class="popover-hint">
+    <header class="article-header"><h1 class="article-title">
+    服务器连接性检查
+</h1>
+
+<div class="content-meta">
+    <span class="content-meta-date">
+        <time datetime="2/10/2026">
+            2/10/2026
+        </time>
+    </span><span class="content-meta-reading-time">
+        6 分钟阅读
+    </span></div>
+
+<ul class="tags"><li>
+        <a href="/tags/同步/index.html" class="internal tag-link">
+            同步
+        </a>
+    </li><li>
+        <a href="/tags/架构/index.html" class="internal tag-link">
+            架构
+        </a>
+    </li><li>
+        <a href="/tags/网络/index.html" class="internal tag-link">
+            网络
+        </a>
+    </li></ul></header>
+    
+    <div class="article-content">
+        <p>Friday 同步插件实现了智能的服务器连接性检查机制，能够在同步操作前验证服务器可达性，从而提供准确的错误归因和无缝的离线模式支持。</p>
+<h2 id="为什么需要连接性检查">为什么需要连接性检查？</h2>
+<p>在没有预先检查服务器连接状态的情况下，同步失败可能会产生<strong>误导性的错误消息</strong>：</p>
+<ul>
+<li>❌ 服务器不可达时显示"PBKDF2 加密失败"</li>
+<li>❌ 网络问题被误判为"数据库已重置"</li>
+<li>❌ 本地文件修改在离线时丢失</li>
+<li>❌ 用户需要手动重启才能恢复同步</li>
+</ul>
+<p>有了服务器连接性预检查，Friday 能够：</p>
+<ul>
+<li>✅ 准确区分"服务器不可达"和"同步错误"</li>
+<li>✅ 在离线时自动启用<a class="internal alias" data-slug="offline-mode" data-wikilink="offline-mode" href="/sync/offline-mode.html" data-slug="sync/offline-mode">离线模式</a></li>
+<li>✅ 始终保存本地文件修改到 PouchDB</li>
+<li>✅ 自动调度重连，无需手动干预</li>
+</ul>
+<div class="callout info" data-callout="info"><div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner">Info</div></div><div class="callout-content"><p>这个功能参考了 Self-hosted LiveSync 的网络检查机制，并进行了增强，提供了更好的用户体验。</p></div></div>
+<h2 id="工作原理">工作原理</h2>
+<h3 id="同步流程架构">同步流程架构</h3>
+<pre class="mermaid-wrapper"><code class="language-mermaid mermaid">sequenceDiagram
+    participant User as 用户
+    participant Core as FridaySyncCore
+    participant Checker as ServerConnectivityChecker
+    participant Server as CouchDB 服务器
+    participant FileWatcher as 文件监听器
+
+    User->>Core: 开始同步
+    Core->>Checker: checkConnectivity()
+    Checker->>Server: 轻量级 ping
+    
+    alt 服务器可达
+        Server-->>Checker: 200 OK (或 401)
+        Checker-->>Core: REACHABLE ✅
+        Core->>FileWatcher: 启动文件监听
+        Core->>Server: 正常同步流程
+        Server-->>Core: 同步完成
+        Core-->>User: 同步成功 ✓
+    else 服务器不可达
+        Server--xChecker: 连接失败
+        Checker-->>Core: UNREACHABLE ❌
+        Core->>FileWatcher: 启动文件监听（离线模式）
+        Core->>Core: scheduleReconnect(10s)
+        Core-->>User: 离线模式 - 修改已保存到本地
+    end
+</code><button class="expand-button" aria-label="Expand diagram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg></button><div id="mermaid-container"><div id="mermaid-space"><div class="mermaid-content"></div></div></div></pre>
+<h3 id="分层架构">分层架构</h3>
+<p>Friday 的连接性检查采用清晰的分层架构：</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                     入口层 (Entry Point)                         │
+│  - FridaySyncCore.startSync()                                   │
+│  - 所有同步操作的唯一入口                                         │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              服务器连接性层 (Server Connectivity)                 │
+│  - ServerConnectivityChecker.checkConnectivity()                │
+│  - 轻量级 ping，在所有同步操作前执行                              │
+│  - 为下游组件设置 serverReachable 状态                           │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+              ┌───────────────┴───────────────┐
+              │                               │
+        服务器可达                       服务器不可达
+              │                               │
+              ▼                               ▼
+┌──────────────────────────┐    ┌──────────────────────────┐
+│   正常同步流程            │    │   离线模式                │
+│  - ensurePBKDF2Salt()    │    │  - startFileWatcher()    │
+│  - checkSaltConsistency()│    │  - offlineTracker.on()   │
+│  - openReplication()     │    │  - scheduleReconnect()   │
+└──────────────────────────┘    └──────────────────────────┘
+</code></pre>
+<h2 id="核心组件">核心组件</h2>
+<h3 id="serverconnectivitychecker">ServerConnectivityChecker</h3>
+<p><code>ServerConnectivityChecker</code> 是一个独立的类，负责轻量级的服务器可达性检查。</p>
+<h4 id="主要特性">主要特性</h4>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>轻量级检查</td>
+<td>仅发送 GET 请求到服务器根路径</td>
+</tr>
+<tr>
+<td>智能缓存</td>
+<td>5 秒冷却时间，避免过度请求</td>
+</tr>
+<tr>
+<td>超时控制</td>
+<td>10 秒超时，防止长时间等待</td>
+</tr>
+<tr>
+<td>状态追踪</td>
+<td>维护 <code>REACHABLE</code>、<code>UNREACHABLE</code>、<code>UNKNOWN</code> 三种状态</td>
+</tr>
+</tbody>
+</table>
+<h4 id="使用示例">使用示例</h4>
+<pre><code class="language-typescript">// 创建检查器实例
+const checker = new ServerConnectivityChecker();
+
+// 执行连接性检查（强制检查，忽略缓存）
+const result = await checker.checkConnectivity(settings, true);
+
+if (result.status === "REACHABLE") {
+    console.log(`服务器可达，延迟: ${result.latency}ms`);
+    // 继续正常同步流程
+} else {
+    console.log(`服务器不可达: ${result.error}`);
+    // 进入离线模式
+}
+</code></pre>
+<div class="callout tip" data-callout="tip"><div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner">Tip</div></div><div class="callout-content"><p><code>checkConnectivity</code> 方法接受一个 <code>forceCheck</code> 参数。设置为 <code>true</code> 可以跳过缓存冷却，立即执行检查。这在关键操作（如开始同步）时很有用。</p></div></div>
+<h3 id="服务器状态枚举">服务器状态枚举</h3>
+<pre><code class="language-typescript">type ServerStatus = "REACHABLE" | "UNREACHABLE" | "UNKNOWN";
+</code></pre>
+<ul>
+<li><strong>REACHABLE</strong>: 服务器响应正常（包括 200 OK、401 Unauthorized、403 Forbidden）</li>
+<li><strong>UNREACHABLE</strong>: 连接失败、超时或其他网络错误</li>
+<li><strong>UNKNOWN</strong>: 尚未执行任何检查</li>
+</ul>
+<div class="callout info" data-callout="info"><div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner">Info</div></div><div class="callout-content"><p>为什么 401/403 也算作 <code>REACHABLE</code>？</p><p>因为服务器已经响应了请求，只是认证失败。这说明服务器是在线的，问题出在认证配置上，而不是网络连接。</p>
+</div></div>
+<h2 id="错误归因逻辑">错误归因逻辑</h2>
+<p>在引入服务器连接性检查后，Friday 能够准确区分不同类型的错误：</p>
+<h3 id="ensurepbkdf2salt-错误处理">ensurePBKDF2Salt 错误处理</h3>
+<pre><code class="language-typescript">async ensurePBKDF2Salt(
+    setting: RemoteDBSettings,
+    showMessage: boolean = false
+): Promise&#x3C;boolean> {
+    try {
+        const hash = await this.getReplicationPBKDF2Salt(setting);
+        if (hash.length == 0) {
+            throw new Error("PBKDF2 salt 为空");
+        }
+        return true;
+    } catch (ex) {
+        // 检查服务器状态，避免误导性错误消息
+        const serverReachable = this.env.isServerReachable?.() ?? true;
+
+        if (!serverReachable) {
+            // 服务器不可达 - 这是网络问题，不是 PBKDF2 问题
+            // 不显示误导性的 "PBKDF2 失败" 消息
+            return false;
+        }
+
+        // 服务器可达但 PBKDF2 失败 - 这是真正的问题
+        if (showMessage) {
+            showNotice("无法获取 PBKDF2 salt");
+        }
+        return false;
+    }
+}
+</code></pre>
+<h3 id="错误对比表">错误对比表</h3>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>之前的行为</th>
+<th>现在的行为</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CouchDB 不可达</td>
+<td>⚠️ ERRORED + &#x26;ldquo;PBKDF2 失败&#x26;rdquo;</td>
+<td>⏹️ NOT_CONNECTED + &#x26;ldquo;服务器不可达&#x26;rdquo;</td>
+</tr>
+<tr>
+<td>文件监听器</td>
+<td>❌ 失败时不启动</td>
+<td>✅ 始终启动</td>
+</tr>
+<tr>
+<td>用户文件修改</td>
+<td>❌ 未保存</td>
+<td>✅ 保存到本地 PouchDB</td>
+</tr>
+<tr>
+<td>重新连接</td>
+<td>❌ 需要手动重启</td>
+<td>✅ 自动调度</td>
+</tr>
+<tr>
+<td>真正的数据库重置</td>
+<td>⚠️ 与网络错误混淆</td>
+<td>✅ 清晰识别</td>
+</tr>
+</tbody>
+</table>
+<h2 id="离线模式支持">离线模式支持</h2>
+<p>当检测到服务器不可达时，Friday 会自动进入<a class="internal alias" data-slug="offline-mode" data-wikilink="offline-mode" href="/sync/offline-mode.html" data-slug="sync/offline-mode">离线模式</a>。</p>
+<h3 id="离线模式特性">离线模式特性</h3>
+<pre><code class="language-typescript">private handleOfflineMode(errorMessage?: string): boolean {
+    // 更新网络管理器状态
+    this._managers?.networkManager.setServerReachable(false);
+    this.setStatus("NOT_CONNECTED", "服务器不可达，离线模式");
+
+    // 启动文件监听器 - 即使离线也保存修改
+    this.startFileWatcherIfNeeded();
+
+    // 启用离线追踪
+    if (this._offlineTracker) {
+        this._offlineTracker.setOffline(true);
+    }
+
+    // 调度重连（10 秒后）
+    this._connectionMonitor?.scheduleReconnect(10000);
+
+    // 显示用户友好的消息
+    showNotice("无法连接到服务器。修改将保存到本地。");
+
+    return false;
+}
+</code></pre>
+<div class="callout success" data-callout="success"><div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner">离线模式的好处</div></div><div class="callout-content"><ul>
+<li><strong>无数据丢失</strong>: 所有修改都保存到本地 PouchDB</li>
+<li><strong>无缝体验</strong>: 用户可以继续工作，无需担心网络状态</li>
+<li><strong>自动恢复</strong>: 网络恢复后自动重连并同步</li>
+<li><strong>透明反馈</strong>: 清晰的状态指示和通知</li>
+</ul>
+</div></div>
+<h3 id="文件监听器管理">文件监听器管理</h3>
+<p>Friday 确保文件监听器在<strong>任何情况下</strong>都会启动：</p>
+<pre><code class="language-typescript">private startFileWatcherIfNeeded(): void {
+    if (this._storageEventManager &#x26;&#x26; !this._fileWatcherStarted) {
+        this._fileWatcherStarted = true;
+        const WATCH_DELAY_MS = 1500;
+        setTimeout(() => {
+            if (this._storageEventManager) {
+                this._storageEventManager.beginWatch();
+                Logger("文件监听器已启动 - 本地修改将被保存");
+            }
+        }, WATCH_DELAY_MS);
+    }
+}
+</code></pre>
+<div class="callout warning" data-callout="warning"><div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner">避免重复启动</div></div><div class="callout-content"><p><code>_fileWatcherStarted</code> 标志防止文件监听器被多次启动，这可能导致事件重复处理和性能问题。</p>
+</div></div>
+<h2 id="实现细节">实现细节</h2>
+<h3 id="livesyncreplicatorenv-接口扩展">LiveSyncReplicatorEnv 接口扩展</h3>
+<p>为了让所有同步组件都能访问服务器状态，我们扩展了 <code>LiveSyncReplicatorEnv</code> 接口：</p>
+<pre><code class="language-typescript">export interface LiveSyncReplicatorEnv {
+    // ... 现有接口成员 ...
+
+    /**
+     * 检查服务器是否可达（由 FridaySyncCore 提供）
+     * 被复制器用于错误归因
+     */
+    isServerReachable?: () => boolean;
+}
+</code></pre>
+<h3 id="fridaysynccore-集成">FridaySyncCore 集成</h3>
+<p><code>FridaySyncCore</code> 实现了这个接口，并提供服务器状态：</p>
+<pre><code class="language-typescript">export class FridaySyncCore implements LiveSyncReplicatorEnv {
+    private _serverChecker: ServerConnectivityChecker | null = null;
+
+    get isServerReachable(): boolean {
+        return this._serverChecker?.isServerReachable ?? false;
+    }
+
+    async startSync(continuous: boolean = true): Promise&#x3C;boolean> {
+        // 步骤 1: 服务器连接性预检查
+        const connectivityResult = await this._serverChecker?.checkConnectivity(
+            this._settings,
+            true  // 强制检查
+        );
+
+        if (connectivityResult?.status !== "REACHABLE") {
+            // 进入离线模式
+            return this.handleOfflineMode(connectivityResult?.error);
+        }
+
+        // 步骤 2-4: 继续正常同步流程
+        // ...
+    }
+}
+</code></pre>
+<h3 id="连接超时安全网">连接超时安全网</h3>
+<p>为了处理"卡在 STARTED 状态"的问题，Friday 实现了连接超时机制：</p>
+<pre><code class="language-typescript">private setupConnectionTimeout(): void {
+    const CONNECTION_TIMEOUT_MS = 30000; // 30 秒
+    setTimeout(() => {
+        const status = this.replicationStat.value.syncStatus;
+        if (status === "STARTED") {
+            Logger("连接超时 - 状态停留在 STARTED");
+            this.setStatus("NOT_CONNECTED", "连接超时");
+            this._managers?.networkManager.setServerReachable(false);
+            this._connectionMonitor?.scheduleReconnect(10000);
+        }
+    }, CONNECTION_TIMEOUT_MS);
+}
+</code></pre>
+<div class="callout tip" data-callout="tip"><div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner">为什么需要超时检查？</div></div><div class="callout-content"><p>某些网络环境下，连接可能"挂起"而不是明确失败。超时机制确保用户不会无限期等待。</p>
+</div></div>
+<h2 id="性能优化">性能优化</h2>
+<h3 id="冷却机制">冷却机制</h3>
+<p>为了避免过度频繁的服务器请求，<code>ServerConnectivityChecker</code> 实现了 5 秒冷却：</p>
+<pre><code class="language-typescript">async checkConnectivity(
+    setting: RemoteDBSettings,
+    forceCheck: boolean = false
+): Promise&#x3C;ConnectivityCheckResult> {
+    const now = Date.now();
+    
+    // 检查冷却
+    if (!forceCheck &#x26;&#x26; now - this._lastCheckTime &#x3C; this._checkCooldown) {
+        return { status: this._lastStatus };
+    }
+
+    // 执行实际检查
+    // ...
+}
+</code></pre>
+<h3 id="浏览器网络状态">浏览器网络状态</h3>
+<p>在发送请求前，先检查 <code>navigator.onLine</code>：</p>
+<pre><code class="language-typescript">// 首先检查浏览器网络状态
+if (!navigator.onLine) {
+    this._lastStatus = "UNREACHABLE";
+    return { status: "UNREACHABLE", error: "浏览器离线" };
+}
+</code></pre>
+<div class="callout info" data-callout="info"><div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner">Info</div></div><div class="callout-content"><p><code>navigator.onLine</code> 并不完全可靠（可能返回 <code>true</code> 而实际无网络），但它提供了一个快速的第一层检查。</p></div></div>
+<h2 id="国际化消息">国际化消息</h2>
+<p>Friday 为服务器连接性相关的消息提供了多语言支持：</p>
+<h3 id="英文-enjson">英文 (en.json)</h3>
+<pre><code class="language-json">{
+    "fridaySync.error.cannotConnectServer": "Cannot connect to sync server. Your changes will be saved locally and synced when connection is restored.",
+    "fridaySync.error.serverTimeout": "Connection to sync server timed out. Will retry automatically.",
+    "fridaySync.status.offlineMode": "Offline mode - changes saved locally",
+    "fridaySync.status.reconnecting": "Reconnecting to sync server..."
+}
+</code></pre>
+<h3 id="中文-zhjson">中文 (zh.json)</h3>
+<pre><code class="language-json">{
+    "fridaySync.error.cannotConnectServer": "无法连接同步服务器。您的修改将保存在本地，恢复连接后会自动同步。",
+    "fridaySync.error.serverTimeout": "连接同步服务器超时。将自动重试。",
+    "fridaySync.status.offlineMode": "离线模式 - 修改已保存到本地",
+    "fridaySync.status.reconnecting": "正在重新连接同步服务器..."
+}
+</code></pre>
+<h2 id="调试和日志">调试和日志</h2>
+<h3 id="日志级别">日志级别</h3>
+<p>Friday 使用不同的日志级别记录连接性相关的事件：</p>
+<pre><code class="language-typescript">// 详细调试信息
+Logger(`服务器连接性检查通过 (${latency}ms)`, LOG_LEVEL_VERBOSE);
+
+// 一般信息
+Logger("服务器不可达: 离线模式已启用", LOG_LEVEL_INFO);
+
+// 用户可见通知
+Logger("无法连接到服务器。修改将保存到本地。", LOG_LEVEL_NOTICE);
+</code></pre>
+<h3 id="查看日志">查看日志</h3>
+<p>要查看详细的连接性检查日志：</p>
+<ol>
+<li>打开 Obsidian 开发者控制台（<code>Ctrl+Shift+I</code> 或 <code>Cmd+Option+I</code>）</li>
+<li>过滤 &#x26;ldquo;connectivity&#x26;rdquo; 或 &#x26;ldquo;server&#x26;rdquo;</li>
+<li>查看详细的检查结果和延迟信息</li>
+</ol>
+<div class="callout example" data-callout="example"><div class="callout-title"><div class="callout-icon"></div><div class="callout-title-inner">日志示例</div></div><div class="callout-content"><pre><code>[Friday] 服务器连接性检查通过 (45ms)
+[Friday] 文件监听器已启动 - 本地修改将被保存
+[Friday] 同步状态: CONNECTED
+</code></pre>
+</div></div>
+<h2 id="最佳实践">最佳实践</h2>
+<h3 id="对于用户">对于用户</h3>
+<ol>
+<li><strong>保持网络稳定</strong>: 虽然 Friday 支持离线模式，但稳定的网络连接能提供最佳体验</li>
+<li><strong>留意状态指示</strong>: 关注状态栏的同步图标，了解当前连接状态</li>
+<li><strong>信任离线模式</strong>: 离线时修改的文件会在重连后自动同步，无需担心</li>
+</ol>
+<h3 id="对于开发者">对于开发者</h3>
+<ol>
+<li><strong>使用 <code>isServerReachable</code></strong>: 在归因错误前，始终检查服务器状态</li>
+<li><strong>提供清晰的消息</strong>: 根据 <code>isServerReachable</code> 返回不同的错误消息</li>
+<li><strong>优雅降级</strong>: 设计功能时考虑离线场景</li>
+<li><strong>测试离线场景</strong>: 使用浏览器的网络限制功能测试离线行为</li>
+</ol>
+<h2 id="相关链接">相关链接</h2>
+<ul>
+<li><a class="internal alias" data-slug="offline-mode" data-wikilink="offline-mode" href="/sync/offline-mode.html" data-slug="sync/offline-mode">离线模式详解</a></li>
+<li><a class="internal alias" data-slug="MDFriday/help/content/sync/encryption" data-wikilink="MDFriday/help/content/sync/encryption" href="/MDFriday/help/content/sync/encryption.html" data-slug="MDFriday/help/content/sync/encryption">加密密码管理</a></li>
+<li><a class="internal alias" data-slug="reset" data-wikilink="reset" href="/sync/reset.html" data-slug="sync/reset">同步问题排查</a></li>
+<li><a class="internal alias" data-slug="../../architecture/sync-internals" data-wikilink="../../architecture/sync-internals" href="/./architecture/sync-internals.html" data-slug="architecture/sync-internals">同步机制内部原理</a></li>
+</ul>
+<h2 id="技术参考">技术参考</h2>
+<h3 id="源代码文件">源代码文件</h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>文件路径</th>
+<th>关键方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服务器检查器</td>
+<td><code>src/sync/features/ServerConnectivity/index.ts</code></td>
+<td><code>checkConnectivity()</code>, <code>pingServer()</code></td>
+</tr>
+<tr>
+<td>核心集成</td>
+<td><code>src/sync/FridaySyncCore.ts</code></td>
+<td><code>startSync()</code>, <code>handleOfflineMode()</code></td>
+</tr>
+<tr>
+<td>PBKDF2 检查</td>
+<td><code>src/sync/core/replication/LiveSyncAbstractReplicator.ts</code></td>
+<td><code>ensurePBKDF2Salt()</code></td>
+</tr>
+<tr>
+<td>复制器</td>
+<td><code>src/sync/core/replication/couchdb/LiveSyncReplicator.ts</code></td>
+<td><code>openOneShotReplication()</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="实现参考">实现参考</h3>
+<p>这个功能的设计参考了以下项目：</p>
+<ul>
+<li><a href="https://github.com/vrtmrz/obsidian-livesync" class="external">Self-hosted LiveSync<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> - 网络检查和离线模式的灵感来源</li>
+<li><a href="https://docs.couchdb.org/en/stable/replication/protocol.html" class="external">CouchDB Replication Protocol<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> - 复制协议规范</li>
+</ul>
+
+    </div>
+</article>
+
+            </div>
+            
+            
+            <aside class="sidebar right"><div class="graph">
+  <h3>关系图谱</h3>
+  <div class="graph-outer">
+    <div class="graph-container" data-cfg='{"drag":true,"zoom":true,"depth":1,"scale":1.1,"repelForce":0.5,"centerForce":0.3,"linkDistance":30,"fontSize":0.6,"opacityScale":1,"showTags":true,"removeTags":[],"focusOnHover":false,"enableRadial":false}'></div>
+    <button class="global-graph-icon" aria-label="全局图谱" title="全局图谱">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 55 55"
+        fill="currentColor"
+        xml:space="preserve"
+      >
+        <path
+          d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+          s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+          c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+          C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+          c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+          v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+          s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+          C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+          S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+          s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+          s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"
+        />
+      </svg>
+    </button>
+  </div>
+  <div class="global-graph-outer">
+    <div class="global-graph-container" data-cfg='{"drag":true,"zoom":true,"depth":-1,"scale":0.9,"repelForce":0.5,"centerForce":0.2,"linkDistance":30,"fontSize":0.6,"opacityScale":1,"showTags":true,"removeTags":[],"focusOnHover":true,"enableRadial":true}'></div>
+  </div>
+</div>
+
+<div class="toc desktop-only">
+    <button type="button" 
+            class="toc-header" 
+            aria-controls="toc-content"
+            aria-expanded="true">
+        <h3>目录</h3>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="fold">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+    <div id="toc-content" class="toc-content">
+        <!-- Quartz 源码: OverflowList 使用 ul.overflow 包装 -->
+        <ul class="overflow" id="toc-list">
+            <ul>
+  <li><a href="#为什么需要连接性检查">为什么需要连接性检查？</a></li>
+  <li><a href="#工作原理">工作原理</a>
+    <ul>
+  <li><a href="#同步流程架构">同步流程架构</a></li>
+  <li><a href="#分层架构">分层架构</a></li>    </ul></li>
+  <li><a href="#核心组件">核心组件</a>
+    <ul>
+  <li><a href="#serverconnectivitychecker">ServerConnectivityChecker</a>
+    <ul>
+  <li><a href="#主要特性">主要特性</a></li>
+  <li><a href="#使用示例">使用示例</a></li>    </ul></li>
+  <li><a href="#服务器状态枚举">服务器状态枚举</a></li>    </ul></li>
+  <li><a href="#错误归因逻辑">错误归因逻辑</a>
+    <ul>
+  <li><a href="#ensurepbkdf2salt-错误处理">ensurePBKDF2Salt 错误处理</a></li>
+  <li><a href="#错误对比表">错误对比表</a></li>    </ul></li>
+  <li><a href="#离线模式支持">离线模式支持</a>
+    <ul>
+  <li><a href="#离线模式特性">离线模式特性</a></li>
+  <li><a href="#文件监听器管理">文件监听器管理</a></li>    </ul></li>
+  <li><a href="#实现细节">实现细节</a>
+    <ul>
+  <li><a href="#livesyncreplicatorenv-接口扩展">LiveSyncReplicatorEnv 接口扩展</a></li>
+  <li><a href="#fridaysynccore-集成">FridaySyncCore 集成</a></li>
+  <li><a href="#连接超时安全网">连接超时安全网</a></li>    </ul></li>
+  <li><a href="#性能优化">性能优化</a>
+    <ul>
+  <li><a href="#冷却机制">冷却机制</a></li>
+  <li><a href="#浏览器网络状态">浏览器网络状态</a></li>    </ul></li>
+  <li><a href="#国际化消息">国际化消息</a>
+    <ul>
+  <li><a href="#英文-enjson">英文 (en.json)</a></li>
+  <li><a href="#中文-zhjson">中文 (zh.json)</a></li>    </ul></li>
+  <li><a href="#调试和日志">调试和日志</a>
+    <ul>
+  <li><a href="#日志级别">日志级别</a></li>
+  <li><a href="#查看日志">查看日志</a></li>    </ul></li>
+  <li><a href="#最佳实践">最佳实践</a>
+    <ul>
+  <li><a href="#对于用户">对于用户</a></li>
+  <li><a href="#对于开发者">对于开发者</a></li>    </ul></li>
+  <li><a href="#相关链接">相关链接</a></li>
+  <li><a href="#技术参考">技术参考</a>
+    <ul>
+  <li><a href="#源代码文件">源代码文件</a></li>
+  <li><a href="#实现参考">实现参考</a></li>    </ul></li></ul>
+
+            <!-- Quartz 源码: overflow-end 用于 IntersectionObserver 检测滚动底部 -->
+            <li class="overflow-end"></li>
+        </ul>
+    </div>
+</div><div class="backlinks">
+    <h3>反向链接</h3>
+    <ul class="overflow"><li>
+                <a href="/architecture/overview.html" class="internal">
+                    架构概览
+                </a>
+            </li><li>
+                <a href="/sync/intro.html" class="internal">
+                    简介
+                </a>
+            </li></ul>
+</div></aside>
+            
+            <footer>
+    <p>
+        构建于 
+        <a href="https://github.com/mdfriday">MDFriday</a>
+        <br/> © 2026 All Rights Reserved.
+    </p>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MFZLCQBM2"></script>
+      <script>
+        var doNotTrack = false;
+        if (false) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9MFZLCQBM2');
+        }
+      </script>
+    
+  
+
+
+    
+</footer>
+
+</div>
+    </div>
+<script src="/js/darkmode.js" defer></script>
+<script src="/js/readermode.js" defer></script>
+<script src="/js/toc.js" defer></script>
+<script src="/js/explorer.js" defer></script>
+<script src="/js/clipboard.js" defer></script>
+<script src="/js/callout.js" defer></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.31/dist/flexsearch.bundle.js" defer></script>
+
+
+<script defer src="/zh.search.min.74af685e8249.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@8.0.0/dist/pixi.min.js"></script>
+
+
+<script src="/js/graph.js" defer></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.5.0/dist/floating-ui.core.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.5.3/dist/floating-ui.dom.umd.min.js"></script>
+
+
+<script src="/js/popover.js" defer></script>
+
+
+<script>
+window.__FOUNDRY_PAGES__ = [
+    {
+        "slug": "categories",
+        "displayPath": "categories",
+        "url": "/categories/index.html",
+        "title": "category"
+    },{
+        "slug": "publish/intro",
+        "displayPath": "publish/intro",
+        "url": "/publish/intro.html",
+        "title": "介绍"
+    },{
+        "slug": "tags",
+        "displayPath": "tags",
+        "url": "/tags/index.html",
+        "title": "tag"
+    },{
+        "slug": "tags/hugo",
+        "displayPath": "tags/hugo",
+        "url": "/tags/hugo/index.html",
+        "title": "hugo"
+    },{
+        "slug": "tags/主题",
+        "displayPath": "tags/主题",
+        "url": "/tags/主题/index.html",
+        "title": "主题"
+    },{
+        "slug": "tags/买断",
+        "displayPath": "tags/买断",
+        "url": "/tags/买断/index.html",
+        "title": "买断"
+    },{
+        "slug": "tags/产品",
+        "displayPath": "tags/产品",
+        "url": "/tags/产品/index.html",
+        "title": "产品"
+    },{
+        "slug": "tags/企业",
+        "displayPath": "tags/企业",
+        "url": "/tags/企业/index.html",
+        "title": "企业"
+    },{
+        "slug": "tags/作品集",
+        "displayPath": "tags/作品集",
+        "url": "/tags/作品集/index.html",
+        "title": "作品集"
+    },{
+        "slug": "tags/分享",
+        "displayPath": "tags/分享",
+        "url": "/tags/分享/index.html",
+        "title": "分享"
+    },{
+        "slug": "tags/功能",
+        "displayPath": "tags/功能",
+        "url": "/tags/功能/index.html",
+        "title": "功能"
+    },{
+        "slug": "tags/加密",
+        "displayPath": "tags/加密",
+        "url": "/tags/加密/index.html",
+        "title": "加密"
+    },{
+        "slug": "tags/博客",
+        "displayPath": "tags/博客",
+        "url": "/tags/博客/index.html",
+        "title": "博客"
+    },{
+        "slug": "tags/发布",
+        "displayPath": "tags/发布",
+        "url": "/tags/发布/index.html",
+        "title": "发布"
+    },{
+        "slug": "tags/同步",
+        "displayPath": "tags/同步",
+        "url": "/tags/同步/index.html",
+        "title": "同步"
+    },{
+        "slug": "tags/域名",
+        "displayPath": "tags/域名",
+        "url": "/tags/域名/index.html",
+        "title": "域名"
+    },{
+        "slug": "tags/多站点",
+        "displayPath": "tags/多站点",
+        "url": "/tags/多站点/index.html",
+        "title": "多站点"
+    },{
+        "slug": "tags/子域名",
+        "displayPath": "tags/子域名",
+        "url": "/tags/子域名/index.html",
+        "title": "子域名"
+    },{
+        "slug": "tags/安全",
+        "displayPath": "tags/安全",
+        "url": "/tags/安全/index.html",
+        "title": "安全"
+    },{
+        "slug": "tags/市场营销",
+        "displayPath": "tags/市场营销",
+        "url": "/tags/市场营销/index.html",
+        "title": "市场营销"
+    },{
+        "slug": "tags/常见问题",
+        "displayPath": "tags/常见问题",
+        "url": "/tags/常见问题/index.html",
+        "title": "常见问题"
+    },{
+        "slug": "tags/快速开始",
+        "displayPath": "tags/快速开始",
+        "url": "/tags/快速开始/index.html",
+        "title": "快速开始"
+    },{
+        "slug": "tags/技术",
+        "displayPath": "tags/技术",
+        "url": "/tags/技术/index.html",
+        "title": "技术"
+    },{
+        "slug": "tags/指南",
+        "displayPath": "tags/指南",
+        "url": "/tags/指南/index.html",
+        "title": "指南"
+    },{
+        "slug": "tags/文件冲突",
+        "displayPath": "tags/文件冲突",
+        "url": "/tags/文件冲突/index.html",
+        "title": "文件冲突"
+    },{
+        "slug": "tags/文档",
+        "displayPath": "tags/文档",
+        "url": "/tags/文档/index.html",
+        "title": "文档"
+    },{
+        "slug": "tags/架构",
+        "displayPath": "tags/架构",
+        "url": "/tags/架构/index.html",
+        "title": "架构"
+    },{
+        "slug": "tags/激活",
+        "displayPath": "tags/激活",
+        "url": "/tags/激活/index.html",
+        "title": "激活"
+    },{
+        "slug": "tags/激活码",
+        "displayPath": "tags/激活码",
+        "url": "/tags/激活码/index.html",
+        "title": "激活码"
+    },{
+        "slug": "tags/知识库",
+        "displayPath": "tags/知识库",
+        "url": "/tags/知识库/index.html",
+        "title": "知识库"
+    },{
+        "slug": "tags/离线",
+        "displayPath": "tags/离线",
+        "url": "/tags/离线/index.html",
+        "title": "离线"
+    },{
+        "slug": "tags/简介",
+        "displayPath": "tags/简介",
+        "url": "/tags/简介/index.html",
+        "title": "简介"
+    },{
+        "slug": "tags/简历",
+        "displayPath": "tags/简历",
+        "url": "/tags/简历/index.html",
+        "title": "简历"
+    },{
+        "slug": "tags/网络",
+        "displayPath": "tags/网络",
+        "url": "/tags/网络/index.html",
+        "title": "网络"
+    },{
+        "slug": "tags/自定义",
+        "displayPath": "tags/自定义",
+        "url": "/tags/自定义/index.html",
+        "title": "自定义"
+    },{
+        "slug": "tags/设置",
+        "displayPath": "tags/设置",
+        "url": "/tags/设置/index.html",
+        "title": "设置"
+    },{
+        "slug": "tags/重置",
+        "displayPath": "tags/重置",
+        "url": "/tags/重置/index.html",
+        "title": "重置"
+    },{
+        "slug": "tags/预览",
+        "displayPath": "tags/预览",
+        "url": "/tags/预览/index.html",
+        "title": "预览"
+    },{
+        "slug": "publish/quick-share",
+        "displayPath": "publish/quick-share",
+        "url": "/publish/quick-share.html",
+        "title": "快速分享"
+    },{
+        "slug": "publish/right-panel",
+        "displayPath": "publish/right-panel",
+        "url": "/publish/right-panel.html",
+        "title": "右侧面板"
+    },{
+        "slug": "publish",
+        "displayPath": "publish",
+        "url": "/publish/index.html",
+        "title": "发布"
+    },{
+        "slug": "publish/preview",
+        "displayPath": "publish/preview",
+        "url": "/publish/preview.html",
+        "title": "本地预览"
+    },{
+        "slug": "publish/site-path",
+        "displayPath": "publish/site-path",
+        "url": "/publish/site-path.html",
+        "title": "多站点指南"
+    },{
+        "slug": "architecture",
+        "displayPath": "architecture",
+        "url": "/architecture/index.html",
+        "title": "架构"
+    },{
+        "slug": "architecture/overview",
+        "displayPath": "architecture/overview",
+        "url": "/architecture/overview.html",
+        "title": "架构概览"
+    },{
+        "slug": "architecture/server-connectivity",
+        "displayPath": "architecture/server-connectivity",
+        "url": "/architecture/server-connectivity.html",
+        "title": "服务器连接性检查"
+    },{
+        "slug": "faq",
+        "displayPath": "faq",
+        "url": "/faq.html",
+        "title": "常见问题"
+    },{
+        "slug": "friday",
+        "displayPath": "friday",
+        "url": "/friday.html",
+        "title": "关于 Friday"
+    },{
+        "slug": "get-started",
+        "displayPath": "get-started",
+        "url": "/get-started.html",
+        "title": "快速开始"
+    },{
+        "slug": "license",
+        "displayPath": "license",
+        "url": "/license/index.html",
+        "title": "激活码"
+    },{
+        "slug": "license/activation",
+        "displayPath": "license/activation",
+        "url": "/license/activation.html",
+        "title": "激活"
+    },{
+        "slug": "license/custom",
+        "displayPath": "license/custom",
+        "url": "/license/custom.html",
+        "title": "Friday 私有化部署服务"
+    },{
+        "slug": "publish/custom-domain",
+        "displayPath": "publish/custom-domain",
+        "url": "/publish/custom-domain.html",
+        "title": "自定义域名"
+    },{
+        "slug": "publish/subdomain",
+        "displayPath": "publish/subdomain",
+        "url": "/publish/subdomain.html",
+        "title": "二级域名发布"
+    },{
+        "slug": "sync",
+        "displayPath": "sync",
+        "url": "/sync/index.html",
+        "title": "同步"
+    },{
+        "slug": "sync/confilict",
+        "displayPath": "sync/confilict",
+        "url": "/sync/confilict.html",
+        "title": "同步问题排查"
+    },{
+        "slug": "sync/encryption",
+        "displayPath": "sync/encryption",
+        "url": "/sync/encryption.html",
+        "title": "加密"
+    },{
+        "slug": "sync/intro",
+        "displayPath": "sync/intro",
+        "url": "/sync/intro.html",
+        "title": "简介"
+    },{
+        "slug": "sync/offline-mode",
+        "displayPath": "sync/offline-mode",
+        "url": "/sync/offline-mode.html",
+        "title": "离线模式"
+    },{
+        "slug": "sync/reset",
+        "displayPath": "sync/reset",
+        "url": "/sync/reset.html",
+        "title": "重置"
+    },{
+        "slug": "sync/settings",
+        "displayPath": "sync/settings",
+        "url": "/sync/settings.html",
+        "title": "设置"
+    },{
+        "slug": "themes",
+        "displayPath": "themes",
+        "url": "/themes/index.html",
+        "title": "主题"
+    },{
+        "slug": "themes/blog",
+        "displayPath": "themes/blog",
+        "url": "/themes/blog.html",
+        "title": "博客"
+    },{
+        "slug": "themes/community",
+        "displayPath": "themes/community",
+        "url": "/themes/community.html",
+        "title": "社区"
+    },{
+        "slug": "themes/document",
+        "displayPath": "themes/document",
+        "url": "/themes/document.html",
+        "title": "文档"
+    },{
+        "slug": "themes/intro",
+        "displayPath": "themes/intro",
+        "url": "/themes/intro.html",
+        "title": "简介"
+    },{
+        "slug": "themes/landing",
+        "displayPath": "themes/landing",
+        "url": "/themes/landing.html",
+        "title": "产品官网"
+    },{
+        "slug": "themes/portfolio",
+        "displayPath": "themes/portfolio",
+        "url": "/themes/portfolio.html",
+        "title": "作品集"
+    },{
+        "slug": "themes/resume",
+        "displayPath": "themes/resume",
+        "url": "/themes/resume.html",
+        "title": "简历"
+    },{
+        "slug": "themes/wiki",
+        "displayPath": "themes/wiki",
+        "url": "/themes/wiki.html",
+        "title": "知识库"
+    },{
+        "slug": "index",
+        "displayPath": "index",
+        "url": "/index.html",
+        "title": "欢迎使用 Friday"
+    }];
+
+
+
+window.__FOUNDRY_CONTENT_INDEX__ = {
+    "categories": {
+        "slug": "categories",
+        "title": "category",
+        "links": [],
+        "tags": []
+    },"publish/intro": {
+        "slug": "publish/intro",
+        "title": "介绍",
+        "links": [],
+        "tags": ["tags/发布","tags/简介"]
+    },"tags": {
+        "slug": "tags",
+        "title": "tag",
+        "links": [],
+        "tags": []
+    },"tags/hugo": {
+        "slug": "tags/hugo",
+        "title": "hugo",
+        "links": [],
+        "tags": []
+    },"tags/主题": {
+        "slug": "tags/主题",
+        "title": "主题",
+        "links": [],
+        "tags": []
+    },"tags/买断": {
+        "slug": "tags/买断",
+        "title": "买断",
+        "links": [],
+        "tags": []
+    },"tags/产品": {
+        "slug": "tags/产品",
+        "title": "产品",
+        "links": [],
+        "tags": []
+    },"tags/企业": {
+        "slug": "tags/企业",
+        "title": "企业",
+        "links": [],
+        "tags": []
+    },"tags/作品集": {
+        "slug": "tags/作品集",
+        "title": "作品集",
+        "links": [],
+        "tags": []
+    },"tags/分享": {
+        "slug": "tags/分享",
+        "title": "分享",
+        "links": [],
+        "tags": []
+    },"tags/功能": {
+        "slug": "tags/功能",
+        "title": "功能",
+        "links": [],
+        "tags": []
+    },"tags/加密": {
+        "slug": "tags/加密",
+        "title": "加密",
+        "links": [],
+        "tags": []
+    },"tags/博客": {
+        "slug": "tags/博客",
+        "title": "博客",
+        "links": [],
+        "tags": []
+    },"tags/发布": {
+        "slug": "tags/发布",
+        "title": "发布",
+        "links": [],
+        "tags": []
+    },"tags/同步": {
+        "slug": "tags/同步",
+        "title": "同步",
+        "links": [],
+        "tags": []
+    },"tags/域名": {
+        "slug": "tags/域名",
+        "title": "域名",
+        "links": [],
+        "tags": []
+    },"tags/多站点": {
+        "slug": "tags/多站点",
+        "title": "多站点",
+        "links": [],
+        "tags": []
+    },"tags/子域名": {
+        "slug": "tags/子域名",
+        "title": "子域名",
+        "links": [],
+        "tags": []
+    },"tags/安全": {
+        "slug": "tags/安全",
+        "title": "安全",
+        "links": [],
+        "tags": []
+    },"tags/市场营销": {
+        "slug": "tags/市场营销",
+        "title": "市场营销",
+        "links": [],
+        "tags": []
+    },"tags/常见问题": {
+        "slug": "tags/常见问题",
+        "title": "常见问题",
+        "links": [],
+        "tags": []
+    },"tags/快速开始": {
+        "slug": "tags/快速开始",
+        "title": "快速开始",
+        "links": [],
+        "tags": []
+    },"tags/技术": {
+        "slug": "tags/技术",
+        "title": "技术",
+        "links": [],
+        "tags": []
+    },"tags/指南": {
+        "slug": "tags/指南",
+        "title": "指南",
+        "links": [],
+        "tags": []
+    },"tags/文件冲突": {
+        "slug": "tags/文件冲突",
+        "title": "文件冲突",
+        "links": [],
+        "tags": []
+    },"tags/文档": {
+        "slug": "tags/文档",
+        "title": "文档",
+        "links": [],
+        "tags": []
+    },"tags/架构": {
+        "slug": "tags/架构",
+        "title": "架构",
+        "links": [],
+        "tags": []
+    },"tags/激活": {
+        "slug": "tags/激活",
+        "title": "激活",
+        "links": [],
+        "tags": []
+    },"tags/激活码": {
+        "slug": "tags/激活码",
+        "title": "激活码",
+        "links": [],
+        "tags": []
+    },"tags/知识库": {
+        "slug": "tags/知识库",
+        "title": "知识库",
+        "links": [],
+        "tags": []
+    },"tags/离线": {
+        "slug": "tags/离线",
+        "title": "离线",
+        "links": [],
+        "tags": []
+    },"tags/简介": {
+        "slug": "tags/简介",
+        "title": "简介",
+        "links": [],
+        "tags": []
+    },"tags/简历": {
+        "slug": "tags/简历",
+        "title": "简历",
+        "links": [],
+        "tags": []
+    },"tags/网络": {
+        "slug": "tags/网络",
+        "title": "网络",
+        "links": [],
+        "tags": []
+    },"tags/自定义": {
+        "slug": "tags/自定义",
+        "title": "自定义",
+        "links": [],
+        "tags": []
+    },"tags/设置": {
+        "slug": "tags/设置",
+        "title": "设置",
+        "links": [],
+        "tags": []
+    },"tags/重置": {
+        "slug": "tags/重置",
+        "title": "重置",
+        "links": [],
+        "tags": []
+    },"tags/预览": {
+        "slug": "tags/预览",
+        "title": "预览",
+        "links": [],
+        "tags": []
+    },"publish/quick-share": {
+        "slug": "publish/quick-share",
+        "title": "快速分享",
+        "links": [],
+        "tags": ["tags/分享","tags/发布"]
+    },"publish/right-panel": {
+        "slug": "publish/right-panel",
+        "title": "右侧面板",
+        "links": [],
+        "tags": ["tags/发布"]
+    },"publish": {
+        "slug": "publish",
+        "title": "发布",
+        "links": [],
+        "tags": []
+    },"publish/preview": {
+        "slug": "publish/preview",
+        "title": "本地预览",
+        "links": [],
+        "tags": ["tags/预览","tags/发布"]
+    },"publish/site-path": {
+        "slug": "publish/site-path",
+        "title": "多站点指南",
+        "links": [],
+        "tags": ["tags/多站点","tags/发布"]
+    },"architecture": {
+        "slug": "architecture",
+        "title": "架构",
+        "links": [],
+        "tags": []
+    },"architecture/overview": {
+        "slug": "architecture/overview",
+        "title": "架构概览",
+        "links": ["architecture/server-connectivity","sync-internals","security-model","data-flow","sync/offline-mode","development-setup","coding-standards","contributing","api-reference"],
+        "tags": ["tags/技术","tags/架构"]
+    },"architecture/server-connectivity": {
+        "slug": "architecture/server-connectivity",
+        "title": "服务器连接性检查",
+        "links": ["sync/offline-mode","MDFriday/help/content/sync/encryption","sync/reset","architecture/sync-internals"],
+        "tags": ["tags/网络","tags/架构","tags/同步"]
+    },"faq": {
+        "slug": "faq",
+        "title": "常见问题",
+        "links": ["friday","sync/encryption","sync/offline-mode"],
+        "tags": ["tags/常见问题"]
+    },"friday": {
+        "slug": "friday",
+        "title": "关于 Friday",
+        "links": ["sync/encryption","sync/offline-mode","sync/server-connectivity","sync/intro","publish/quick-share","publish/subdomain","publish/custom-domain","publish/enterprise-domain企业域名","themes/wiki","themes/document","themes/blog","themes/portfolio","themes/resume","themes/ppt","themes/landing","themes/enterprise","themes/community","publish/preview","architecture/overview","architecture/security-model"],
+        "tags": ["tags/简介"]
+    },"get-started": {
+        "slug": "get-started",
+        "title": "快速开始",
+        "links": ["[淘宝购买](https:/item.taobao.com/item.htmid=1021681636191-and-mi_id=0000TP6GHQep6drq4_kU9DP4zK01apQ5i_06dEQlgeN7KZI-and-skuId=6196046574887-and-spm=a21xtw.29178619.0.0-and-xxc=shop)","license/activation","sync/settings","publish/quick-share","themes/community","publish/subdomain","publish/custom-domain","friday","architecture/overview","sync/server-connectivity","sync/offline-mode","publish/enterprise-domain","license/custom"],
+        "tags": ["tags/快速开始","tags/指南"]
+    },"license": {
+        "slug": "license",
+        "title": "激活码",
+        "links": [],
+        "tags": []
+    },"license/activation": {
+        "slug": "license/activation",
+        "title": "激活",
+        "links": ["get-started"],
+        "tags": ["tags/激活码","tags/激活"]
+    },"license/custom": {
+        "slug": "license/custom",
+        "title": "Friday 私有化部署服务",
+        "links": [],
+        "tags": ["tags/企业","tags/买断","tags/激活码"]
+    },"publish/custom-domain": {
+        "slug": "publish/custom-domain",
+        "title": "自定义域名",
+        "links": ["publish/site-path"],
+        "tags": ["tags/域名","tags/自定义","tags/发布"]
+    },"publish/subdomain": {
+        "slug": "publish/subdomain",
+        "title": "二级域名发布",
+        "links": ["themes/community","publish/preview","publish/custom-domain","publish/quick-share"],
+        "tags": ["tags/子域名","tags/域名","tags/发布"]
+    },"sync": {
+        "slug": "sync",
+        "title": "同步",
+        "links": [],
+        "tags": []
+    },"sync/confilict": {
+        "slug": "sync/confilict",
+        "title": "同步问题排查",
+        "links": ["sync/offline-mode"],
+        "tags": ["tags/文件冲突","tags/同步"]
+    },"sync/encryption": {
+        "slug": "sync/encryption",
+        "title": "加密",
+        "links": [],
+        "tags": ["tags/安全","tags/加密","tags/同步"]
+    },"sync/intro": {
+        "slug": "sync/intro",
+        "title": "简介",
+        "links": ["sync/encryption","sync/offline-mode","architecture/server-connectivity","sync/settings","license/activation","architecture/overview","license/custom","publish/quick-share"],
+        "tags": ["tags/简介","tags/同步"]
+    },"sync/offline-mode": {
+        "slug": "sync/offline-mode",
+        "title": "离线模式",
+        "links": ["sync/reset"],
+        "tags": ["tags/功能","tags/离线","tags/同步"]
+    },"sync/reset": {
+        "slug": "sync/reset",
+        "title": "重置",
+        "links": [],
+        "tags": ["tags/重置","tags/同步"]
+    },"sync/settings": {
+        "slug": "sync/settings",
+        "title": "设置",
+        "links": [],
+        "tags": ["tags/同步","tags/设置"]
+    },"themes": {
+        "slug": "themes",
+        "title": "主题",
+        "links": [],
+        "tags": []
+    },"themes/blog": {
+        "slug": "themes/blog",
+        "title": "博客",
+        "links": [],
+        "tags": ["tags/博客","tags/主题"]
+    },"themes/community": {
+        "slug": "themes/community",
+        "title": "社区",
+        "links": ["publish/preview","publish/quick-share","showcases/awesome","themes/wiki","themes/blog","themes/document","themes/portfolio","friday","get-started","license/activation"],
+        "tags": ["tags/主题","tags/hugo"]
+    },"themes/document": {
+        "slug": "themes/document",
+        "title": "文档",
+        "links": [],
+        "tags": ["tags/文档","tags/主题"]
+    },"themes/intro": {
+        "slug": "themes/intro",
+        "title": "简介",
+        "links": ["publish/preview"],
+        "tags": ["tags/简介","tags/主题"]
+    },"themes/landing": {
+        "slug": "themes/landing",
+        "title": "产品官网",
+        "links": [],
+        "tags": ["tags/市场营销","tags/产品","tags/主题"]
+    },"themes/portfolio": {
+        "slug": "themes/portfolio",
+        "title": "作品集",
+        "links": [],
+        "tags": ["tags/作品集","tags/主题"]
+    },"themes/resume": {
+        "slug": "themes/resume",
+        "title": "简历",
+        "links": [],
+        "tags": ["tags/简历","tags/主题"]
+    },"themes/wiki": {
+        "slug": "themes/wiki",
+        "title": "知识库",
+        "links": [],
+        "tags": ["tags/知识库","tags/主题"]
+    },"index": {
+        "slug": "index",
+        "title": "欢迎使用 Friday",
+        "links": ["get-started","friday","faq","license/activation","license/custom","sync/settings","sync/intro","sync/encryption","sync/offline-mode","sync/server-connectivity","themes/community","themes/wiki","themes/document","themes/blog","themes/portfolio","themes/resume","themes/ppt","themes/landing","themes/enterprise","publish/quick-share","publish/subdomain","publish/custom-domain","publish/enterprise-domain","publish/preview","publish/wysiwyg","architecture/overview"],
+        "tags": []
+    }};
+
+
+window.__FOUNDRY_BASE_URL_PATH__ = "";
+
+
+console.log('[Explorer] Loaded pages:', window.__FOUNDRY_PAGES__.length);
+console.log('[Explorer] Base URL path:', "");
+console.log('[Graph] Loaded content index:', Object.keys(window.__FOUNDRY_CONTENT_INDEX__).length);
+console.log('[Graph] Injected __FOUNDRY_BASE_URL_PATH__:', window.__FOUNDRY_BASE_URL_PATH__);
+</script>
+
+
+</body>
+</html>
+

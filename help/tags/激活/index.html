@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="light">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+<title>激活 | Friday 帮助文档</title>
+
+
+<meta name="description" content="">
+<link rel="canonical" href="/tags/激活/index.html">
+
+<!-- Meta Tags --><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Friday 帮助文档",
+    
+    "url": "/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "MDFriday",
+  "url": "/",
+   "description": "Turn markdown to website, in minutes.",
+   "vision": "Make site generation easy and accessible for everyone.",
+   "logo": "https://gohugo.net/mdfriday.svg",
+   "address": "Cang long Street, Wuhan, China",
+   "email": "support@mdfriday.com",
+}
+</script>
+
+<meta property="og:title" content="激活" />
+<meta property="og:url" content="/tags/激活/index.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Friday 帮助文档" />
+
+  <meta name="twitter:title" content="激活" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400;1,600&display=swap">
+
+
+<link rel="stylesheet" href="/css/quartz.css">
+<link rel="stylesheet" href="/css/clipboard.css">
+<link rel="stylesheet" href="/css/callout.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" crossorigin="anonymous"></script>
+<script defer src="/js/katex-render.js"></script>
+
+
+<script type="module" defer src="/js/mermaid-render.js"></script>
+
+
+<meta name="theme-color" content="#faf8f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161618" media="(prefers-color-scheme: dark)">
+
+
+<script>
+(function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+})();
+</script>
+
+</head>
+<body>
+    
+    
+    <div class="page">
+        <div id="quartz-body">
+            
+            <aside class="sidebar left"><h1 class="page-title">
+    <a href="/index.html">Friday 帮助文档</a>
+</h1>
+
+<div class="spacer mobile-only"></div>
+
+
+                <div class="flex-component" style="display: flex; flex-direction: row; gap: 0.5rem; align-items: center;">
+                    
+                    <div style="flex-grow: 1; flex-shrink: 1; min-width: 0;">
+<div class="search">
+    <button class="search-button" aria-label="Search">
+        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7">
+            <title>Search</title>
+            <g class="search-path" fill="none">
+                <path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4" />
+                <circle cx="8" cy="8" r="7" />
+            </g>
+        </svg>
+        <p>搜索</p>
+    </button>
+    <div class="search-container">
+        <div class="search-space">
+            <input
+                autocomplete="off"
+                class="search-bar"
+                name="search"
+                type="text"
+                aria-label="搜索内容..."
+                placeholder="搜索内容..."
+            />
+            <div class="search-layout" data-preview="true"></div>
+        </div>
+    </div>
+</div>
+
+</div>
+                    
+                    <div style="flex-grow: 0; flex-shrink: 0;"><div class="darkmode">
+    <button 
+        id="darkmode-toggle" 
+        class="darkmode-toggle"
+        aria-label="Toggle dark mode"
+        title="Toggle dark mode">
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="3" fill="currentColor"/>
+            <line x1="10" y1="2" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="16" x2="10" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="2" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="16" y1="10" x2="18" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.34" y1="4.34" x2="5.76" y2="5.76" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.24" y1="14.24" x2="15.66" y2="15.66" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4.34" y1="15.66" x2="5.76" y2="14.24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14.24" y1="5.76" x2="15.66" y2="4.34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 20 20" fill="none" style="display: none;">
+            <path d="M17.5 11.5A7.5 7.5 0 0 1 9 3.5c0-.5.1-1 .2-1.5A8.5 8.5 0 1 0 18.5 11c-.5.1-1 .2-1.5.2-.2 0-.3 0-.5.3z" fill="currentColor"/>
+        </svg>
+    </button>
+</div>
+
+</div>
+                    </div><div class="explorer" 
+     data-behavior="link" 
+     data-collapsed="collapsed" 
+     data-savestate="true">
+    
+    
+    <button type="button" 
+            class="explorer-toggle mobile-explorer hide-until-loaded" 
+            data-mobile="true"
+            aria-controls="explorer-content"
+            aria-label="切换文件浏览器">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             width="24" 
+             height="24" 
+             viewBox="0 0 24 24" 
+             stroke-width="2" 
+             stroke="currentColor"
+             fill="none"
+             stroke-linecap="round" 
+             stroke-linejoin="round" 
+             class="lucide-menu">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+    </button>
+    
+    
+    <button type="button" 
+            class="title-button explorer-toggle desktop-explorer" 
+            data-mobile="false"
+            aria-expanded="true"
+            aria-label="切换文件浏览器">
+        <h2>文件浏览器</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             width="14" 
+             height="14" 
+             viewBox="5 8 14 8" 
+             fill="none" 
+             stroke="currentColor" 
+             stroke-width="2" 
+             stroke-linecap="round" 
+             stroke-linejoin="round" 
+             class="fold">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+    
+    
+    <div id="explorer-content" 
+         class="explorer-content" 
+         aria-expanded="false" 
+         role="group">
+        <ul class="explorer-ul"></ul>
+    </div>
+    
+    
+    <template id="template-file">
+        <li>
+            <a href="#"></a>
+        </li>
+    </template>
+    
+    <template id="template-folder">
+        <li>
+            <div class="folder-container">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     width="12" 
+                     height="12" 
+                     viewBox="5 8 14 8" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     stroke-width="2" 
+                     stroke-linecap="round" 
+                     stroke-linejoin="round" 
+                     class="folder-icon">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+                <div>
+                    <button class="folder-button">
+                        <span class="folder-title"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="folder-outer">
+                <ul class="content"></ul>
+            </div>
+        </li>
+    </template>
+</div>
+
+</aside>
+            
+            
+            <div class="center">
+                <div class="page-header">
+                    
+                    <div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs">
+    <ul class="breadcrumbs">
+        
+        <li class="breadcrumb-element">
+            <a href="/index.html">Home</a>
+            <p aria-hidden="true"> ❯ </p>
+        </li>
+        
+        
+                <li class="breadcrumb-element">
+                    <a href="/tags/">Tags</a>
+                    <p aria-hidden="true"> ❯ </p>
+                </li>
+                <li class="breadcrumb-element">
+                    <a href="/tags/激活/">激活</a>
+                    <p aria-hidden="true"> ❯ </p>
+                </li>
+                <li class="breadcrumb-element">
+                    <a href="/tags/激活/index.html">激活</a>
+                </li></ul>
+</nav></div>
+                </div>
+<article class="popover-hint"><div class="page-listing"><p>
+        1&nbsp;项目在此文件夹下</p><ul class="section-ul"><li class="section-li">
+            <div class="section">
+                <p class="meta">
+                    <time datetime="2/11/2026">
+                        2/11/2026
+                    </time>
+                </p>
+
+                <div class="desc">
+                    <h3>
+                        <a href="/license/activation.html" class="internal">激活</a>
+                    </h3>
+                </div><ul class="tags"><li>
+                        <a class="internal tag-link" href="/tags//">
+                            激活
+                        </a>
+                    </li><li>
+                        <a class="internal tag-link" href="/tags//">
+                            激活码
+                        </a>
+                    </li></ul></div>
+        </li></ul>
+</div></article>
+
+            </div>
+            
+            
+            <aside class="sidebar right"><div class="graph">
+  <h3>关系图谱</h3>
+  <div class="graph-outer">
+    <div class="graph-container" data-cfg='{"drag":true,"zoom":true,"depth":1,"scale":1.1,"repelForce":0.5,"centerForce":0.3,"linkDistance":30,"fontSize":0.6,"opacityScale":1,"showTags":true,"removeTags":[],"focusOnHover":false,"enableRadial":false}'></div>
+    <button class="global-graph-icon" aria-label="全局图谱" title="全局图谱">
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px"
+        y="0px"
+        viewBox="0 0 55 55"
+        fill="currentColor"
+        xml:space="preserve"
+      >
+        <path
+          d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+          s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+          c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+          C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+          c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+          v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+          s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+          C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+          S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+          s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+          s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"
+        />
+      </svg>
+    </button>
+  </div>
+  <div class="global-graph-outer">
+    <div class="global-graph-container" data-cfg='{"drag":true,"zoom":true,"depth":-1,"scale":0.9,"repelForce":0.5,"centerForce":0.2,"linkDistance":30,"fontSize":0.6,"opacityScale":1,"showTags":true,"removeTags":[],"focusOnHover":true,"enableRadial":true}'></div>
+  </div>
+</div>
+
+</aside>
+            
+            <footer>
+    <p>
+        构建于 
+        <a href="https://github.com/mdfriday">MDFriday</a>
+        <br/> © 2026 All Rights Reserved.
+    </p>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9MFZLCQBM2"></script>
+      <script>
+        var doNotTrack = false;
+        if (false) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-9MFZLCQBM2');
+        }
+      </script>
+    
+  
+
+
+    
+</footer>
+
+</div>
+    </div>
+<script src="/js/darkmode.js" defer></script>
+<script src="/js/readermode.js" defer></script>
+<script src="/js/toc.js" defer></script>
+<script src="/js/explorer.js" defer></script>
+<script src="/js/clipboard.js" defer></script>
+<script src="/js/callout.js" defer></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.31/dist/flexsearch.bundle.js" defer></script>
+
+
+<script defer src="/zh.search.min.74af685e8249.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@8.0.0/dist/pixi.min.js"></script>
+
+
+<script src="/js/graph.js" defer></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.5.0/dist/floating-ui.core.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.5.3/dist/floating-ui.dom.umd.min.js"></script>
+
+
+<script src="/js/popover.js" defer></script>
+
+
+<script>
+window.__FOUNDRY_PAGES__ = [
+    {
+        "slug": "categories",
+        "displayPath": "categories",
+        "url": "/categories/index.html",
+        "title": "category"
+    },{
+        "slug": "publish/intro",
+        "displayPath": "publish/intro",
+        "url": "/publish/intro.html",
+        "title": "介绍"
+    },{
+        "slug": "tags",
+        "displayPath": "tags",
+        "url": "/tags/index.html",
+        "title": "tag"
+    },{
+        "slug": "tags/hugo",
+        "displayPath": "tags/hugo",
+        "url": "/tags/hugo/index.html",
+        "title": "hugo"
+    },{
+        "slug": "tags/主题",
+        "displayPath": "tags/主题",
+        "url": "/tags/主题/index.html",
+        "title": "主题"
+    },{
+        "slug": "tags/买断",
+        "displayPath": "tags/买断",
+        "url": "/tags/买断/index.html",
+        "title": "买断"
+    },{
+        "slug": "tags/产品",
+        "displayPath": "tags/产品",
+        "url": "/tags/产品/index.html",
+        "title": "产品"
+    },{
+        "slug": "tags/企业",
+        "displayPath": "tags/企业",
+        "url": "/tags/企业/index.html",
+        "title": "企业"
+    },{
+        "slug": "tags/作品集",
+        "displayPath": "tags/作品集",
+        "url": "/tags/作品集/index.html",
+        "title": "作品集"
+    },{
+        "slug": "tags/分享",
+        "displayPath": "tags/分享",
+        "url": "/tags/分享/index.html",
+        "title": "分享"
+    },{
+        "slug": "tags/功能",
+        "displayPath": "tags/功能",
+        "url": "/tags/功能/index.html",
+        "title": "功能"
+    },{
+        "slug": "tags/加密",
+        "displayPath": "tags/加密",
+        "url": "/tags/加密/index.html",
+        "title": "加密"
+    },{
+        "slug": "tags/博客",
+        "displayPath": "tags/博客",
+        "url": "/tags/博客/index.html",
+        "title": "博客"
+    },{
+        "slug": "tags/发布",
+        "displayPath": "tags/发布",
+        "url": "/tags/发布/index.html",
+        "title": "发布"
+    },{
+        "slug": "tags/同步",
+        "displayPath": "tags/同步",
+        "url": "/tags/同步/index.html",
+        "title": "同步"
+    },{
+        "slug": "tags/域名",
+        "displayPath": "tags/域名",
+        "url": "/tags/域名/index.html",
+        "title": "域名"
+    },{
+        "slug": "tags/多站点",
+        "displayPath": "tags/多站点",
+        "url": "/tags/多站点/index.html",
+        "title": "多站点"
+    },{
+        "slug": "tags/子域名",
+        "displayPath": "tags/子域名",
+        "url": "/tags/子域名/index.html",
+        "title": "子域名"
+    },{
+        "slug": "tags/安全",
+        "displayPath": "tags/安全",
+        "url": "/tags/安全/index.html",
+        "title": "安全"
+    },{
+        "slug": "tags/市场营销",
+        "displayPath": "tags/市场营销",
+        "url": "/tags/市场营销/index.html",
+        "title": "市场营销"
+    },{
+        "slug": "tags/常见问题",
+        "displayPath": "tags/常见问题",
+        "url": "/tags/常见问题/index.html",
+        "title": "常见问题"
+    },{
+        "slug": "tags/快速开始",
+        "displayPath": "tags/快速开始",
+        "url": "/tags/快速开始/index.html",
+        "title": "快速开始"
+    },{
+        "slug": "tags/技术",
+        "displayPath": "tags/技术",
+        "url": "/tags/技术/index.html",
+        "title": "技术"
+    },{
+        "slug": "tags/指南",
+        "displayPath": "tags/指南",
+        "url": "/tags/指南/index.html",
+        "title": "指南"
+    },{
+        "slug": "tags/文件冲突",
+        "displayPath": "tags/文件冲突",
+        "url": "/tags/文件冲突/index.html",
+        "title": "文件冲突"
+    },{
+        "slug": "tags/文档",
+        "displayPath": "tags/文档",
+        "url": "/tags/文档/index.html",
+        "title": "文档"
+    },{
+        "slug": "tags/架构",
+        "displayPath": "tags/架构",
+        "url": "/tags/架构/index.html",
+        "title": "架构"
+    },{
+        "slug": "tags/激活",
+        "displayPath": "tags/激活",
+        "url": "/tags/激活/index.html",
+        "title": "激活"
+    },{
+        "slug": "tags/激活码",
+        "displayPath": "tags/激活码",
+        "url": "/tags/激活码/index.html",
+        "title": "激活码"
+    },{
+        "slug": "tags/知识库",
+        "displayPath": "tags/知识库",
+        "url": "/tags/知识库/index.html",
+        "title": "知识库"
+    },{
+        "slug": "tags/离线",
+        "displayPath": "tags/离线",
+        "url": "/tags/离线/index.html",
+        "title": "离线"
+    },{
+        "slug": "tags/简介",
+        "displayPath": "tags/简介",
+        "url": "/tags/简介/index.html",
+        "title": "简介"
+    },{
+        "slug": "tags/简历",
+        "displayPath": "tags/简历",
+        "url": "/tags/简历/index.html",
+        "title": "简历"
+    },{
+        "slug": "tags/网络",
+        "displayPath": "tags/网络",
+        "url": "/tags/网络/index.html",
+        "title": "网络"
+    },{
+        "slug": "tags/自定义",
+        "displayPath": "tags/自定义",
+        "url": "/tags/自定义/index.html",
+        "title": "自定义"
+    },{
+        "slug": "tags/设置",
+        "displayPath": "tags/设置",
+        "url": "/tags/设置/index.html",
+        "title": "设置"
+    },{
+        "slug": "tags/重置",
+        "displayPath": "tags/重置",
+        "url": "/tags/重置/index.html",
+        "title": "重置"
+    },{
+        "slug": "tags/预览",
+        "displayPath": "tags/预览",
+        "url": "/tags/预览/index.html",
+        "title": "预览"
+    },{
+        "slug": "publish/quick-share",
+        "displayPath": "publish/quick-share",
+        "url": "/publish/quick-share.html",
+        "title": "快速分享"
+    },{
+        "slug": "publish/right-panel",
+        "displayPath": "publish/right-panel",
+        "url": "/publish/right-panel.html",
+        "title": "右侧面板"
+    },{
+        "slug": "publish",
+        "displayPath": "publish",
+        "url": "/publish/index.html",
+        "title": "发布"
+    },{
+        "slug": "publish/preview",
+        "displayPath": "publish/preview",
+        "url": "/publish/preview.html",
+        "title": "本地预览"
+    },{
+        "slug": "publish/site-path",
+        "displayPath": "publish/site-path",
+        "url": "/publish/site-path.html",
+        "title": "多站点指南"
+    },{
+        "slug": "architecture",
+        "displayPath": "architecture",
+        "url": "/architecture/index.html",
+        "title": "架构"
+    },{
+        "slug": "architecture/overview",
+        "displayPath": "architecture/overview",
+        "url": "/architecture/overview.html",
+        "title": "架构概览"
+    },{
+        "slug": "architecture/server-connectivity",
+        "displayPath": "architecture/server-connectivity",
+        "url": "/architecture/server-connectivity.html",
+        "title": "服务器连接性检查"
+    },{
+        "slug": "faq",
+        "displayPath": "faq",
+        "url": "/faq.html",
+        "title": "常见问题"
+    },{
+        "slug": "friday",
+        "displayPath": "friday",
+        "url": "/friday.html",
+        "title": "关于 Friday"
+    },{
+        "slug": "get-started",
+        "displayPath": "get-started",
+        "url": "/get-started.html",
+        "title": "快速开始"
+    },{
+        "slug": "license",
+        "displayPath": "license",
+        "url": "/license/index.html",
+        "title": "激活码"
+    },{
+        "slug": "license/activation",
+        "displayPath": "license/activation",
+        "url": "/license/activation.html",
+        "title": "激活"
+    },{
+        "slug": "license/custom",
+        "displayPath": "license/custom",
+        "url": "/license/custom.html",
+        "title": "Friday 私有化部署服务"
+    },{
+        "slug": "publish/custom-domain",
+        "displayPath": "publish/custom-domain",
+        "url": "/publish/custom-domain.html",
+        "title": "自定义域名"
+    },{
+        "slug": "publish/subdomain",
+        "displayPath": "publish/subdomain",
+        "url": "/publish/subdomain.html",
+        "title": "二级域名发布"
+    },{
+        "slug": "sync",
+        "displayPath": "sync",
+        "url": "/sync/index.html",
+        "title": "同步"
+    },{
+        "slug": "sync/confilict",
+        "displayPath": "sync/confilict",
+        "url": "/sync/confilict.html",
+        "title": "同步问题排查"
+    },{
+        "slug": "sync/encryption",
+        "displayPath": "sync/encryption",
+        "url": "/sync/encryption.html",
+        "title": "加密"
+    },{
+        "slug": "sync/intro",
+        "displayPath": "sync/intro",
+        "url": "/sync/intro.html",
+        "title": "简介"
+    },{
+        "slug": "sync/offline-mode",
+        "displayPath": "sync/offline-mode",
+        "url": "/sync/offline-mode.html",
+        "title": "离线模式"
+    },{
+        "slug": "sync/reset",
+        "displayPath": "sync/reset",
+        "url": "/sync/reset.html",
+        "title": "重置"
+    },{
+        "slug": "sync/settings",
+        "displayPath": "sync/settings",
+        "url": "/sync/settings.html",
+        "title": "设置"
+    },{
+        "slug": "themes",
+        "displayPath": "themes",
+        "url": "/themes/index.html",
+        "title": "主题"
+    },{
+        "slug": "themes/blog",
+        "displayPath": "themes/blog",
+        "url": "/themes/blog.html",
+        "title": "博客"
+    },{
+        "slug": "themes/community",
+        "displayPath": "themes/community",
+        "url": "/themes/community.html",
+        "title": "社区"
+    },{
+        "slug": "themes/document",
+        "displayPath": "themes/document",
+        "url": "/themes/document.html",
+        "title": "文档"
+    },{
+        "slug": "themes/intro",
+        "displayPath": "themes/intro",
+        "url": "/themes/intro.html",
+        "title": "简介"
+    },{
+        "slug": "themes/landing",
+        "displayPath": "themes/landing",
+        "url": "/themes/landing.html",
+        "title": "产品官网"
+    },{
+        "slug": "themes/portfolio",
+        "displayPath": "themes/portfolio",
+        "url": "/themes/portfolio.html",
+        "title": "作品集"
+    },{
+        "slug": "themes/resume",
+        "displayPath": "themes/resume",
+        "url": "/themes/resume.html",
+        "title": "简历"
+    },{
+        "slug": "themes/wiki",
+        "displayPath": "themes/wiki",
+        "url": "/themes/wiki.html",
+        "title": "知识库"
+    },{
+        "slug": "index",
+        "displayPath": "index",
+        "url": "/index.html",
+        "title": "欢迎使用 Friday"
+    }];
+
+
+
+window.__FOUNDRY_CONTENT_INDEX__ = {
+    "categories": {
+        "slug": "categories",
+        "title": "category",
+        "links": [],
+        "tags": []
+    },"publish/intro": {
+        "slug": "publish/intro",
+        "title": "介绍",
+        "links": [],
+        "tags": ["tags/发布","tags/简介"]
+    },"tags": {
+        "slug": "tags",
+        "title": "tag",
+        "links": [],
+        "tags": []
+    },"tags/hugo": {
+        "slug": "tags/hugo",
+        "title": "hugo",
+        "links": [],
+        "tags": []
+    },"tags/主题": {
+        "slug": "tags/主题",
+        "title": "主题",
+        "links": [],
+        "tags": []
+    },"tags/买断": {
+        "slug": "tags/买断",
+        "title": "买断",
+        "links": [],
+        "tags": []
+    },"tags/产品": {
+        "slug": "tags/产品",
+        "title": "产品",
+        "links": [],
+        "tags": []
+    },"tags/企业": {
+        "slug": "tags/企业",
+        "title": "企业",
+        "links": [],
+        "tags": []
+    },"tags/作品集": {
+        "slug": "tags/作品集",
+        "title": "作品集",
+        "links": [],
+        "tags": []
+    },"tags/分享": {
+        "slug": "tags/分享",
+        "title": "分享",
+        "links": [],
+        "tags": []
+    },"tags/功能": {
+        "slug": "tags/功能",
+        "title": "功能",
+        "links": [],
+        "tags": []
+    },"tags/加密": {
+        "slug": "tags/加密",
+        "title": "加密",
+        "links": [],
+        "tags": []
+    },"tags/博客": {
+        "slug": "tags/博客",
+        "title": "博客",
+        "links": [],
+        "tags": []
+    },"tags/发布": {
+        "slug": "tags/发布",
+        "title": "发布",
+        "links": [],
+        "tags": []
+    },"tags/同步": {
+        "slug": "tags/同步",
+        "title": "同步",
+        "links": [],
+        "tags": []
+    },"tags/域名": {
+        "slug": "tags/域名",
+        "title": "域名",
+        "links": [],
+        "tags": []
+    },"tags/多站点": {
+        "slug": "tags/多站点",
+        "title": "多站点",
+        "links": [],
+        "tags": []
+    },"tags/子域名": {
+        "slug": "tags/子域名",
+        "title": "子域名",
+        "links": [],
+        "tags": []
+    },"tags/安全": {
+        "slug": "tags/安全",
+        "title": "安全",
+        "links": [],
+        "tags": []
+    },"tags/市场营销": {
+        "slug": "tags/市场营销",
+        "title": "市场营销",
+        "links": [],
+        "tags": []
+    },"tags/常见问题": {
+        "slug": "tags/常见问题",
+        "title": "常见问题",
+        "links": [],
+        "tags": []
+    },"tags/快速开始": {
+        "slug": "tags/快速开始",
+        "title": "快速开始",
+        "links": [],
+        "tags": []
+    },"tags/技术": {
+        "slug": "tags/技术",
+        "title": "技术",
+        "links": [],
+        "tags": []
+    },"tags/指南": {
+        "slug": "tags/指南",
+        "title": "指南",
+        "links": [],
+        "tags": []
+    },"tags/文件冲突": {
+        "slug": "tags/文件冲突",
+        "title": "文件冲突",
+        "links": [],
+        "tags": []
+    },"tags/文档": {
+        "slug": "tags/文档",
+        "title": "文档",
+        "links": [],
+        "tags": []
+    },"tags/架构": {
+        "slug": "tags/架构",
+        "title": "架构",
+        "links": [],
+        "tags": []
+    },"tags/激活": {
+        "slug": "tags/激活",
+        "title": "激活",
+        "links": [],
+        "tags": []
+    },"tags/激活码": {
+        "slug": "tags/激活码",
+        "title": "激活码",
+        "links": [],
+        "tags": []
+    },"tags/知识库": {
+        "slug": "tags/知识库",
+        "title": "知识库",
+        "links": [],
+        "tags": []
+    },"tags/离线": {
+        "slug": "tags/离线",
+        "title": "离线",
+        "links": [],
+        "tags": []
+    },"tags/简介": {
+        "slug": "tags/简介",
+        "title": "简介",
+        "links": [],
+        "tags": []
+    },"tags/简历": {
+        "slug": "tags/简历",
+        "title": "简历",
+        "links": [],
+        "tags": []
+    },"tags/网络": {
+        "slug": "tags/网络",
+        "title": "网络",
+        "links": [],
+        "tags": []
+    },"tags/自定义": {
+        "slug": "tags/自定义",
+        "title": "自定义",
+        "links": [],
+        "tags": []
+    },"tags/设置": {
+        "slug": "tags/设置",
+        "title": "设置",
+        "links": [],
+        "tags": []
+    },"tags/重置": {
+        "slug": "tags/重置",
+        "title": "重置",
+        "links": [],
+        "tags": []
+    },"tags/预览": {
+        "slug": "tags/预览",
+        "title": "预览",
+        "links": [],
+        "tags": []
+    },"publish/quick-share": {
+        "slug": "publish/quick-share",
+        "title": "快速分享",
+        "links": [],
+        "tags": ["tags/分享","tags/发布"]
+    },"publish/right-panel": {
+        "slug": "publish/right-panel",
+        "title": "右侧面板",
+        "links": [],
+        "tags": ["tags/发布"]
+    },"publish": {
+        "slug": "publish",
+        "title": "发布",
+        "links": [],
+        "tags": []
+    },"publish/preview": {
+        "slug": "publish/preview",
+        "title": "本地预览",
+        "links": [],
+        "tags": ["tags/预览","tags/发布"]
+    },"publish/site-path": {
+        "slug": "publish/site-path",
+        "title": "多站点指南",
+        "links": [],
+        "tags": ["tags/多站点","tags/发布"]
+    },"architecture": {
+        "slug": "architecture",
+        "title": "架构",
+        "links": [],
+        "tags": []
+    },"architecture/overview": {
+        "slug": "architecture/overview",
+        "title": "架构概览",
+        "links": ["architecture/server-connectivity","sync-internals","security-model","data-flow","sync/offline-mode","development-setup","coding-standards","contributing","api-reference"],
+        "tags": ["tags/技术","tags/架构"]
+    },"architecture/server-connectivity": {
+        "slug": "architecture/server-connectivity",
+        "title": "服务器连接性检查",
+        "links": ["sync/offline-mode","MDFriday/help/content/sync/encryption","sync/reset","architecture/sync-internals"],
+        "tags": ["tags/网络","tags/架构","tags/同步"]
+    },"faq": {
+        "slug": "faq",
+        "title": "常见问题",
+        "links": ["friday","sync/encryption","sync/offline-mode"],
+        "tags": ["tags/常见问题"]
+    },"friday": {
+        "slug": "friday",
+        "title": "关于 Friday",
+        "links": ["sync/encryption","sync/offline-mode","sync/server-connectivity","sync/intro","publish/quick-share","publish/subdomain","publish/custom-domain","publish/enterprise-domain企业域名","themes/wiki","themes/document","themes/blog","themes/portfolio","themes/resume","themes/ppt","themes/landing","themes/enterprise","themes/community","publish/preview","architecture/overview","architecture/security-model"],
+        "tags": ["tags/简介"]
+    },"get-started": {
+        "slug": "get-started",
+        "title": "快速开始",
+        "links": ["[淘宝购买](https:/item.taobao.com/item.htmid=1021681636191-and-mi_id=0000TP6GHQep6drq4_kU9DP4zK01apQ5i_06dEQlgeN7KZI-and-skuId=6196046574887-and-spm=a21xtw.29178619.0.0-and-xxc=shop)","license/activation","sync/settings","publish/quick-share","themes/community","publish/subdomain","publish/custom-domain","friday","architecture/overview","sync/server-connectivity","sync/offline-mode","publish/enterprise-domain","license/custom"],
+        "tags": ["tags/快速开始","tags/指南"]
+    },"license": {
+        "slug": "license",
+        "title": "激活码",
+        "links": [],
+        "tags": []
+    },"license/activation": {
+        "slug": "license/activation",
+        "title": "激活",
+        "links": ["get-started"],
+        "tags": ["tags/激活码","tags/激活"]
+    },"license/custom": {
+        "slug": "license/custom",
+        "title": "Friday 私有化部署服务",
+        "links": [],
+        "tags": ["tags/企业","tags/买断","tags/激活码"]
+    },"publish/custom-domain": {
+        "slug": "publish/custom-domain",
+        "title": "自定义域名",
+        "links": ["publish/site-path"],
+        "tags": ["tags/域名","tags/自定义","tags/发布"]
+    },"publish/subdomain": {
+        "slug": "publish/subdomain",
+        "title": "二级域名发布",
+        "links": ["themes/community","publish/preview","publish/custom-domain","publish/quick-share"],
+        "tags": ["tags/子域名","tags/域名","tags/发布"]
+    },"sync": {
+        "slug": "sync",
+        "title": "同步",
+        "links": [],
+        "tags": []
+    },"sync/confilict": {
+        "slug": "sync/confilict",
+        "title": "同步问题排查",
+        "links": ["sync/offline-mode"],
+        "tags": ["tags/文件冲突","tags/同步"]
+    },"sync/encryption": {
+        "slug": "sync/encryption",
+        "title": "加密",
+        "links": [],
+        "tags": ["tags/安全","tags/加密","tags/同步"]
+    },"sync/intro": {
+        "slug": "sync/intro",
+        "title": "简介",
+        "links": ["sync/encryption","sync/offline-mode","architecture/server-connectivity","sync/settings","license/activation","architecture/overview","license/custom","publish/quick-share"],
+        "tags": ["tags/简介","tags/同步"]
+    },"sync/offline-mode": {
+        "slug": "sync/offline-mode",
+        "title": "离线模式",
+        "links": ["sync/reset"],
+        "tags": ["tags/功能","tags/离线","tags/同步"]
+    },"sync/reset": {
+        "slug": "sync/reset",
+        "title": "重置",
+        "links": [],
+        "tags": ["tags/重置","tags/同步"]
+    },"sync/settings": {
+        "slug": "sync/settings",
+        "title": "设置",
+        "links": [],
+        "tags": ["tags/同步","tags/设置"]
+    },"themes": {
+        "slug": "themes",
+        "title": "主题",
+        "links": [],
+        "tags": []
+    },"themes/blog": {
+        "slug": "themes/blog",
+        "title": "博客",
+        "links": [],
+        "tags": ["tags/博客","tags/主题"]
+    },"themes/community": {
+        "slug": "themes/community",
+        "title": "社区",
+        "links": ["publish/preview","publish/quick-share","showcases/awesome","themes/wiki","themes/blog","themes/document","themes/portfolio","friday","get-started","license/activation"],
+        "tags": ["tags/主题","tags/hugo"]
+    },"themes/document": {
+        "slug": "themes/document",
+        "title": "文档",
+        "links": [],
+        "tags": ["tags/文档","tags/主题"]
+    },"themes/intro": {
+        "slug": "themes/intro",
+        "title": "简介",
+        "links": ["publish/preview"],
+        "tags": ["tags/简介","tags/主题"]
+    },"themes/landing": {
+        "slug": "themes/landing",
+        "title": "产品官网",
+        "links": [],
+        "tags": ["tags/市场营销","tags/产品","tags/主题"]
+    },"themes/portfolio": {
+        "slug": "themes/portfolio",
+        "title": "作品集",
+        "links": [],
+        "tags": ["tags/作品集","tags/主题"]
+    },"themes/resume": {
+        "slug": "themes/resume",
+        "title": "简历",
+        "links": [],
+        "tags": ["tags/简历","tags/主题"]
+    },"themes/wiki": {
+        "slug": "themes/wiki",
+        "title": "知识库",
+        "links": [],
+        "tags": ["tags/知识库","tags/主题"]
+    },"index": {
+        "slug": "index",
+        "title": "欢迎使用 Friday",
+        "links": ["get-started","friday","faq","license/activation","license/custom","sync/settings","sync/intro","sync/encryption","sync/offline-mode","sync/server-connectivity","themes/community","themes/wiki","themes/document","themes/blog","themes/portfolio","themes/resume","themes/ppt","themes/landing","themes/enterprise","publish/quick-share","publish/subdomain","publish/custom-domain","publish/enterprise-domain","publish/preview","publish/wysiwyg","architecture/overview"],
+        "tags": []
+    }};
+
+
+window.__FOUNDRY_BASE_URL_PATH__ = "";
+
+
+console.log('[Explorer] Loaded pages:', window.__FOUNDRY_PAGES__.length);
+console.log('[Explorer] Base URL path:', "");
+console.log('[Graph] Loaded content index:', Object.keys(window.__FOUNDRY_CONTENT_INDEX__).length);
+console.log('[Graph] Injected __FOUNDRY_BASE_URL_PATH__:', window.__FOUNDRY_BASE_URL_PATH__);
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,118 @@
+/* Graph Component Styles - Compiled from Quartz SCSS */
+
+.graph {
+  display: flex;
+  flex-direction: column;
+}
+
+.graph > h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.graph > .graph-outer {
+  border-radius: 5px;
+  border: 1px solid var(--lightgray);
+  box-sizing: border-box;
+  height: 250px;
+  margin: 0.5em 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.graph > .graph-outer > .global-graph-icon {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--dark);
+  opacity: 0.5;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  padding: 0.2rem;
+  margin: 0.3rem;
+  top: 0;
+  right: 0;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+}
+
+.graph > .graph-outer > .global-graph-icon:hover {
+  background-color: var(--lightgray);
+  opacity: 1;
+}
+
+.graph > .global-graph-outer,
+body > .global-graph-outer {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  overflow: hidden;
+}
+
+.graph > .global-graph-outer.active,
+body > .global-graph-outer.active {
+  display: block;
+}
+
+.graph > .global-graph-outer > .global-graph-container,
+body > .global-graph-outer > .global-graph-container {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+  .graph > .global-graph-outer > .global-graph-container,
+  body > .global-graph-outer > .global-graph-container {
+    width: 90vw;
+    height: 70vh;
+  }
+}
+
+/* SVG styles */
+.graph svg {
+  width: 100%;
+  height: 100%;
+}
+
+.graph .links line {
+  stroke: var(--lightgray);
+  stroke-width: 1px;
+}
+
+.graph .nodes circle {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.graph .labels text {
+  font-family: var(--bodyFont);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .graph .labels text {
+  fill: var(--darkgray);
+}
+
+[data-theme="dark"] .graph > .global-graph-outer {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+

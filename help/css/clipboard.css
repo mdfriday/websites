@@ -1,0 +1,57 @@
+/* Clipboard Button Styles - Compiled from Quartz SCSS */
+/* Source: quartz-src/quartz/components/styles/clipboard.scss */
+
+.clipboard-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  right: 0;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.clipboard-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+  display: block;
+}
+
+.clipboard-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+
+.clipboard-button:focus {
+  outline: 0;
+}
+
+/* Show button on hover */
+pre:hover > .clipboard-button {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* Ensure pre is positioned for absolute button */
+pre {
+  position: relative;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .clipboard-button {
+  background-color: var(--dark);
+  border-color: var(--lightgray);
+}
+
+[data-theme="dark"] .clipboard-button > svg {
+  fill: var(--dark);
+}
+

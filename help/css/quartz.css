@@ -1,0 +1,2380 @@
+/* Quartz Theme for Foundry - Main Stylesheet */
+/* Based on Quartz v4 by jackyzha0 */
+
+/* ========================================
+   CSS Variables
+   ======================================== */
+
+:root {
+    /* Colors - Light Mode */
+    --light: #faf8f8;
+    --lightgray: #e5e5e5;
+    --gray: #b8b8b8;
+    --darkgray: #4e4e4e;
+    --dark: #2b2b2b;
+    --secondary: #284b63;
+    --tertiary: #84a59d;
+    --highlight: rgba(143, 159, 169, 0.15);
+    --textHighlight: #fff23688;
+    
+    /* Layout */
+    --sidePanelWidth: 320px;
+    --topSpacing: 6rem;
+    
+    /* Typography - Matching Quartz config */
+    /* Quartz 源码: quartz.config.ts typography + util/theme.ts joinStyles() */
+    --headerFont: "Schibsted Grotesk", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --bodyFont: "Source Sans Pro", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --codeFont: "IBM Plex Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+    
+    /* Font Weights */
+    --normalWeight: 400;
+    --semiBoldWeight: 600;
+    --boldWeight: 700;
+}
+
+[data-theme="dark"] {
+    /* Colors - Dark Mode */
+    --light: #161618;
+    --lightgray: #393639;
+    --gray: #646464;
+    --darkgray: #d4d4d4;
+    --dark: #ebebec;
+    --secondary: #7b97aa;
+    --tertiary: #84a59d;
+    --highlight: rgba(143, 159, 169, 0.15);
+    --textHighlight: #b3aa0288;
+    
+    color-scheme: dark;
+}
+
+:root {
+    color-scheme: light;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+
+html {
+    scroll-behavior: smooth;
+    text-size-adjust: none;
+    overflow-x: hidden;
+    width: 100vw;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    background-color: var(--light);
+    font-family: var(--bodyFont);
+    color: var(--darkgray);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background: color-mix(in srgb, var(--tertiary) 60%, rgba(255, 255, 255, 0));
+    color: var(--darkgray);
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--headerFont);
+    color: var(--dark);
+    font-weight: var(--boldWeight);
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 1.75rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-top: 1.9rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.12rem;
+    margin-top: 1.62rem;
+    margin-bottom: 1rem;
+}
+
+h4, h5, h6 {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Quartz 源码: line-height 只应用于 tbody, li, p */
+p, ul, text, a, tr, td, li, ol {
+    color: var(--darkgray);
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+}
+
+tbody,
+li,
+p {
+    line-height: 1.6rem;
+}
+
+strong {
+    font-weight: var(--semiBoldWeight);
+    color: var(--dark);
+}
+
+a {
+    font-weight: var(--semiBoldWeight);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    color: var(--secondary);
+}
+
+a:hover {
+    color: var(--tertiary);
+}
+
+a.internal {
+    text-decoration: none;
+    background-color: var(--highlight);
+    padding: 0 0.1rem;
+    border-radius: 5px;
+    line-height: 1.4rem;
+}
+
+a.internal.tag-link::before {
+    content: "#";
+}
+
+code {
+    font-size: 0.9em;
+    color: var(--dark);
+    font-family: var(--codeFont);
+    border-radius: 5px;
+    padding: 0.1rem 0.2rem;
+    background: var(--lightgray);
+}
+
+pre {
+    font-family: var(--codeFont);
+    padding: 0.5rem;
+    border-radius: 5px;
+    overflow-x: auto;
+    border: 1px solid var(--lightgray);
+    background: var(--light);
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.85rem;
+}
+
+blockquote {
+    margin: 1rem 0;
+    border-left: 3px solid var(--secondary);
+    padding-left: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+hr {
+    width: 100%;
+    margin: 2rem auto;
+    height: 1px;
+    border: none;
+    background-color: var(--lightgray);
+}
+
+/* ========================================
+   Layout - Grid System
+   ======================================== */
+
+/* ========================================
+   Layout: Page Container
+   ======================================== */
+
+/* Quartz 源码: base.scss lines 162-189 */
+.page {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Article 内的 h1 更大 (Quartz 源码) */
+.page article > h1 {
+    font-size: 2rem;
+}
+
+/* Checkbox 列表样式 (Quartz 源码) */
+.page article li:has(> input[type="checkbox"]) {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.page article li:has(> input[type="checkbox"]:checked) {
+    text-decoration: line-through;
+    text-decoration-color: var(--gray);
+    color: var(--gray);
+}
+
+/* 列表项内元素间距 (Quartz 源码) */
+.page article li > * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* 段落内的 strong 标签 (Quartz 源码) */
+.page article p > strong {
+    color: var(--dark);
+}
+
+#quartz-body {
+    display: grid;
+    grid-template-columns: var(--sidePanelWidth) auto var(--sidePanelWidth);
+    grid-template-rows: auto auto auto;
+    column-gap: 5px;
+    row-gap: 5px;
+    grid-template-areas:
+        "grid-sidebar-left grid-header grid-sidebar-right"
+        "grid-sidebar-left grid-center grid-sidebar-right"
+        "grid-sidebar-left grid-footer grid-sidebar-right";
+}
+
+.sidebar {
+    gap: 1.2rem;
+    top: 0;
+    box-sizing: border-box;
+    padding: var(--topSpacing) 2rem 2rem 2rem;
+    display: flex;
+    height: 100vh;
+    position: sticky;
+}
+
+.sidebar.left {
+    z-index: 1;
+    grid-area: grid-sidebar-left;
+    flex-direction: column;
+}
+
+.sidebar.right {
+    grid-area: grid-sidebar-right;
+    flex-direction: column;
+}
+
+.page-header {
+    grid-area: grid-header;
+    margin: var(--topSpacing) 0 0 0;
+}
+
+.center > article {
+    grid-area: grid-center;
+}
+
+.center {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+footer {
+    grid-area: grid-footer;
+    margin-top: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--lightgray);
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    color: var(--gray);
+}
+
+footer a {
+    color: var(--secondary);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-links li {
+    display: inline;
+}
+
+/* ========================================
+   Responsive Layout
+   ======================================== */
+
+/* Tablet - Matching Quartz behavior */
+@media (min-width: 800px) and (max-width: 1200px) {
+    #quartz-body {
+        grid-template-columns: var(--sidePanelWidth) auto;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+            "grid-sidebar-left grid-header"
+            "grid-sidebar-left grid-center"
+            "grid-sidebar-left grid-sidebar-right"
+            "grid-sidebar-left grid-footer";
+    }
+    
+    .sidebar.right {
+        position: initial;
+        height: unset;
+        width: 100%;
+        flex-direction: row;
+        padding: 0;
+    }
+    
+    .sidebar.right > * {
+        flex: 1;
+        max-height: 24rem;
+    }
+    
+    /* Hide TOC on tablet (non-desktop) - Quartz behavior */
+    .sidebar.right > .toc {
+        display: none;
+    }
+}
+
+/* Mobile - Matching Quartz breakpoints and behavior */
+@media (max-width: 799px) {
+    #quartz-body {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto auto;
+        padding: 0 1rem;
+        margin: 0 auto;
+        grid-template-areas:
+            "grid-sidebar-left"
+            "grid-header"
+            "grid-center"
+            "grid-sidebar-right"
+            "grid-footer";
+    }
+    
+    .sidebar {
+        gap: 0;
+        position: initial;
+        display: flex;
+        height: unset;
+        padding: 0;
+        padding-top: 2rem;
+    }
+    
+    .sidebar.left {
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+    }
+    
+    .sidebar.right {
+        /* Keep column direction on mobile for stacking */
+        flex-direction: column;
+        margin-top: 2rem;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        padding: 0;
+    }
+    
+    /* Make children take full width on mobile only (when column direction) */
+    .sidebar.right > * {
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 auto;
+    }
+    
+    .page-header {
+        margin-top: 0;
+        padding: 0;
+    }
+    
+    html {
+        scroll-padding-top: 4rem;
+    }
+    
+    /* Hide desktop-only components on mobile */
+    .desktop-only {
+        display: none !important;
+    }
+    
+    .desktop-only.flex-component {
+        display: none !important;
+    }
+    
+    /* Show mobile-only components */
+    .mobile-only {
+        display: initial !important;
+    }
+    
+    .mobile-only.flex-component {
+        display: flex !important;
+    }
+    
+    .center {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.desktop-only {
+    display: initial;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .desktop-only {
+        display: none !important;
+    }
+    
+    .mobile-only {
+        display: initial;
+    }
+}
+
+.flex-component {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.spacer {
+    flex: 2 1 auto;
+}
+
+/* ========================================
+   Component: Page Title
+   ======================================== */
+
+.page-title {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.page-title a {
+    color: var(--dark);
+    font-weight: var(--boldWeight);
+}
+
+/* ========================================
+   Component: Breadcrumbs
+   ======================================== */
+
+.breadcrumb-container {
+    margin: 0.75rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.breadcrumbs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.breadcrumb-element {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.breadcrumb-element p {
+    margin: 0;
+    margin-left: 0.5rem;
+    padding: 0;
+    line-height: normal;
+    color: var(--gray);
+}
+
+.breadcrumb-element a {
+    color: var(--secondary);
+    font-weight: var(--normalWeight);
+}
+
+/* ========================================
+   Component: Article
+   ======================================== */
+
+.article-title {
+    margin: 1rem 0;
+    font-size: 2rem;
+    color: var(--dark);
+}
+
+.article-content {
+    margin-top: 2rem;
+}
+
+.article-content > *:first-child {
+    margin-top: 0;
+}
+
+/* ========================================
+   Component: Content Meta
+   ======================================== */
+
+.content-meta {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--gray);
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+
+.content-meta > span::after {
+    content: "•";
+    margin-left: 1rem;
+    color: var(--lightgray);
+}
+
+.content-meta > span:last-child::after {
+    content: "";
+    margin: 0;
+}
+
+/* ========================================
+   Component: Tags
+   ======================================== */
+
+.tags {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tags li {
+    display: inline;
+}
+
+.tags a {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--highlight);
+    color: var(--secondary);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: var(--normalWeight);
+}
+
+.tags a:hover {
+    background-color: var(--lightgray);
+}
+
+/* ========================================
+   Component: TOC
+   ======================================== */
+
+/* ========================================
+   Component: Table of Contents (Quartz Style)
+   Matching quartz-src/quartz/components/styles/toc.scss
+   ======================================== */
+
+.toc {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    min-height: 1.4rem;
+    flex: 0 0.5 auto;
+}
+
+.toc:has(button.toc-header.collapsed) {
+    flex: 0 1 1.4rem;
+}
+
+button.toc-header {
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 0;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+}
+
+button.toc-header h3 {
+    font-size: 1rem;
+    display: inline-block;
+    margin: 0;
+}
+
+button.toc-header .fold {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+}
+
+button.toc-header.collapsed .fold {
+    transform: rotateZ(-90deg);
+}
+
+/* TOC Content - Matching Quartz SCSS */
+/* Quartz 源码: base.scss lines 586-610 */
+div:has(> .overflow) {
+    max-height: 100%;
+    overflow-y: hidden;
+}
+
+ul.overflow,
+ol.overflow {
+    max-height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+ul.overflow > li.overflow-end,
+ol.overflow > li.overflow-end {
+    height: 0.5rem;
+    margin: 0;
+}
+
+ul.overflow.gradient-active,
+ol.overflow.gradient-active {
+    mask-image: linear-gradient(to bottom, black calc(100% - 50px), transparent 100%);
+}
+
+/* TOC content specific */
+ul.toc-content.overflow {
+    list-style: none;
+    position: relative;
+    margin: 0.5rem 0;
+    padding: 0;
+    max-height: calc(100% - 2rem);
+    overscroll-behavior: contain;
+}
+
+/* Handle Hugo's TableOfContents structure */
+/* Hugo 生成的 TOC 结构: nav#TableOfContents > ul > li > a + ul ... */
+.toc-content nav#TableOfContents,
+.toc-content > ul,
+.toc-content nav#TableOfContents > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-content nav#TableOfContents ul,
+.toc-content ul ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 移除 li 的所有默认间距，避免不必要的空白 */
+.toc-content nav#TableOfContents li,
+.toc-content li {
+    margin: 0;
+    padding: 0;  /* li 不要有 padding，缩进由后面的规则控制 */
+    list-style: none;
+}
+
+/* Link styling matching Quartz - ALL TOC links */
+/* Quartz 源码: toc.scss lines 50-59 - 注意没有 display 属性！ */
+.toc-content a {
+    color: var(--dark);
+    opacity: 0.35;
+    transition: 0.5s ease opacity, 0.3s ease color;
+    text-decoration: none;
+    /* 移除 display: block; 以避免强制换行 */
+    font-weight: var(--semiBoldWeight); /* 600 */
+}
+
+.toc-content a.in-view {
+    opacity: 0.75;
+}
+
+.toc-content a:hover {
+    opacity: 1;
+    color: var(--secondary);
+}
+
+/* Depth-based indentation matching Quartz - applied to li elements */
+/* Quartz 源码: toc.scss lines 61-65 */
+/* Quartz 使用扁平列表 + depth-* 类，Hugo 使用嵌套 ul */
+/* 我们需要取消 Hugo 的嵌套缩进，改用统一的 padding */
+
+/* 取消所有嵌套 ul 的默认缩进 */
+.toc-content ul,
+.toc-content nav#TableOfContents ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+/* 对每个 li 应用基于深度的缩进 */
+/* Hugo TOC 结构: h2 是根 li，h3 是嵌套在 h2 的 ul 中的 li */
+/* 需要根据嵌套层级计算缩进 */
+.toc-content nav#TableOfContents > ul > li {
+    padding-left: 0; /* H2 - depth 0 */
+}
+
+.toc-content nav#TableOfContents > ul > li > ul > li {
+    padding-left: 1rem; /* H3 - depth 1 */
+}
+
+.toc-content nav#TableOfContents > ul > li > ul > li > ul > li {
+    padding-left: 2rem; /* H4 - depth 2 */
+}
+
+.toc-content nav#TableOfContents > ul > li > ul > li > ul > li > ul > li {
+    padding-left: 3rem; /* H5 - depth 3 */
+}
+
+.toc-content nav#TableOfContents > ul > li > ul > li > ul > li > ul > li > ul > li {
+    padding-left: 4rem; /* H6 - depth 4 */
+}
+
+/* ❌ Hugo 不生成 depth-* 类，这些规则已删除
+ * Quartz 使用扁平的 <ul> + depth-* 类控制缩进
+ * Hugo 使用嵌套的 <ul> 结构，通过层级选择器控制缩进（见上方规则）
+ */
+
+/* Collapsed state */
+.toc-content.collapsed {
+    display: none;
+}
+
+/* ========================================
+   Component: Search
+   ======================================== */
+
+.search {
+    min-width: fit-content;
+    max-width: 14rem;
+}
+
+@media all and (max-width: 1024px) {
+    .search {
+        flex-grow: 0.3;
+    }
+}
+
+.search > .search-button {
+    background-color: transparent;
+    border: 1px var(--lightgray) solid;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: inherit;
+    height: 2rem;
+    padding: 0 1rem 0 0;
+    display: flex;
+    align-items: center;
+    text-align: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.search > .search-button > p {
+    display: inline;
+    color: var(--gray);
+}
+
+.search > .search-button svg {
+    cursor: pointer;
+    width: 18px;
+    min-width: 18px;
+    margin: 0 0.5rem;
+}
+
+.search > .search-button svg .search-path {
+    stroke: var(--darkgray);
+    stroke-width: 1.5px;
+    transition: stroke 0.5s ease;
+}
+
+.search > .search-container {
+    position: fixed;
+    contain: layout;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    display: none;
+    backdrop-filter: blur(4px);
+}
+
+.search > .search-container.active {
+    display: inline-block;
+}
+
+.search > .search-container > .search-space {
+    width: 65%;
+    margin-top: 12vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media all and (max-width: 1024px) {
+    .search > .search-container > .search-space {
+        width: 90%;
+    }
+}
+
+.search > .search-container > .search-space > * {
+    width: 100%;
+    border-radius: 7px;
+    background: var(--light);
+    box-shadow:
+        0 14px 50px rgba(27, 33, 48, 0.12),
+        0 10px 30px rgba(27, 33, 48, 0.16);
+    margin-bottom: 2em;
+}
+
+.search > .search-container > .search-space > input {
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+    font-family: var(--bodyFont);
+    color: var(--dark);
+    font-size: 1.1em;
+    border: 1px solid var(--lightgray);
+}
+
+.search > .search-container > .search-space > input:focus {
+    outline: none;
+}
+
+.search > .search-container > .search-space > .search-layout {
+    display: none;
+    flex-direction: row;
+    border: 1px solid var(--lightgray);
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+.search > .search-container > .search-space > .search-layout.display-results {
+    display: flex;
+}
+
+.search > .search-container > .search-space > .search-layout[data-preview] > .results-container {
+    flex: 0 0 min(30%, 450px);
+}
+
+@media all and (min-width: 1025px) {
+    .search > .search-container > .search-space > .search-layout[data-preview] .result-card > p.card-description {
+        display: none;
+    }
+
+    .search > .search-container > .search-space > .search-layout[data-preview] > div:first-child {
+        border-right: 1px solid var(--lightgray);
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+    }
+
+    .search > .search-container > .search-space > .search-layout[data-preview] > div:last-child {
+        border-top-left-radius: unset;
+        border-bottom-left-radius: unset;
+    }
+}
+
+.search > .search-container > .search-space > .search-layout > div {
+    height: calc(75vh - 12vh);
+    border-radius: 5px;
+}
+
+@media all and (max-width: 1024px) {
+    .search > .search-container > .search-space > .search-layout {
+        flex-direction: column;
+    }
+
+    .search > .search-container > .search-space > .search-layout > .preview-container {
+        display: none !important;
+    }
+
+    .search > .search-container > .search-space > .search-layout[data-preview] > .results-container {
+        width: 100%;
+        height: auto;
+        flex: 0 0 100%;
+    }
+}
+
+.search > .search-container > .search-space > .search-layout .highlight {
+    background: color-mix(in srgb, var(--tertiary) 60%, rgba(255, 255, 255, 0));
+    border-radius: 5px;
+    scroll-margin-top: 2rem;
+}
+
+.search > .search-container > .search-space > .search-layout > .preview-container {
+    flex-grow: 1;
+    display: block;
+    overflow: hidden;
+    font-family: inherit;
+    color: var(--dark);
+    line-height: 1.5em;
+    font-weight: var(--normalWeight);
+    overflow-y: auto;
+    padding: 0 2rem;
+}
+
+.search > .search-container > .search-space > .search-layout > .preview-container .preview-inner {
+    margin: 0 auto;
+    width: min(1380px, 100%);
+}
+
+.search > .search-container > .search-space > .search-layout > .results-container {
+    overflow-y: auto;
+}
+
+.search > .search-container > .search-space > .search-layout > .results-container .result-card {
+    overflow: hidden;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    border-bottom: 1px solid var(--lightgray);
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    text-transform: none;
+    text-align: left;
+    outline: none;
+    font-weight: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+.search > .search-container > .search-space > .search-layout > .results-container .result-card:hover,
+.search > .search-container > .search-space > .search-layout > .results-container .result-card:focus,
+.search > .search-container > .search-space > .search-layout > .results-container .result-card.focus {
+    background: var(--lightgray);
+}
+
+.search > .search-container > .search-space > .search-layout > .results-container .result-card > h3 {
+    margin: 0;
+}
+
+.search > .search-container > .search-space > .search-layout > .results-container .result-card > ul.tags {
+    margin-top: 0.45rem;
+    margin-bottom: 0;
+}
+
+.search > .search-container > .search-space > .search-layout > .results-container .result-card > ul > li > p {
+    border-radius: 8px;
+    background-color: var(--highlight);
+    padding: 0.2rem 0.4rem;
+    margin: 0 0.1rem;
+    line-height: 1.4rem;
+    font-weight: var(--boldWeight);
+    color: var(--secondary);
+}
+
+.search > .search-container > .search-space > .search-layout > .results-container .result-card > ul > li > p.match-tag {
+    color: var(--tertiary);
+}
+
+.search > .search-container > .search-space > .search-layout > .results-container .result-card > p {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   Component: Dark Mode
+   ======================================== */
+
+.darkmode {
+    padding: 0;
+    position: relative;
+    background: none;
+    border: none;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.darkmode-toggle {
+    cursor: pointer;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.darkmode-toggle:hover {
+    background-color: var(--highlight);
+}
+
+.darkmode-toggle svg {
+    width: 18px;
+    height: 18px;
+    color: var(--darkgray);
+    transition: opacity 0.2s ease;
+}
+
+/* ========================================
+   Component: Recent Notes
+   ======================================== */
+
+.recent-notes {
+    margin-top: 2rem;
+}
+
+.recent-notes h3 {
+    margin-bottom: 1rem;
+}
+
+.recent-notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recent-note-item {
+    margin-bottom: 1.5rem;
+}
+
+.recent-note-link {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 5px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.recent-note-link:hover {
+    border-color: var(--secondary);
+    background-color: var(--highlight);
+}
+
+.recent-note-link h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--dark);
+}
+
+.recent-note-desc {
+    margin: 0.5rem 0;
+    color: var(--darkgray);
+    font-size: 0.9rem;
+}
+
+.recent-note-date {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   Component: Page List (Quartz Style)
+   ======================================== */
+
+.page-listing {
+    margin-top: 2rem;
+}
+
+.page-listing > p {
+    margin: 0 0 1rem 0;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+ul.section-ul {
+    list-style: none;
+    margin-top: 2rem;
+    padding-left: 0;
+}
+
+li.section-li {
+    margin-bottom: 1rem;
+}
+
+li.section-li > .section {
+    display: grid;
+    grid-template-columns: 8rem 3fr 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+li.section-li > .section > .meta {
+    margin: 0;
+    opacity: 0.6;
+    color: var(--gray);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+li.section-li > .section > .desc {
+    min-width: 0;
+}
+
+li.section-li > .section > .desc > h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: var(--semiBoldWeight);
+}
+
+li.section-li > .section > .desc > h3 > a {
+    background-color: transparent;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+li.section-li > .section > .desc > h3 > a:hover {
+    color: var(--secondary);
+}
+
+li.section-li > .section > .tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+li.section-li > .section > .tags > li {
+    margin: 0;
+}
+
+li.section-li > .section > .tags a.tag-link {
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.5rem;
+    background-color: var(--highlight);
+    color: var(--secondary);
+    font-size: 0.85rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+li.section-li > .section > .tags a.tag-link::before {
+    content: "#";
+}
+
+li.section-li > .section > .tags a.tag-link:hover {
+    background-color: var(--tertiary);
+    color: var(--light);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    li.section-li > .section {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    li.section-li > .section > .meta {
+        font-size: 0.85rem;
+    }
+    
+    li.section-li > .section > .tags {
+        justify-content: flex-start;
+    }
+}
+
+/* Tablet responsive */
+@media (max-width: 1024px) and (min-width: 769px) {
+    li.section-li > .section {
+        grid-template-columns: 6rem 2fr 1fr;
+    }
+}
+
+/* Popover context - hide tags */
+.popover .section {
+    grid-template-columns: 8rem 1fr !important;
+}
+
+.popover .section > .tags {
+    display: none;
+}
+
+/* ========================================
+   Component: Placeholder
+   ======================================== */
+
+.search-placeholder,
+.explorer-placeholder,
+.backlinks-placeholder,
+.graph-placeholder {
+    padding: 1rem;
+    background: var(--highlight);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.search-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    border: 1px solid var(--lightgray);
+    border-radius: 5px;
+    background: var(--light);
+    color: var(--darkgray);
+    font-family: var(--bodyFont);
+    cursor: not-allowed;
+}
+
+.search-icon {
+    position: absolute;
+    right: 0.75rem;
+    color: var(--gray);
+}
+
+.explorer-button,
+.placeholder-message {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.explorer-button {
+    background: none;
+    border: none;
+    cursor: not-allowed;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.explorer-button h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.graph-canvas-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+}
+
+/* ========================================
+   Shortcode: Callout
+   ======================================== */
+
+.callout {
+    border: 1px solid var(--lightgray);
+    background-color: var(--highlight);
+    border-radius: 5px;
+    padding: 0 1rem;
+    margin: 1rem 0;
+    overflow-y: hidden;
+}
+
+.callout-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    color: var(--secondary);
+    font-weight: var(--semiBoldWeight);
+}
+
+.callout-icon {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+
+.callout-content {
+    padding-bottom: 1rem;
+}
+
+.callout-content > *:first-child {
+    margin-top: 0;
+}
+
+.callout-content > *:last-child {
+    margin-bottom: 0;
+}
+
+.callout-note {
+    --callout-color: #448aff;
+    border-color: #448aff44;
+    background-color: #448aff10;
+}
+
+.callout-info {
+    --callout-color: #00b8d4;
+    border-color: #00b8d444;
+    background-color: #00b8d410;
+}
+
+.callout-warning {
+    --callout-color: #db8942;
+    border-color: #db894244;
+    background-color: #db894210;
+}
+
+.callout-error {
+    --callout-color: #db4242;
+    border-color: #db424244;
+    background-color: #db424210;
+}
+
+.callout-tip {
+    --callout-color: #00bfa5;
+    border-color: #00bfa544;
+    background-color: #00bfa510;
+}
+
+.callout-success {
+    --callout-color: #09ad7a;
+    border-color: #09ad7144;
+    background-color: #09ad7110;
+}
+
+.callout-note .callout-title,
+.callout-info .callout-title,
+.callout-warning .callout-title,
+.callout-error .callout-title,
+.callout-tip .callout-title,
+.callout-success .callout-title {
+    color: var(--callout-color);
+}
+
+.callout-fold summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.callout-fold summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ========================================
+   Shortcode: Details
+   ======================================== */
+
+.details-component {
+    border: 1px solid var(--lightgray);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+}
+
+.details-summary {
+    cursor: pointer;
+    font-weight: var(--semiBoldWeight);
+    color: var(--secondary);
+    padding: 0.5rem 0;
+    list-style: none;
+}
+
+.details-summary::-webkit-details-marker {
+    display: none;
+}
+
+.details-summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.details-component[open] .details-summary::before {
+    transform: rotate(90deg);
+}
+
+.details-content {
+    padding: 1rem 0 0.5rem 0;
+}
+
+.details-content > *:first-child {
+    margin-top: 0;
+}
+
+.details-content > *:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================
+   Tables
+   ======================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+th {
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 2px solid var(--gray);
+    font-weight: var(--semiBoldWeight);
+    color: var(--dark);
+}
+
+td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--lightgray);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* ========================================
+   Explorer Component
+   ======================================== */
+
+@media all and ((max-width: 800px)) {
+  .page > #quartz-body > :not(.sidebar.left:has(.explorer)) {
+    transition: transform 300ms ease-in-out;
+  }
+  .page > #quartz-body.lock-scroll > :not(.sidebar.left:has(.explorer)) {
+    transform: translateX(100dvw);
+    transition: transform 300ms ease-in-out;
+  }
+  .page > #quartz-body .sidebar.left:has(.explorer) {
+    box-sizing: border-box;
+    position: sticky;
+    background-color: var(--light);
+    padding: 1rem 0 1rem 0;
+    margin: 0;
+  }
+  .page > #quartz-body .hide-until-loaded ~ .explorer-content {
+    display: none;
+  }
+}
+
+.explorer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  min-height: 1.2rem;
+  flex: 0 1 auto;
+}
+
+.explorer.collapsed {
+  flex: 0 1 1.2rem;
+}
+
+.explorer.collapsed .fold {
+  transform: rotateZ(-90deg);
+}
+
+.explorer .fold {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+  opacity: 0.8;
+}
+
+@media all and ((max-width: 800px)) {
+  .explorer {
+    order: -1;
+    height: initial;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.explorer button.mobile-explorer {
+  display: none;
+}
+
+.explorer button.desktop-explorer {
+  display: flex;
+}
+
+@media all and ((max-width: 800px)) {
+  .explorer button.mobile-explorer {
+    display: flex;
+  }
+  .explorer button.desktop-explorer {
+    display: none;
+  }
+}
+
+@media all and not ((max-width: 800px)) {
+  .explorer.desktop-only {
+    display: flex;
+  }
+}
+
+.explorer svg {
+  pointer-events: all;
+  transition: transform 0.35s ease;
+}
+
+.explorer svg > polyline {
+  pointer-events: none;
+}
+
+button.mobile-explorer,
+button.desktop-explorer {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+}
+
+button.mobile-explorer h2,
+button.desktop-explorer h2 {
+  font-size: 1rem;
+  display: inline-block;
+  margin: 0;
+}
+
+.explorer-content {
+  list-style: none;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+}
+
+.explorer-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.explorer-content ul.explorer-ul {
+  overscroll-behavior: contain;
+}
+
+.explorer-content ul li > a {
+  color: var(--dark);
+  opacity: 0.75;
+  pointer-events: all;
+  text-decoration: none;
+}
+
+.explorer-content ul li > a:hover {
+  opacity: 1;
+  color: var(--secondary);
+}
+
+.explorer-content ul li > a.active {
+  opacity: 1;
+  color: var(--tertiary);
+  font-weight: var(--semiBoldWeight);
+}
+
+.explorer-content .folder-outer {
+  visibility: collapse;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition-property: grid-template-rows, visibility;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.explorer-content .folder-outer.open {
+  visibility: visible;
+  grid-template-rows: 1fr;
+}
+
+.explorer-content .folder-outer > ul {
+  overflow: hidden;
+  margin-left: 6px;
+  padding-left: 0.8rem;
+  border-left: 1px solid var(--lightgray);
+}
+
+.folder-container {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.folder-container div > a {
+  color: var(--secondary);
+  font-family: var(--headerFont);
+  font-size: 0.95rem;
+  font-weight: var(--semiBoldWeight);
+  line-height: 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.folder-container div > a:hover {
+  color: var(--tertiary);
+}
+
+.folder-container div > button {
+  color: var(--dark);
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  align-items: center;
+  font-family: var(--headerFont);
+}
+
+.folder-container div > button span {
+  font-size: 0.95rem;
+  display: inline-block;
+  color: var(--secondary);
+  font-weight: var(--semiBoldWeight);
+  margin: 0;
+  line-height: 1.5rem;
+  pointer-events: none;
+}
+
+.folder-container div > button:hover span {
+  color: var(--tertiary);
+}
+
+.folder-icon {
+  margin-right: 5px;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  backface-visibility: visible;
+  flex-shrink: 0;
+}
+
+li:has(> .folder-outer:not(.open)) > .folder-container > svg {
+  transform: rotate(-90deg);
+}
+
+.folder-icon:hover {
+  color: var(--tertiary);
+}
+
+@media all and ((max-width: 800px)) {
+  .explorer.collapsed {
+    flex: 0 0 34px;
+  }
+  
+  .explorer.collapsed > .explorer-content {
+    transform: translateX(-100vw);
+    visibility: hidden;
+  }
+  
+  .explorer:not(.collapsed) {
+    flex: 0 0 34px;
+  }
+  
+  .explorer:not(.collapsed) > .explorer-content {
+    transform: translateX(0);
+    visibility: visible;
+  }
+  
+  .explorer .explorer-content {
+    box-sizing: border-box;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 0;
+    background-color: var(--light);
+    max-width: 100vw;
+    width: 100vw;
+    transform: translateX(-100vw);
+    transition: transform 200ms ease, visibility 200ms ease;
+    overflow: hidden;
+    padding: 4rem 0 2rem 0;
+    height: 100dvh;
+    max-height: 100dvh;
+    visibility: hidden;
+  }
+  
+  .explorer .mobile-explorer {
+    margin: 0;
+    padding: 5px;
+    z-index: 101;
+  }
+  
+  .explorer .mobile-explorer .lucide-menu {
+    stroke: var(--darkgray);
+  }
+}
+
+@media all and ((max-width: 800px)) {
+  .mobile-no-scroll {
+    overflow: hidden;
+  }
+  
+  .mobile-no-scroll .explorer-content > .explorer-ul {
+    overscroll-behavior: contain;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+    .sidebar,
+    .page-header,
+    footer {
+        display: none;
+    }
+    
+    #quartz-body {
+        grid-template-columns: auto;
+        grid-template-areas: "grid-center";
+    }
+    
+    .center {
+        max-width: 100%;
+    }
+}
+
+
+/* ========================================
+   Popover Preview Styles
+   ======================================== */
+
+/* Popover animation */
+@keyframes dropin {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Popover container */
+.popover {
+  z-index: 999;
+  position: fixed;
+  overflow: visible;
+  padding: 1rem;
+  left: 0;
+  top: 0;
+  will-change: transform;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popover > .popover-inner {
+  position: relative;
+  width: 30rem;
+  max-height: 20rem;
+  padding: 0 1rem 1rem 1rem;
+  font-weight: initial;
+  font-style: initial;
+  line-height: normal;
+  font-size: initial;
+  font-family: var(--bodyFont);
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  box-shadow: 6px 6px 36px 0 rgba(0, 0, 0, 0.25);
+  overflow: auto;
+  overscroll-behavior: contain;
+  white-space: normal;
+  user-select: none;
+  cursor: default;
+}
+
+/* Active state */
+.active-popover,
+.popover:hover {
+  animation: dropin 0.3s ease;
+  animation-fill-mode: forwards;
+  animation-delay: 0.2s;
+}
+
+/* Popover heading size adjustment */
+.popover h1 {
+  font-size: 1.5rem;
+}
+
+.popover h2 {
+  font-size: 1.3rem;
+}
+
+.popover h3 {
+  font-size: 1.1rem;
+}
+
+/* Image and PDF content types */
+.popover-inner[data-content-type*="image"] {
+  padding: 0;
+  max-height: 100%;
+}
+
+.popover-inner[data-content-type*="image"] img {
+  margin: 0;
+  border-radius: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.popover-inner[data-content-type*="pdf"] {
+  padding: 0;
+  max-height: 100%;
+}
+
+.popover-inner[data-content-type*="pdf"] iframe {
+  width: 100%;
+  height: 20rem;
+  border: none;
+}
+
+/* Mobile: hide popover completely */
+@media (max-width: 1024px) {
+  .popover {
+    display: none !important;
+  }
+}
+
+/* Dark mode support - popover already uses CSS variables */
+[data-theme="dark"] .popover > .popover-inner {
+  box-shadow: 6px 6px 36px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================
+   Backlinks Component
+   Based on Quartz backlinks.scss
+   Source: quartz-src/quartz/components/styles/backlinks.scss
+   ======================================== */
+
+.backlinks {
+  display: flex;
+  flex-direction: column;
+}
+
+.backlinks > h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.backlinks > ul.overflow {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  max-height: calc(100% - 2rem);
+  overscroll-behavior: contain;
+  overflow-y: auto;
+}
+
+.backlinks > ul.overflow > li > a {
+  background-color: transparent;
+  display: block;
+  padding: 0.25rem 0;
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.backlinks > ul.overflow > li > a:hover {
+  background-color: var(--highlight);
+}
+
+/* Dark mode support */
+[data-theme="dark"] .backlinks > ul.overflow > li > a {
+  color: var(--darkgray);
+}
+
+/* Mobile: adjust spacing */
+@media (max-width: 1024px) {
+  .backlinks {
+    margin-top: 2rem;
+  }
+}
+/* Graph Component Styles - Compiled from Quartz SCSS */
+
+.graph {
+  display: flex;
+  flex-direction: column;
+}
+
+.graph > h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.graph > .graph-outer {
+  border-radius: 5px;
+  border: 1px solid var(--lightgray);
+  box-sizing: border-box;
+  height: 250px;
+  margin: 0.5em 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.graph > .graph-outer > .global-graph-icon {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--dark);
+  opacity: 0.5;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  padding: 0.2rem;
+  margin: 0.3rem;
+  top: 0;
+  right: 0;
+  border-radius: 4px;
+  background-color: transparent;
+  transition: background-color 0.5s ease;
+}
+
+.graph > .graph-outer > .global-graph-icon:hover {
+  background-color: var(--lightgray);
+  opacity: 1;
+}
+
+.graph > .global-graph-outer,
+body > .global-graph-outer {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  overflow: hidden;
+}
+
+.graph > .global-graph-outer.active,
+body > .global-graph-outer.active {
+  display: block;
+}
+
+.graph > .global-graph-outer > .global-graph-container,
+body > .global-graph-outer > .global-graph-container {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+  .graph > .global-graph-outer > .global-graph-container,
+  body > .global-graph-outer > .global-graph-container {
+    width: 90vw;
+    height: 70vh;
+  }
+}
+
+/* SVG styles */
+.graph svg {
+  width: 100%;
+  height: 100%;
+}
+
+.graph .links line {
+  stroke: var(--lightgray);
+  stroke-width: 1px;
+}
+
+.graph .nodes circle {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.graph .labels text {
+  font-family: var(--bodyFont);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .graph .labels text {
+  fill: var(--darkgray);
+}
+
+[data-theme="dark"] .graph > .global-graph-outer {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* ========================================
+   Flex Component - Matching Quartz Flex.tsx
+   ======================================== */
+.flex-component {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+/* ========================================
+   Reader Mode - Matching Quartz readermode.scss
+   ======================================== */
+.readermode {
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    background: none;
+    border: none;
+    width: 20px;
+    height: 32px;
+    margin: 0;
+    text-align: inherit;
+    flex-shrink: 0;
+}
+
+.readermode svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: calc(50% - 10px);
+    fill: var(--darkgray);
+    stroke: var(--darkgray);
+    transition: opacity 0.1s ease;
+}
+
+/* Reader mode active - hide sidebars */
+:root[reader-mode="on"] .sidebar.left,
+:root[reader-mode="on"] .sidebar.right {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+:root[reader-mode="on"] .sidebar.left:hover,
+:root[reader-mode="on"] .sidebar.right:hover {
+    opacity: 1;
+}
+
+/* Search box should grow to fill available space in flex container */
+.flex-component .search {
+    min-width: 0;  /* Allow shrinking below content size */
+    max-width: none;  /* Remove max-width restriction */
+}
+
+/* ========================================
+   Clipboard Button Styles
+   ======================================== */
+/* Source: quartz-src/quartz/components/styles/clipboard.scss */
+
+.clipboard-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  right: 0;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.clipboard-button > svg {
+  fill: var(--light);
+  filter: contrast(0.3);
+  display: block;
+}
+
+.clipboard-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+
+.clipboard-button:focus {
+  outline: 0;
+}
+
+/* Show button on hover */
+pre:hover > .clipboard-button {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .clipboard-button {
+  background-color: var(--dark);
+  border-color: var(--lightgray);
+}
+
+[data-theme="dark"] .clipboard-button > svg {
+  fill: var(--dark);
+}
+
+/* ========================================
+   KaTeX Styles
+   ======================================== */
+/* Source: quartz-src/quartz/styles/base.scss */
+
+/* Base math styling - applies to both inline and block */
+.math {
+  color: var(--darkgray);
+  overflow-wrap: break-word;
+}
+
+/* Inline math */
+.math-inline {
+  display: inline;
+}
+
+/* Block math (display mode) - add horizontal scrolling for long formulas */
+.math-display {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1em 0;
+  text-align: center;
+}
+
+/* After KaTeX renders, it adds .katex-display class */
+.katex-display {
+  display: initial;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Math error styling */
+.math-error {
+  color: var(--red, #dc2626);
+  background-color: rgba(220, 38, 38, 0.1);
+  padding: 0.25em 0.5em;
+  border-radius: 3px;
+  font-family: var(--codeFont);
+  font-size: 0.9em;
+}
+
+/* ========================================
+   Mermaid Diagram Styles
+   ======================================== */
+/* Source: quartz-src/quartz/components/styles/mermaid.inline.scss */
+
+/* Mermaid wrapper */
+.mermaid-wrapper {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Mermaid code blocks */
+code.mermaid {
+  display: block;
+  background: transparent;
+  padding: 1em;
+}
+
+/* After rendering, mermaid creates SVG */
+code.mermaid-rendered {
+  background: transparent;
+  padding: 0;
+}
+
+code.mermaid svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Expand button (matches clipboard button style) */
+.expand-button {
+  position: absolute;
+  display: flex;
+  float: right;
+  padding: 0.4rem;
+  margin: 0.3rem;
+  right: 0;
+  color: var(--gray);
+  border-color: var(--dark);
+  background-color: var(--light);
+  border: 1px solid;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.expand-button > svg {
+  fill: none;
+  stroke: var(--gray);
+  display: block;
+}
+
+.expand-button:hover {
+  cursor: pointer;
+  border-color: var(--secondary);
+}
+
+.expand-button:focus {
+  outline: 0;
+}
+
+/* Show expand button on hover */
+pre:hover > .expand-button {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* Dark mode support for expand button */
+[data-theme="dark"] .expand-button {
+  background-color: var(--dark);
+  border-color: var(--lightgray);
+}
+
+[data-theme="dark"] .expand-button > svg {
+  stroke: var(--lightgray);
+}
+
+/* Full-screen mermaid container */
+#mermaid-container {
+  position: fixed;
+  contain: layout;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: none;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#mermaid-container.active {
+  display: inline-block;
+}
+
+#mermaid-container > #mermaid-space {
+  border: 1px solid var(--lightgray);
+  background-color: var(--light);
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  overflow: hidden;
+}
+
+#mermaid-container > #mermaid-space > .mermaid-content {
+  position: relative;
+  transform-origin: 0 0;
+  transition: transform 0.1s ease;
+  overflow: visible;
+  min-height: 200px;
+  min-width: 200px;
+}
+
+#mermaid-container > #mermaid-space > .mermaid-content pre {
+  margin: 0;
+  border: none;
+}
+
+#mermaid-container > #mermaid-space > .mermaid-content svg {
+  max-width: none;
+  height: auto;
+}
+
+/* Control buttons */
+#mermaid-container > #mermaid-space > .mermaid-controls {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.mermaid-control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: var(--bodyFont);
+  transition: all 0.2s ease;
+}
+
+.mermaid-control-button:hover {
+  background: var(--lightgray);
+}
+
+.mermaid-control-button:active {
+  transform: translateY(1px);
+}
+
+/* Style the reset button differently */
+.mermaid-control-button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+  font-size: 14px;
+}
