@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/mdf/themes/resume-table/favicon.svg" >
+    <title>孙悟空</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "SimSun", Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.4;
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .main-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 0;
+            border: 1px solid #d9e1ef;
+        }
+
+        .main-table td {
+            border: 1px solid #d9e1ef;
+            padding: 8px 12px;
+            vertical-align: middle;
+            font-size: 14px;
+        }
+
+        .main-table .label {
+            background-color: #e8f4fd;
+            font-weight: bold;
+            width: 80px;
+            text-align: center;
+            color: #2c5aa0;
+        }
+
+        .main-table .value {
+            background-color: white;
+            width: 120px;
+        }
+
+        .avatar-cell {
+            
+            background: url('avatar.webp') no-repeat center/cover;
+            
+            text-align: center;
+            vertical-align: middle;
+            width: 95px;
+            height: 150px;
+            position: relative;
+            border: 1px solid #ddd;
+            color: transparent;
+            font-size: 0;
+        }
+
+        /* 打印样式 - 确保头像在打印时也能显示 */
+        @media print {
+            .avatar-cell {
+                
+                background: url('avatar.webp') no-repeat center/cover !important;
+                
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        .section-header {
+            background-color: #e8f4fd;
+            font-weight: bold;
+            text-align: center;
+            color: #2c5aa0;
+            width: 80px;
+        }
+
+        .section-content {
+            background-color: white;
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        .date-range {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .company-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .company-name {
+            font-weight: bold;
+        }
+
+        .position {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .section-content ul {
+            margin-left: 0;
+        }
+
+        .section-content ul li {
+            margin-bottom: 5px;
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .skill-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-name {
+            display: inline-block;
+            width: 80px;
+            text-align: left;
+        }
+
+        .skill-bar {
+            display: inline-block;
+            width: 100px;
+            height: 8px;
+            background-color: #e0e0e0;
+            margin: 0 10px;
+            position: relative;
+            vertical-align: middle;
+        }
+
+        .skill-bar.excellent::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 90%;
+            height: 100%;
+            background-color: #4a90e2;
+        }
+
+        .skill-bar.good::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 75%;
+            height: 100%;
+            background-color: #4a90e2;
+        }
+
+        .skill-bar.fair::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            background-color: #4a90e2;
+        }
+
+        .skill-bar.basic::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 45%;
+            height: 100%;
+            background-color: #4a90e2;
+        }
+
+        .skill-bar.beginner::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30%;
+            height: 100%;
+            background-color: #4a90e2;
+        }
+
+        .certificate-content {
+            line-height: 1.6;
+        }
+
+        .certificate-content ul li {
+            margin-bottom: 5px;
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- 整体表格 -->
+        <table class="main-table">
+            <!-- 个人信息部分 -->
+<tr>
+    <td class="label">姓 名</td>
+    <td class="value">孙悟空</td>
+    <td class="label">性 别</td>
+    <td class="value">男</td>
+    <td class="avatar-cell" rowspan="4">
+        图片
+    </td>
+</tr>
+<tr>
+    <td class="label">年 龄</td>
+    <td class="value">34岁</td>
+    <td class="label">籍 贯</td>
+    <td class="value">上海</td>
+</tr>
+<tr>
+    <td class="label">工作年限</td>
+    <td class="value">6年经验</td>
+    <td class="label">联系电话</td>
+    <td class="value">15388888885</td>
+</tr>
+<tr>
+    <td class="label">联系邮箱</td>
+    <td class="value">support@mdfriday.com</td>
+    <td class="label">求职岗位</td>
+    <td class="value">行政专员</td>
+</tr>
+
+            <p dir="auto"><!-- 通用信息部分 -->
+<tr>
+    <td class="section-header">教育经历</td>
+    <td class="section-content certificate-content" colspan="4"><ul>
+<li dir="auto"><strong>全民简历师范大学</strong>（2012-09 ~ 2016-07）<br>
+工商管理（本科）<br>
+<strong>专业成绩：</strong> GPA 3.66/4（专业前5%）<br>
+<strong>主修课程：</strong> 基础会计学、货币银行学、统计学、经济法概论、财务会计学、管理学原理、组织行为学、市场营销学、国际贸易理论、国际贸易实务、人力资源开发与管理、财务管理学、企业经营战略概论、质量管理学、西方经济学等。</li>
+</ul></td>
+</tr>
+</p>
+<p dir="auto"><!-- 通用信息部分 -->
+<tr>
+    <td class="section-header">工作经历</td>
+    <td class="section-content certificate-content" colspan="4"><ul>
+<li dir="auto">
+<p><strong>全民简历科技有限公司</strong>（2018-09 ~ 至今）<br>
+行政专员</p>
+<ul>
+<li dir="auto">拟定行政人事管理及日常事务方案，协助总监协调部门间工作，落实公司规章制度；</li>
+<li dir="auto">负责会议文件事项的催办、查办、督办；</li>
+<li dir="auto">负责组织架构与人员编制的统计与修订；</li>
+<li dir="auto">编制公司人事管理制度，规避人事风险。</li>
+</ul>
+</li>
+<li dir="auto">
+<p><strong>上海洋葱网络科技有限公司</strong>（2016-09 ~ 2018-08）<br>
+行政专员</p>
+<ul>
+<li dir="auto">负责中心财务及资产管理；</li>
+<li dir="auto">负责客户接待及公司介绍工作；</li>
+<li dir="auto">管理行政事务、班车调度、员工档案及前台工作；</li>
+<li dir="auto">负责招聘工作与人才储备；</li>
+<li dir="auto">督导公司行政与人事制度执行；</li>
+<li dir="auto">制定公司人力资源发展计划，确保人才梯队建设。</li>
+</ul>
+</li>
+</ul></td>
+</tr>
+</p>
+<p dir="auto"><!-- 通用信息部分 -->
+<tr>
+    <td class="section-header">项目经验</td>
+    <td class="section-content certificate-content" colspan="4"><ul>
+<li dir="auto"><strong>全民简历系统优化项目</strong>（2020.01 - 2020.06）：负责系统架构优化，提升系统性能30%；</li>
+<li dir="auto"><strong>员工培训管理系统</strong>（2019.03 - 2019.12）：参与需求分析与系统设计，协调多部门实施。</li>
+</ul></td>
+</tr>
+</p>
+<p dir="auto"><!-- 通用信息部分 -->
+<tr>
+    <td class="section-header">技能特长</td>
+    <td class="section-content certificate-content" colspan="4"><ul>
+<li dir="auto"><strong>语言能力：</strong> 大学英语6级证书，全国大学生英语竞赛一等奖，能熟练交流与读写。</li>
+<li dir="auto"><strong>计算机能力：</strong> 全国计算机二级证书，熟练操作 Word、Excel 等办公软件。</li>
+<li dir="auto"><strong>团队能力：</strong> 具备良好的组织协调与项目管理经验。</li>
+</ul>
+<br>
+<div class="skill-item">
+    <span class="skill-name">计算机</span>
+    <span class="skill-bar excellent"></span>
+    <span>精通</span>
+</div>
+<div class="skill-item">
+    <span class="skill-name">英语</span>
+    <span class="skill-bar good"></span>
+    <span>良好</span>
+</div>
+<div class="skill-item">
+    <span class="skill-name">日语</span>
+    <span class="skill-bar fair"></span>
+    <span>一般</span>
+</div>
+<div class="skill-item">
+    <span class="skill-name">法语</span>
+    <span class="skill-bar basic"></span>
+    <span>基础</span>
+</div>
+<div class="skill-item">
+    <span class="skill-name">德语</span>
+    <span class="skill-bar beginner"></span>
+    <span>入门</span>
+</div></td>
+</tr>
+</p>
+<p dir="auto"><!-- 通用信息部分 -->
+<tr>
+    <td class="section-header">荣誉证书</td>
+    <td class="section-content certificate-content" colspan="4"><ul>
+<li dir="auto">英语四级，听说读写能力良好，能流利使用英语交流；</li>
+<li dir="auto">全国计算机二级证书，熟练掌握常用办公软件。</li>
+</ul></td>
+</tr>
+</p>
+<p dir="auto"><!-- 通用信息部分 -->
+<tr>
+    <td class="section-header">兴趣爱好</td>
+    <td class="section-content certificate-content" colspan="4"><ul>
+<li dir="auto"><strong>阅读：</strong> 偏好管理与心理学类书籍，每年阅读20+本；</li>
+<li dir="auto"><strong>运动：</strong> 每周跑步3次，参加多次马拉松比赛；</li>
+<li dir="auto"><strong>摄影：</strong> 业余摄影师，擅长人像与风景拍摄。</li>
+</ul></td>
+</tr>
+</p>
+        </table>
+    </div>
+
+    
+</body>
+</html>
+</html>

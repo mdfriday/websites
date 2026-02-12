@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><title>
+
+
+  
+
+
+快速开始
+ | MDFriday Book</title>
+<link rel="icon" href="/mdf/themes/book/favicon.png" >
+<link rel="manifest" href="/mdf/themes/book/manifest.json">
+<link rel="canonical" href="/mdf/themes/book/mdf/themes/book/zh/posts/hugoisforlovers.html">
+  <link rel="alternate" hreflang="en" href="/mdf/themes/book/mdf/themes/book/posts/hugoisforlovers.html" title="
+
+
+  
+
+
+Getting Started with Hugo
+"><!-- Theme stylesheet, you can customize scss by creating `assets/custom.scss` in your website -->
+<link rel="stylesheet" href="/mdf/themes/book/book.min.css">
+  <script defer src="/mdf/themes/book/fuse.min.js"></script>
+  <script defer src="/mdf/themes/book/zh.search.min.98050c140e74.js" ></script>
+
+  
+
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/mdf/themes/book/zh/index.html"><span>MDFriday Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+  <!-- Merge home and current page translations -->
+
+
+
+  
+    
+  
+
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex">
+      <a role="button" class="flex flex-auto">
+        <img src="/mdf/themes/book/svg/translate.svg" class="book-icon" alt="Languages" />
+        中文
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/mdf/themes/book/posts/hugoisforlovers.html">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>
+
+
+  
+
+
+Posts
+</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/mdf/themes/book/zh/posts/creating-a-new-theme.html" class="">
+
+
+  
+
+
+新主题
+</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/mdf/themes/book/zh/posts/migrate-from-jekyll.html" class="">
+
+
+  
+
+
+Jekyll 迁移
+</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/mdf/themes/book/zh/posts/hugoisforlovers.html" class="active">
+
+
+  
+
+
+快速开始
+</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+</nav>
+
+<!-- Restore menu position as soon as possible to avoid flickering -->
+
+
+  <script>!function(){var o=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(e){localStorage.setItem("menu.scrollTop",o.scrollTop)}),o.scrollTop=localStorage.getItem("menu.scrollTop")}();</script>
+
+
+ <!-- Left menu Content -->
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/mdf/themes/book/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>
+
+
+  
+
+
+快速开始
+</h3>
+
+  <label for="toc-control">
+    
+    <img src="/mdf/themes/book/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+  <aside class="hidden clearfix">
+    
+  
+<nav class="table-of-contents">
+<ul>
+  <li>
+    <a href="#step-1-install-hugo">Step 1. Install Hugo</a>
+  </li>
+  <li>
+    <a href="#step-2-build-the-docs">Step 2. Build the Docs</a>
+  </li>
+  <li>
+    <a href="#step-3-change-the-docs-site">Step 3. Change the docs site</a>
+  </li>
+  <li>
+    <a href="#step-4-have-fun">Step 4. Have fun</a>
+  </li>
+</ul>
+
+</nav>
+
+
+
+  </aside>
+  
+ <!-- Mobile layout header -->
+      </header>
+
+      
+      
+<article class="markdown book-post">
+  <h1>
+    
+
+
+  
+
+
+快速开始
+
+  </h1>
+  
+
+
+  
+  <div class="text-small">
+    
+      <a href="/mdf/themes/book/zh/categories/development/index.html">Development</a>, 
+      <a href="/mdf/themes/book/zh/categories/golang/index.html">golang</a>
+  </div>
+  
+
+  
+  <div class="text-small">
+    
+      <a href="/mdf/themes/book/zh/tags/development/index.html">development</a>, 
+      <a href="/mdf/themes/book/zh/tags/go/index.html">go</a>, 
+      <a href="/mdf/themes/book/zh/tags/golang/index.html">golang</a>, 
+      <a href="/mdf/themes/book/zh/tags/hugo/index.html">hugo</a>
+  </div>
+  
+
+
+  <div class="book-post-content"><h2 data-heading="Step 1. Install Hugo" dir="auto" id="step-1-install-hugo">Step 1. Install Hugo</h2>
+<p dir="auto">Go to <a data-tooltip-position="top" aria-label="https://github.com/spf13/hugo/releases" rel="noopener nofollow" class="external-link" href="https://github.com/spf13/hugo/releases" target="_blank">Hugo releases</a> and download the<br>
+appropriate version for your OS and architecture.</p>
+<p dir="auto">Save it somewhere specific as we will be using it in the next step.</p>
+<p dir="auto">More complete instructions are available at <a data-tooltip-position="top" aria-label="https://gohugo.io/getting-started/installing/" rel="noopener nofollow" class="external-link" href="https://gohugo.io/getting-started/installing/" target="_blank">Install Hugo</a></p>
+<h2 data-heading="Step 2. Build the Docs" dir="auto" id="step-2-build-the-docs">Step 2. Build the Docs</h2>
+<p dir="auto">Hugo has its own example site which happens to also be the documentation site<br>
+you are reading right now.</p>
+<p dir="auto">Follow the following steps:</p>
+<ol>
+<li dir="auto">Clone the <a data-tooltip-position="top" aria-label="http://github.com/spf13/hugo" rel="noopener nofollow" class="external-link" href="http://github.com/spf13/hugo" target="_blank">Hugo repository</a></li>
+<li dir="auto">Go into the repo</li>
+<li dir="auto">Run hugo in server mode and build the docs</li>
+<li dir="auto">Open your browser to http://localhost:1313</li>
+</ol>
+<p dir="auto">Corresponding pseudo commands:</p>
+<pre><code>git clone https://github.com/spf13/hugo
+cd hugo
+/path/to/where/you/installed/hugo server --source=./docs
+&gt; 29 pages created
+&gt; 0 tags index created
+&gt; in 27 ms
+&gt; Web Server is available at http://localhost:1313
+&gt; Press ctrl+c to stop
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto">Once you've gotten here, follow along the rest of this page on your local build.</p>
+<h2 data-heading="Step 3. Change the docs site" dir="auto" id="step-3-change-the-docs-site">Step 3. Change the docs site</h2>
+<p dir="auto">Stop the Hugo process by hitting Ctrl+C.</p>
+<p dir="auto">Now we are going to run hugo again, but this time with hugo in watch mode.</p>
+<pre><code>/path/to/hugo/from/step/1/hugo server --source=./docs --watch
+&gt; 29 pages created
+&gt; 0 tags index created
+&gt; in 27 ms
+&gt; Web Server is available at http://localhost:1313
+&gt; Watching for changes in /Users/spf13/Code/hugo/docs/content
+&gt; Press ctrl+c to stop
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto">Open your <a data-tooltip-position="top" aria-label="http://vim.spf13.com" rel="noopener nofollow" class="external-link" href="http://vim.spf13.com" target="_blank">favorite editor</a> and change one of the source<br>
+content pages. How about changing this very file to <em>fix the typo</em>. How about changing this very file to <em>fix the typo</em>.</p>
+<p dir="auto">Content files are found in <code>docs/content/</code>. Unless otherwise specified, files<br>
+are located at the same relative location as the url, in our case<br>
+<code>docs/content/overview/quickstart.md</code>.</p>
+<p dir="auto">Change and save this file.. Notice what happened in your terminal.</p>
+<pre><code>&gt; Change detected, rebuilding site
+
+&gt; 29 pages created
+&gt; 0 tags index created
+&gt; in 26 ms
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto">Refresh the browser and observe that the typo is now fixed.</p>
+<p dir="auto">Notice how quick that was. Try to refresh the site before it's finished building. I double dare you.<br>
+Having nearly instant feedback enables you to have your creativity flow without waiting for long builds.</p>
+<h2 data-heading="Step 4. Have fun" dir="auto" id="step-4-have-fun">Step 4. Have fun</h2>
+<p dir="auto">The best way to learn something is to play with it.</p></div>
+</article>
+ <!-- Page Content -->
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>document.querySelectorAll("pre code").forEach(e=>{e.addEventListener("click",function(t){window.getSelection().toString()||(function(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}(e.parentElement),navigator.clipboard&&navigator.clipboard.writeText(e.parentElement.textContent))})});</script>
+
+
+ <!-- Footer under page content -->
+        
+      </footer>
+
+      
+
+ <!-- Comments block -->
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav class="table-of-contents">
+<ul>
+  <li>
+    <a href="#step-1-install-hugo">Step 1. Install Hugo</a>
+  </li>
+  <li>
+    <a href="#step-2-build-the-docs">Step 2. Build the Docs</a>
+  </li>
+  <li>
+    <a href="#step-3-change-the-docs-site">Step 3. Change the docs site</a>
+  </li>
+  <li>
+    <a href="#step-4-have-fun">Step 4. Have fun</a>
+  </li>
+</ul>
+
+</nav>
+
+
+ <!-- Table of Contents -->
+      </div>
+    </aside>
+    
+  </main>
+
+  
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

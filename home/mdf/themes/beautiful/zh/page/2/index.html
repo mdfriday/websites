@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<!-- Site Title, Description, Author, and Favicon -->
+<link rel="icon" href="/mdf/themes/beautiful/favicon.svg" >
+<title>
+
+
+  
+
+
+Home
+ | Beautiful MDFriday</title>
+<meta name="description" content="">
+<meta name="author" content="Sun Wei"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Beautiful MDFriday",
+    
+    "url": "/mdf/themes/beautiful"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "MDFriday Inc.",
+  "url": "/mdf/themes/beautiful",
+   "description": "MDFriday is a powerful Markdown editor and note-taking app.",
+   "vision": "Focus on creating, MDFriday makes your sites shine.",
+   "logo": "/mdf/themes/beautiful/images/logo.png",
+   "address": "Remote, Global",
+   "email": "team@mdfriday.org",
+}
+</script>
+
+<meta property="og:title" content="Home" />
+<meta property="og:description" content="This is the home page of the example site for the beautifulhugo theme.">
+<meta property="og:url" content="http://mdf/themes/beautiful/zh/mdf/themes/beautiful/zh/index.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Beautiful MDFriday" />
+
+  <meta name="twitter:title" content="Home" />
+  <meta name="twitter:description" content="This is the home page of the example site for the beautifulhugo theme.">
+  <meta name="twitter:card" content="summary_large_image" />
+<link rel="alternate" href="/mdf/themes/beautiful/index.xml" type="application/rss+xml" title="Beautiful MDFriday">
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/katex.min.css" />
+  <link rel="stylesheet" href="/mdf/themes/beautiful/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/main.css" />
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/fonts.css" />
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/highlight.min.css" />
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/codeblock.css" />
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/photoswipe.min.css" />
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/photoswipe.default-skin.min.css" /><!--
+If you want to include any custom html just before </head>, put it in /layouts/partials/head_custom.html
+Do not put anything in this file - it's only here so that hugo won't throw an error if /layouts/partials/head_custom.html doesn't exist.
+-->
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">切换导航</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/mdf/themes/beautiful/">Beautiful MDFriday</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+
+        
+        
+        <li>
+          <a title="Home" href="/mdf/themes/beautiful/zh/">Home</a>
+        </li>
+        
+        
+        
+        <li class="navlinks-container">
+          <a class="navlinks-parent" role="button" tabindex="0">Blog</a>
+          <div class="navlinks-children">
+            
+            <a href="/mdf/themes/beautiful/zh/posts/2015-01-04-first-post.html">Getting Started</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li>
+          <a title="关于我" href="/mdf/themes/beautiful/zh/about.html">关于我</a>
+        </li>
+        
+        
+        
+        <li>
+          <a title="Tags" href="/mdf/themes/beautiful/zh/tags">Tags</a>
+        </li>
+        
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/mdf/themes/beautiful/index.html">English</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a title="Beautiful MDFriday" href="/mdf/themes/beautiful/">
+          <img class="avatar-img" src=/mdf/themes/beautiful/logo.png alt="Beautiful MDFriday" />
+        </a>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Search Modal -->
+
+
+    <!--
+Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
+-->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- Background of PhotoSwipe.
+     It's a separate element, as animating opacity is faster than rgba(). -->
+<div class="pswp__bg"></div>
+<!-- Slides wrapper with overflow:hidden. -->
+<div class="pswp__scroll-wrap">
+    <!-- Container that holds slides.
+      PhotoSwipe keeps only 3 of them in DOM to save memory.
+      Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      <!--  Controls are self-explanatory. Order can be changed. -->
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+      <!-- element will get class pswp__preloader--active when preloader is running -->
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=3
+      
+         data-img-src-1="/mdf/themes/beautiful/img/triangle.jpg"
+      
+         data-img-src-2="/mdf/themes/beautiful/img/sphere.jpg"
+      
+         data-img-src-3="/mdf/themes/beautiful/img/hexagon.jpg"
+      ></div>
+  
+
+  <header class="header-section has-img">
+    
+      
+      <div class="intro-header big-img" style="background-image: url('img/triangle.jpg');">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="page-heading">
+                <h1>Home</h1>
+                  
+                    
+                      <hr class="small">
+                      <span class="page-subheading">Build a beautiful and simple website in minutes</span>
+                    
+                  
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              
+                <h1>Home</h1>
+              
+              
+                <hr class="small">
+              
+              
+                
+                  <span class="page-subheading">Build a beautiful and simple website in minutes</span>
+                
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+  <div role="main" class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+          <div class="well">
+            <h2 data-heading="Front Page 内容" dir="auto" id="front-page-内容">Front Page 内容</h2>
+<p dir="auto"><code>beautifulhugo</code> supports content on your front page. Edit <code>/content/_index.md</code> to change what appears here. Delete <code>/content/_index.md</code> if you don't want any content here.</p>
+          </div>
+        
+
+        <div class="posts-list">
+          
+          
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/zh/posts/2015-01-04-first-post.html">
+        <h2 class="post-title">First post!</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;发表于  1/5/2015
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;分钟
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;7&nbsp;个字
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">This is my first post, how exciting!</p>
+        <a href="/mdf/themes/beautiful/zh/posts/2015-01-04-first-post.html" class="post-read-more">[阅读全文]</a>
+        
+    </div>
+
+    
+    
+    
+
+</article>
+          
+        </div>
+
+        
+          <ul class="pager main-pager">
+            
+              <li class="previous">
+                <a href="/mdf/themes/beautiful/">&larr; 上一页</a>
+              </li>
+            
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+
+      
+
+<footer>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+            <li>
+              <a href="https://github.com/username" title="github">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://twitter.com/username" title="twitter">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://facebook.com/username" title="facebook">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+        </ul>
+        <p class="credits copyright text-muted">
+
+          
+            <a href="">Sun Wei</a>
+          &nbsp;&bull;&nbsp;
+          
+
+          &copy;2025
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="/mdf/themes/beautiful/">Beautiful MDFriday</a>
+          
+        </p>
+        <!-- Please don't remove this, keep my open source work credited :) -->
+        <p class="credits theme-by text-muted">
+          主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 移植自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/mdf/themes/beautiful/js/katex.min.js"></script>
+<script defer src="/mdf/themes/beautiful/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script src="/mdf/themes/beautiful/js/jquery-3.7.0.slim.min.js"></script>
+<script src="/mdf/themes/beautiful/js/bootstrap.min.js"></script>
+
+<script src="/mdf/themes/beautiful/js/main.js"></script>
+
+<script src="/mdf/themes/beautiful/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script>
+
+<script src="/mdf/themes/beautiful/js/photoswipe.min.js"></script>
+<script src="/mdf/themes/beautiful/js/photoswipe-ui-default.min.js"></script>
+
+<script src="/mdf/themes/beautiful/js/load-photoswipe.js"></script>
+
+
+  
+
+
+<!--
+If you want to include any custom html just before </body>, put it in /layouts/partials/footer_custom.html
+Do not put anything in this file - it's only here so that hugo won't throw an error if /layouts/partials/footer_custom.html doesn't exist.
+-->
+
+
+    
+  </body>
+</html>
+

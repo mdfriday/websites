@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><title>
+
+
+  
+
+
+Jekyll 迁移
+ | MDFriday Book</title>
+<link rel="icon" href="/mdf/themes/book/favicon.png" >
+<link rel="manifest" href="/mdf/themes/book/manifest.json">
+<link rel="canonical" href="/mdf/themes/book/mdf/themes/book/zh/posts/migrate-from-jekyll.html">
+  <link rel="alternate" hreflang="en" href="/mdf/themes/book/mdf/themes/book/posts/migrate-from-jekyll.html" title="
+
+
+  
+
+
+Migrate to Hugo from Jekyll
+"><!-- Theme stylesheet, you can customize scss by creating `assets/custom.scss` in your website -->
+<link rel="stylesheet" href="/mdf/themes/book/book.min.css">
+  <script defer src="/mdf/themes/book/fuse.min.js"></script>
+  <script defer src="/mdf/themes/book/zh.search.min.98050c140e74.js" ></script>
+
+  
+
+
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/mdf/themes/book/zh/index.html"><span>MDFriday Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+  <!-- Merge home and current page translations -->
+
+
+
+  
+    
+  
+
+
+  
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex">
+      <a role="button" class="flex flex-auto">
+        <img src="/mdf/themes/book/svg/translate.svg" class="book-icon" alt="Languages" />
+        中文
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="/mdf/themes/book/posts/migrate-from-jekyll.html">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>
+
+
+  
+
+
+Posts
+</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/mdf/themes/book/zh/posts/creating-a-new-theme.html" class="">
+
+
+  
+
+
+新主题
+</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/mdf/themes/book/zh/posts/migrate-from-jekyll.html" class="active">
+
+
+  
+
+
+Jekyll 迁移
+</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/mdf/themes/book/zh/posts/hugoisforlovers.html" class="">
+
+
+  
+
+
+快速开始
+</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+</nav>
+
+<!-- Restore menu position as soon as possible to avoid flickering -->
+
+
+  <script>!function(){var o=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(e){localStorage.setItem("menu.scrollTop",o.scrollTop)}),o.scrollTop=localStorage.getItem("menu.scrollTop")}();</script>
+
+
+ <!-- Left menu Content -->
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/mdf/themes/book/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>
+
+
+  
+
+
+Jekyll 迁移
+</h3>
+
+  <label for="toc-control">
+    
+    <img src="/mdf/themes/book/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+
+  <aside class="hidden clearfix">
+    
+  
+<nav class="table-of-contents">
+<ul>
+  <li>
+    <a href="#move-static-content-to-static">Move static content to `static`</a>
+  </li>
+  <li>
+    <a href="#create-your-hugo-configuration-file">Create your Hugo configuration file</a>
+  </li>
+  <li>
+    <a href="#set-your-configuration-publish-folder-to-_site">Set your configuration publish folder to `_site`</a>
+  </li>
+  <li>
+    <a href="#convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</a>
+  </li>
+  <li>
+    <a href="#convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</a>
+    <ul>
+      <li>
+        <a href="#implementation">Implementation</a>
+      </li>
+      <li>
+        <a href="#usage">Usage</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#finishing-touches">Finishing touches</a>
+    <ul>
+      <li>
+        <a href="#fix-content">Fix content</a>
+      </li>
+      <li>
+        <a href="#clean-up">Clean up</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#a-practical-example-in-a-diff">A practical example in a diff</a>
+  </li>
+</ul>
+
+</nav>
+
+
+
+  </aside>
+  
+ <!-- Mobile layout header -->
+      </header>
+
+      
+      
+<article class="markdown book-post">
+  <h1>
+    
+
+
+  
+
+
+Jekyll 迁移
+
+  </h1>
+  
+
+
+  
+  <div class="text-small">
+    
+      <a href="/mdf/themes/book/zh/categories/development/index.html">Development</a>
+  </div>
+  
+
+  
+  <div class="text-small">
+    
+      <a href="/mdf/themes/book/zh/tags/jekyll/index.html">Jekyll</a>
+  </div>
+  
+
+
+  <div class="book-post-content"><h2 data-heading="Move static content to `static`" dir="auto">Move static content to <code>static</code></h2>
+<p dir="auto">Jekyll has a rule that any directory not starting with <code>_</code> will be copied as-is to the <code>_site</code> output. Hugo keeps all static content under <code>static</code>. You should therefore move it all there.<br>
+With Jekyll, something that looked like</p>
+<pre><code>▾ &lt;root&gt;/
+    ▾ images/
+        logo.png
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto">should become</p>
+<pre><code>▾ &lt;root&gt;/
+    ▾ static/
+        ▾ images/
+            logo.png
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto">Additionally, you'll want any files that should reside at the root (such as <code>CNAME</code>) to be moved to <code>static</code>.</p>
+<h2 data-heading="Create your Hugo configuration file" dir="auto" id="create-your-hugo-configuration-file">Create your Hugo configuration file</h2>
+<p dir="auto">Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a class="internal-link" data-href="/overview/configuration/" href="/overview/configuration/" target="_blank" rel="noopener nofollow">Hugo configuration documentation</a> for details.</p>
+<h2 data-heading="Set your configuration publish folder to `_site`" dir="auto">Set your configuration publish folder to <code>_site</code></h2>
+<p dir="auto">The default is for Jekyll to publish to <code>_site</code> and for Hugo to publish to <code>public</code>. If, like me, you have <a data-tooltip-position="top" aria-label="http://blog.blindgaenger.net/generate_github_pages_in_a_submodule.html" rel="noopener nofollow" class="external-link" href="http://blog.blindgaenger.net/generate_github_pages_in_a_submodule.html" target="_blank"><code>_site</code> mapped to a git submodule on the <code>gh-pages</code> branch</a>, you'll want to do one of two alternatives:</p>
+<ol>
+<li dir="auto">
+<p>Change your submodule to point to map <code>gh-pages</code> to public instead of <code>_site</code> (recommended).</p>
+<pre><code>git submodule deinit _site
+git rm _site
+git submodule add -b gh-pages git@github.com:your-username/your-repo.git public
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</li>
+<li dir="auto">
+<p>Or, change the Hugo configuration to use <code>_site</code> instead of <code>public</code>.</p>
+<pre><code>{
+    ..
+    "publishdir": "_site",
+    ..
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</li>
+</ol>
+<h2 data-heading="Convert Jekyll templates to Hugo templates" dir="auto" id="convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</h2>
+<p dir="auto">That's the bulk of the work right here. The documentation is your friend. You should refer to <a data-tooltip-position="top" aria-label="http://jekyllrb.com/docs/templates/" rel="noopener nofollow" class="external-link" href="http://jekyllrb.com/docs/templates/" target="_blank">Jekyll's template documentation</a> if you need to refresh your memory on how you built your blog and <a class="internal-link" data-href="/layout/templates/" href="/layout/templates/" target="_blank" rel="noopener nofollow">Hugo's template</a> to learn Hugo's way.</p>
+<p dir="auto">As a single reference data point, converting my templates for <a data-tooltip-position="top" aria-label="http://heyitsalex.net/" rel="noopener nofollow" class="external-link" href="http://heyitsalex.net/" target="_blank">heyitsalex.net</a> took me no more than a few hours.</p>
+<h2 data-heading="Convert Jekyll plugins to Hugo shortcodes" dir="auto" id="convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</h2>
+<p dir="auto">Jekyll has <a data-tooltip-position="top" aria-label="http://jekyllrb.com/docs/plugins/" rel="noopener nofollow" class="external-link" href="http://jekyllrb.com/docs/plugins/" target="_blank">plugins</a>; Hugo has <a class="internal-link" data-href="/doc/shortcodes/" href="/doc/shortcodes/" target="_blank" rel="noopener nofollow">shortcodes</a>. It's fairly trivial to do a port.</p>
+<h3 data-heading="Implementation" dir="auto" id="implementation">Implementation</h3>
+<p dir="auto">As an example, I was using a custom <a data-tooltip-position="top" aria-label="https://github.com/alexandre-normand/alexandre-normand/blob/74bb12036a71334fdb7dba84e073382fc06908ec/_plugins/image_tag.rb" rel="noopener nofollow" class="external-link" href="https://github.com/alexandre-normand/alexandre-normand/blob/74bb12036a71334fdb7dba84e073382fc06908ec/_plugins/image_tag.rb" target="_blank"><code>image_tag</code></a> plugin to generate figures with caption when running Jekyll. As I read about shortcodes, I found Hugo had a nice built-in shortcode that does exactly the same thing.</p>
+<p dir="auto">Jekyll's plugin:</p>
+<pre><code>module Jekyll
+  class ImageTag &lt; Liquid::Tag
+    @url = nil
+    @caption = nil
+    @class = nil
+    @link = nil
+    // Patterns
+    IMAGE_URL_WITH_CLASS_AND_CAPTION =
+    IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK = /(\w+)(\s+)((https?:\/\/|\/)(\S+))(\s+)"(.*?)"(\s+)-&gt;((https?:\/\/|\/)(\S+))(\s*)/i
+    IMAGE_URL_WITH_CAPTION = /((https?:\/\/|\/)(\S+))(\s+)"(.*?)"/i
+    IMAGE_URL_WITH_CLASS = /(\w+)(\s+)((https?:\/\/|\/)(\S+))/i
+    IMAGE_URL = /((https?:\/\/|\/)(\S+))/i
+    def initialize(tag_name, markup, tokens)
+      super
+      if markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK
+        @class   = $1
+        @url     = $3
+        @caption = $7
+        @link = $9
+      elsif markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION
+        @class   = $1
+        @url     = $3
+        @caption = $7
+      elsif markup =~ IMAGE_URL_WITH_CAPTION
+        @url     = $1
+        @caption = $5
+      elsif markup =~ IMAGE_URL_WITH_CLASS
+        @class = $1
+        @url   = $3
+      elsif markup =~ IMAGE_URL
+        @url = $1
+      end
+    end
+    def render(context)
+      if @class
+        source = "&lt;figure class='#{@class}'&gt;"
+      else
+        source = "&lt;figure&gt;"
+      end
+      if @link
+        source += "&lt;a href=\"#{@link}\"&gt;"
+      end
+      source += "&lt;img src=\"#{@url}\"&gt;"
+      if @link
+        source += "&lt;/a&gt;"
+      end
+      source += "&lt;figcaption&gt;#{@caption}&lt;/figcaption&gt;" if @caption
+      source += "&lt;/figure&gt;"
+      source
+    end
+  end
+end
+Liquid::Template.register_tag('image', Jekyll::ImageTag)
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto">is written as this Hugo shortcode:</p>
+<pre><code>&lt;!-- image --&gt;
+&lt;figure {{ with .Get "class" }}class="{{.}}"{{ end }}&gt;
+    {{ with .Get "link"}}&lt;a href="{{.}}"&gt;{{ end }}
+        &lt;img src="{{ .Get "src" }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} /&gt;
+    {{ if .Get "link"}}&lt;/a&gt;{{ end }}
+    {{ if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
+    &lt;figcaption&gt;{{ if isset .Params "title" }}
+        {{ .Get "title" }}{{ end }}
+        {{ if or (.Get "caption") (.Get "attr")}}&lt;p&gt;
+        {{ .Get "caption" }}
+        {{ with .Get "attrlink"}}&lt;a href="{{.}}"&gt; {{ end }}
+            {{ .Get "attr" }}
+        {{ if .Get "attrlink"}}&lt;/a&gt; {{ end }}
+        &lt;/p&gt; {{ end }}
+    &lt;/figcaption&gt;
+    {{ end }}
+&lt;/figure&gt;
+&lt;!-- image --&gt;
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<h3 data-heading="Usage" dir="auto" id="usage">Usage</h3>
+<p dir="auto">I simply changed:</p>
+<pre><code>{% image full http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg "One of my favorite touristy-type photos. I secretly waited for the good light while we were "having fun" and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing." -&gt;http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/ %}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto">to this (this example uses a slightly extended version named <code>fig</code>, different than the built-in <code>figure</code>):</p>
+<pre><code>{{% fig class="full" src="http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg" title="One of my favorite touristy-type photos. I secretly waited for the good light while we were having fun and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing." link="http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/" %}}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto">As a bonus, the shortcode named parameters are, arguably, more readable.</p>
+<h2 data-heading="Finishing touches" dir="auto" id="finishing-touches">Finishing touches</h2>
+<h3 data-heading="Fix content" dir="auto" id="fix-content">Fix content</h3>
+<p dir="auto">Depending on the amount of customization that was done with each post with Jekyll, this step will require more or less effort. There are no hard and fast rules here except that <code>hugo server --watch</code> is your friend. Test your changes and fix errors as needed.</p>
+<h3 data-heading="Clean up" dir="auto" id="clean-up">Clean up</h3>
+<p dir="auto">You'll want to remove the Jekyll configuration at this point. If you have anything else that isn't used, delete it.</p>
+<h2 data-heading="A practical example in a diff" dir="auto" id="a-practical-example-in-a-diff">A practical example in a diff</h2>
+<p dir="auto"><a data-tooltip-position="top" aria-label="http://heyitsalex.net/" rel="noopener nofollow" class="external-link" href="http://heyitsalex.net/" target="_blank">Hey, it's Alex</a> was migrated in less than a <em>father-with-kids day</em> from Jekyll to Hugo. You can see all the changes (and screw-ups) by looking at this <a data-tooltip-position="top" aria-label="https://github.com/alexandre-normand/alexandre-normand/compare/869d69435bd2665c3fbf5b5c78d4c22759d7613a...b7f6605b1265e83b4b81495423294208cc74d610" rel="noopener nofollow" class="external-link" href="https://github.com/alexandre-normand/alexandre-normand/compare/869d69435bd2665c3fbf5b5c78d4c22759d7613a...b7f6605b1265e83b4b81495423294208cc74d610" target="_blank">diff</a>.</p></div>
+</article>
+ <!-- Page Content -->
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>document.querySelectorAll("pre code").forEach(e=>{e.addEventListener("click",function(t){window.getSelection().toString()||(function(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}(e.parentElement),navigator.clipboard&&navigator.clipboard.writeText(e.parentElement.textContent))})});</script>
+
+
+ <!-- Footer under page content -->
+        
+      </footer>
+
+      
+
+ <!-- Comments block -->
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav class="table-of-contents">
+<ul>
+  <li>
+    <a href="#move-static-content-to-static">Move static content to `static`</a>
+  </li>
+  <li>
+    <a href="#create-your-hugo-configuration-file">Create your Hugo configuration file</a>
+  </li>
+  <li>
+    <a href="#set-your-configuration-publish-folder-to-_site">Set your configuration publish folder to `_site`</a>
+  </li>
+  <li>
+    <a href="#convert-jekyll-templates-to-hugo-templates">Convert Jekyll templates to Hugo templates</a>
+  </li>
+  <li>
+    <a href="#convert-jekyll-plugins-to-hugo-shortcodes">Convert Jekyll plugins to Hugo shortcodes</a>
+    <ul>
+      <li>
+        <a href="#implementation">Implementation</a>
+      </li>
+      <li>
+        <a href="#usage">Usage</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#finishing-touches">Finishing touches</a>
+    <ul>
+      <li>
+        <a href="#fix-content">Fix content</a>
+      </li>
+      <li>
+        <a href="#clean-up">Clean up</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#a-practical-example-in-a-diff">A practical example in a diff</a>
+  </li>
+</ul>
+
+</nav>
+
+
+ <!-- Table of Contents -->
+      </div>
+    </aside>
+    
+  </main>
+
+  
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

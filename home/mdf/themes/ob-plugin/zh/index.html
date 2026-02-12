@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Plugin</title>
+    <meta name="description" content="">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Obsidian Plugin">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="/mdf/themes/ob-plugin">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="640">
+    <meta property="og:url" content="/mdf/themes/ob-plugin/mdf/themes/ob-plugin/zh/index.html">
+    <meta property="og:type" content="website"><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Obsidian Plugin",
+    
+    "url": "/mdf/themes/ob-plugin"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "Notebook Navigator",
+  "url": "/mdf/themes/ob-plugin",
+   "description": "Obsidian 现代文件资源管理器",
+   "vision": "让 Obsidian 导航变得直观而强大",
+   "logo": "/mdf/themes/ob-plugin/images/favicon.svg",
+   "address": "全球远程",
+   "email": "hello@notebooknavigator.com",
+}
+</script>
+
+<meta property="og:title" content="Notebook Navigator - Obsidian 现代文件资源管理器" />
+<meta property="og:description" content="通过双窗格导航、丰富预览和强大的组织功能，改变您的 Obsidian 工作流程。">
+<meta property="og:url" content="/mdf/themes/ob-plugin/zh/index.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Obsidian Plugin" />
+
+  <meta name="twitter:title" content="Notebook Navigator - Obsidian 现代文件资源管理器" />
+  <meta name="twitter:description" content="通过双窗格导航、丰富预览和强大的组织功能，改变您的 Obsidian 工作流程。">
+  <meta name="twitter:card" content="summary_large_image" />
+
+
+    <!-- Language alternate links for SEO -->
+    
+    <link rel="alternate" hreflang="en" href="/mdf/themes/ob-pluginen/">
+    
+    <link rel="alternate" hreflang="zh" href="/mdf/themes/ob-plugin">
+    
+    <link rel="alternate" hreflang="x-default" href="/mdf/themes/ob-plugin">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Critical inline styles to prevent FOUC -->
+    <style>
+        body {
+            background-color: #0a0a0b;
+            color: #fafafa;
+            margin: 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .nav-logo {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+
+    <!-- Initialize theme before render -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
+
+    <link rel="stylesheet" href="/mdf/themes/ob-plugin/main.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/mdf/themes/ob-plugin/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/mdf/themes/ob-plugin/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/mdf/themes/ob-plugin/apple-touch-icon.png">
+
+    <!-- Additional for better browser support -->
+    <meta name="msapplication-TileColor" content="#7c3aed">
+</head>
+<body>
+    <!-- Navigation -->
+
+
+
+
+
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="nav-brand">
+                <img src="/mdf/themes/ob-plugin/logo.svg" alt="Obsidian Plugin" class="nav-logo">
+                <span class="nav-title">Obsidian Plugin</span>
+            </div>
+            <ul class="nav-links">
+                
+                <li>
+                    
+                    <a href="/mdf/themes/ob-plugin/zh/index.html"
+                       >
+                        
+                            首页
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="/mdf/themes/ob-plugin/zh/docs.html"
+                       >
+                        
+                            文档
+                        
+                    </a>
+                </li>
+                
+                <li>
+                    
+                    <a href="/mdf/themes/ob-plugin/#support"
+                       class="nav-support">
+                        
+                            <span>支持</span>
+                            <span class="heart">♥</span>
+                        
+                    </a>
+                </li>
+                
+            </ul>
+            <div class="nav-actions">
+
+                <!-- Language Selector -->
+                
+                <div class="language-selector">
+                    <button class="language-dropdown-toggle" aria-label="更改语言" aria-expanded="false">
+                        <svg class="language-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <span class="current-language">ZH</span>
+                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+
+                    <div class="language-dropdown-menu" aria-hidden="true">
+                        
+                        <a href="/mdf/themes/ob-plugin/index.html">
+                        <button data-lang="en">
+                            English
+                        </button>
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                
+                <!-- GitHub Link -->
+                
+                <a href="https://github.com/johansan/notebook-navigator" class="btn-github" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                    </svg>
+                    <span>在 GitHub 上点星</span>
+                    <span class="star-count" id="github-stars"> ... </span>
+                </a>
+                
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" aria-label="切换主题">
+                    <svg class="theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="nav-toggle" aria-label="切换导航">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+    
+    <main>
+        
+<p dir="auto">
+
+
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-background">
+        <div class="hero-gradient"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title"><span class="text-gradient">Obsidian</span> 现代文件资源管理器</h1>
+            <p class="hero-subtitle">完整键盘导航。双窗格布局。移动端优化。支持 100,000+ 笔记。永久免费。</p>
+            <div class="hero-actions" id="hero-actions">
+                <!-- Actions will be added by hero-action shortcodes -->
+            </div>
+            <div class="hero-stats" id="hero-stats">
+                <!-- Stats will be added by hero-stat shortcodes -->
+            </div>
+        </div>
+        
+        <!-- Hero visual for desktop - shows next to content -->
+        <div class="hero-visual hero-visual-desktop">
+            <img src="/mdf/themes/ob-plugin/hero-preview.png" alt="Notebook Navigator - Obsidian 现代文件资源管理器 Interface" class="hero-image" loading="lazy">
+        </div>
+        
+    </div>
+</section>
+
+<!-- Process inner content -->
+
+
+
+
+
+
+
+<div class="hero-action-item">
+    <a href="obsidian://show-plugin?id=notebook-navigator" class="btn btn-primary">
+        
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            
+
+
+
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" y1="15" x2="12" y2="3"></line>
+
+
+        </svg>
+        
+        <span>在 Obsidian 中安装</span>
+    </a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const actionsContainer = document.getElementById('hero-actions');
+    const actionItem = document.querySelector('.hero-action-item');
+    if (actionsContainer && actionItem) {
+        actionsContainer.appendChild(actionItem.firstElementChild.cloneNode(true));
+        actionItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+
+<div class="hero-action-item">
+    <a href="/mdf/themes/ob-plugin/docs.html" class="btn btn-secondary">
+        
+        <span>查看文档</span>
+    </a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const actionsContainer = document.getElementById('hero-actions');
+    const actionItem = document.querySelector('.hero-action-item');
+    if (actionsContainer && actionItem) {
+        actionsContainer.appendChild(actionItem.firstElementChild.cloneNode(true));
+        actionItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="hero-stat-item">
+    <div class="stat">
+        <span class="stat-value">免费</span>
+        <span class="stat-label">开源软件</span>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const statsContainer = document.getElementById('hero-stats');
+    const statItem = document.querySelector('.hero-stat-item');
+    if (statsContainer && statItem) {
+        // Add divider if not first stat
+        if (statsContainer.children.length > 0) {
+            const divider = document.createElement('div');
+            divider.className = 'stat-divider';
+            statsContainer.appendChild(divider);
+        }
+        
+        statsContainer.appendChild(statItem.firstElementChild.cloneNode(true));
+        statItem.remove();
+    }
+});
+</script>
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const heroStats = document.getElementById('hero-stats');
+    if (heroStats) {
+        // Add divider if not first stat
+        if (heroStats.children.length > 0) {
+            const divider = document.createElement('div');
+            divider.className = 'stat-divider';
+            heroStats.appendChild(divider);
+        }
+        
+        const stat = document.createElement('div');
+        stat.className = 'stat';
+        
+        const value = document.createElement('span');
+        value.className = 'stat-value';
+        value.id = 'obsidian-downloads';
+        value.textContent = '51k'; // Initial fallback value
+        
+        const label = document.createElement('span');
+        label.className = 'stat-label';
+        label.textContent = '下载量';
+        
+        stat.appendChild(value);
+        stat.appendChild(label);
+        heroStats.appendChild(stat);
+        
+        // Fetch Obsidian download stats (based on source implementation)
+        fetchObsidianDownloads();
+    }
+});
+
+async function fetchObsidianDownloads() {
+    try {
+        const response = await fetch('https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-plugin-stats.json');
+        const data = await response.json();
+        const downloads = data['notebook-navigator']?.downloads;
+        
+        if (downloads) {
+            const formattedDownloads = formatNumber(downloads);
+            const downloadElement = document.getElementById('obsidian-downloads');
+            if (downloadElement) {
+                downloadElement.textContent = formattedDownloads;
+            }
+            
+            // Also update any other elements with these IDs (for compatibility)
+            const otherElements = document.querySelectorAll('#download-count, #badge-downloads');
+            otherElements.forEach(el => {
+                if (el) el.textContent = formattedDownloads;
+            });
+            
+            console.log('Obsidian downloads loaded successfully:', downloads);
+        }
+    } catch (error) {
+        console.log('Failed to load Obsidian downloads:', error);
+        // Keep fallback value
+    }
+}
+
+function formatNumber(num) {
+    if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M';
+    } else if (num >= 1000) {
+        return (num / 1000).toFixed(num >= 10000 ? 0 : 1) + 'k';
+    }
+    return num.toString();
+}
+</script>
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const heroStats = document.getElementById('hero-stats');
+    if (heroStats) {
+        // Add divider if not first stat
+        if (heroStats.children.length > 0) {
+            const divider = document.createElement('div');
+            divider.className = 'stat-divider';
+            heroStats.appendChild(divider);
+        }
+        
+        const stat = document.createElement('div');
+        stat.className = 'stat';
+        
+        const value = document.createElement('span');
+        value.className = 'stat-value';
+        value.id = 'github-stars-count';
+        value.textContent = '431'; // Initial fallback value
+        
+        const label = document.createElement('span');
+        label.className = 'stat-label';
+        label.textContent = 'GitHub 星标';
+        
+        stat.appendChild(value);
+        stat.appendChild(label);
+        heroStats.appendChild(stat);
+        
+        // Fetch GitHub stars (based on source implementation)
+        fetchGitHubStars();
+    }
+});
+
+async function fetchGitHubStars() {
+    try {
+        const response = await fetch('https://api.github.com/repos/johansan/notebook-navigator');
+        const data = await response.json();
+        const stars = data.stargazers_count;
+        
+        if (stars) {
+            const formattedStars = formatNumber(stars);
+            const starsElement = document.getElementById('github-stars-count');
+            if (starsElement) {
+                starsElement.setAttribute('data-value', formattedStars);
+                starsElement.textContent = formattedStars;
+            }
+            
+            // Also update any other elements with these IDs (for compatibility)
+            const otherElements = document.querySelectorAll('#star-count, #github-stars');
+            otherElements.forEach(el => {
+                if (el) {
+                    el.textContent = stars > 999 ? (stars / 1000).toFixed(1) + 'k' : stars.toString();
+                }
+            });
+            
+            console.log('GitHub stars loaded successfully:', stars);
+        }
+    } catch (error) {
+        console.log('Failed to load GitHub stars:', error);
+        // Keep fallback value
+    }
+}
+
+function formatNumber(num) {
+    if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M';
+    } else if (num >= 1000) {
+        return (num / 1000).toFixed(num >= 10000 ? 0 : 1) + 'k';
+    }
+    return num.toString();
+}
+</script>
+
+
+</p>
+<p dir="auto">
+
+
+
+
+<!-- Releases Section -->
+<section id="releases" class="releases" data-section="releases">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">最新更新</span>
+            <h2 class="section-title">最新版本</h2>
+            <p class="section-subtitle">如果您有改进建议，请在我们的 GitHub 上提交问题</p>
+        </div>
+        <div class="releases-timeline">
+            <div class="timeline-line"></div>
+            <div class="release-card visible">
+                <div class="release-content">
+                    <p dir="auto">在 <a data-tooltip-position="top" aria-label="https://github.com/johansan/notebook-navigator/releases" rel="noopener nofollow" class="external-link" href="https://github.com/johansan/notebook-navigator/releases" target="_blank">GitHub</a> 上查看最新版本</p>
+                </div>
+            </div>
+        </div>
+        <div class="releases-footer">
+            <a href="https://github.com/johansan/notebook-navigator/releases" class="btn-view-all" target="_blank" rel="noopener">
+                <span>查看完整更新日志</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 7h10v10"></path>
+                    <path d="M7 17L17 7"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for dynamic release loading (based on source implementation) -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    loadLatestRelease();
+});
+
+let cachedRelease = null;
+
+async function loadLatestRelease() {
+    try {
+        if (!cachedRelease) {
+            const response = await fetch('https://api.github.com/repos/johansan/notebook-navigator/releases?per_page=1');
+            const releases = await response.json();
+            
+            if (!releases || releases.length === 0) {
+                return; // Keep fallback content
+            }
+            
+            cachedRelease = releases[0];
+        }
+        
+        const timeline = document.querySelector('#releases .releases-timeline');
+        if (!timeline) return;
+        
+        // Clear existing content
+        timeline.innerHTML = '';
+        
+        // Create release card based on source implementation
+        const releaseCard = createReleaseCard(cachedRelease);
+        timeline.appendChild(releaseCard);
+        
+    } catch (error) {
+        console.log('Failed to load latest release:', error);
+        // Keep fallback content - do nothing
+    }
+}
+
+function createReleaseCard(release) {
+    const card = document.createElement('div');
+    card.className = 'release-card';
+    
+    const publishedDate = new Date(release.published_at);
+    const daysAgo = Math.floor((Date.now() - publishedDate) / (1000 * 60 * 60 * 24));
+    const isNew = daysAgo < 7;
+    
+    let dateText;
+    if (daysAgo === 0) {
+        dateText = 'Today';
+    } else if (daysAgo === 1) {
+        dateText = 'Yesterday';
+    } else if (daysAgo < 7) {
+        dateText = daysAgo + ' days ago';
+    } else if (daysAgo < 30) {
+        const weeksAgo = Math.floor(daysAgo / 7);
+        dateText = weeksAgo + ' week' + (weeksAgo > 1 ? 's' : '') + ' ago';
+    } else if (daysAgo < 365) {
+        const monthsAgo = Math.floor(daysAgo / 30);
+        dateText = monthsAgo + ' month' + (monthsAgo > 1 ? 's' : '') + ' ago';
+    } else {
+        const yearsAgo = Math.floor(daysAgo / 365);
+        dateText = yearsAgo + ' year' + (yearsAgo > 1 ? 's' : '') + ' ago';
+    }
+    
+    let body = release.body || '';
+    
+    // Remove version number from start of body (like source does)
+    const versionRegex = new RegExp('^' + release.tag_name.replace('v', '') + '\\s*\\n+', 'i');
+    body = body.replace(versionRegex, '');
+    
+    const hasBreaking = body.toLowerCase().includes('breaking');
+    
+    // Convert markdown to HTML (simplified version from source)
+    let bodyHtml = body
+        .replace(/^### (.+)$/gm, '<h4>$1</h4>')
+        .replace(/^## (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^# (.+)$/gm, '<h2>$1</h2>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/^\* (.+)$/gm, '<li>$1</li>')
+        .replace(/^- (.+)$/gm, '<li>$1</li>')
+        .replace(/(<li>.*<\/li>\s*)+/g, match => '<ul>' + match + '</ul>')
+        .replace(/\n\n+/g, '</p><p>')
+        .replace(/\n/g, ' ');
+    
+    if (!bodyHtml.startsWith('<')) {
+        bodyHtml = '<p>' + bodyHtml + '</p>';
+    }
+    
+    card.innerHTML = `
+        <div class="release-content">
+            <div class="release-header">
+                ${isNew ? '<span class="badge-new">NEW!</span>' : ''}
+                ${hasBreaking ? '<span class="badge-breaking">BREAKING CHANGES</span>' : ''}
+                <span class="release-version">${release.tag_name}</span>
+                <span class="release-date">${dateText}</span>
+            </div>
+            <div class="release-notes-content">
+                ${bodyHtml}
+            </div>
+            <div class="release-actions">
+                <a href="${release.html_url}" class="btn-release-notes" target="_blank" rel="noopener">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 7h10v10" />
+                        <path d="M7 17L17 7" />
+                    </svg>
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+</script></p>
+<p dir="auto">
+
+
+
+
+<!-- Features Section -->
+<section id="features" class="features">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">功能特性</span>
+            <h2 class="section-title">终于，让 Obsidian 有了家的感觉</h2>
+            <p class="section-subtitle">Apple Notes 的速度。Bear 的美观。Evernote 的效率。Obsidian 的可扩展性。</p>
+        </div>
+
+        <!-- Preview Image Section -->
+        <div class="preview-visual">
+            <img src="/mdf/themes/ob-plugin/hero-preview.png" alt="Notebook Navigator - Obsidian 现代文件资源管理器 Interface" class="hero-image" loading="lazy">
+        </div>
+
+        <div class="feature-grid" id="feature-grid">
+            <!-- Features will be added by feature shortcodes -->
+        </div>
+    </div>
+</section>
+
+<!-- Process inner content -->
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+<line x1="8" y1="21" x2="16" y2="21"></line>
+<line x1="12" y1="17" x2="12" y2="21"></line>
+
+
+            </svg>
+        </div>
+        
+        <h3>键盘导航</h3>
+        <p>
+方向键、Tab 键切换窗格、Page Up/Down、Home/End。Shift+↑/↓ 扩展选择。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<rect x="3" y="3" width="7" height="7" rx="1"></rect>
+<rect x="14" y="3" width="7" height="7" rx="1"></rect>
+<rect x="3" y="14" width="7" height="7" rx="1"></rect>
+<rect x="14" y="14" width="7" height="7" rx="1"></rect>
+
+
+            </svg>
+        </div>
+        
+        <h3>双窗格布局</h3>
+        <p>
+左侧导航，右侧文件。可调整分隔线。自动显示活动文件。面包屑导航。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+
+
+            </svg>
+        </div>
+        
+        <h3>固定和整理</h3>
+        <p>
+将笔记固定到顶部。带可点击链接的文件夹笔记。自定义 Lucide 图标、表情符号和颜色。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+<line x1="7" y1="7" x2="7.01" y2="7"></line>
+
+
+            </svg>
+        </div>
+        
+        <h3>分层标签</h3>
+        <p>
+父子标签树。拖拽添加标签或移至未标记。收藏标签区域。按层级隐藏标签。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+<line x1="9" y1="9" x2="15" y2="9"></line>
+<line x1="9" y1="15" x2="15" y2="15"></line>
+
+
+            </svg>
+        </div>
+        
+        <h3>丰富预览</h3>
+        <p>
+1-5 行预览。来自 frontmatter 的特色图片。日期分组。可点击标签。每个文件夹自定义。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+
+
+            </svg>
+        </div>
+        
+        <h3>闪电般快速</h3>
+        <p>
+支持 100,000+ 笔记。React + TanStack Virtual。IndexedDB + RAM 缓存。批处理引擎。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+<line x1="12" y1="18" x2="12.01" y2="18"></line>
+
+
+            </svg>
+        </div>
+        
+        <h3>移动端优化</h3>
+        <p>
+触控友好按钮。单窗格模式。可滚动面包屑。支持 Android、iOS、iPadOS。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<circle cx="11" cy="11" r="8"></circle>
+<path d="m21 21-4.35-4.35"></path>
+
+
+            </svg>
+        </div>
+        
+        <h3>快速搜索</h3>
+        <p>
+当前文件夹即时筛选。导航到文件夹/标签命令。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+
+
+            </svg>
+        </div>
+        
+        <h3>多选功能</h3>
+        <p>
+Cmd/Ctrl+点击切换。Shift+点击范围选择。Cmd/Ctrl+A 全选。所有操作支持批处理。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+<polyline points="14 2 14 8 20 8"></polyline>
+
+
+            </svg>
+        </div>
+        
+        <h3>Frontmatter 支持</h3>
+        <p>
+自定义笔记名称、日期、预览文本。通过属性隐藏笔记。文件夹笔记自动属性。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<polyline points="16 18 22 12 16 6"></polyline>
+<polyline points="8 6 2 12 8 18"></polyline>
+
+
+            </svg>
+        </div>
+        
+        <h3>开发者 API</h3>
+        <p>
+TypeScript API。元数据控制。导航和选择。事件订阅。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+<div class="feature-item">
+    <div class="feature-card">
+        
+        <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                
+
+
+
+<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+
+
+            </svg>
+        </div>
+        
+        <h3>高级主题</h3>
+        <p>
+80+ CSS 变量。支持 Style Settings 插件。完整主题文档。
+</p>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const featureGrid = document.getElementById('feature-grid');
+    const featureItem = document.querySelector('.feature-item');
+    if (featureGrid && featureItem) {
+        featureGrid.appendChild(featureItem.firstElementChild.cloneNode(true));
+        featureItem.remove();
+    }
+});
+</script>
+
+
+</p>
+<p dir="auto">
+
+
+<!-- Showcase Section -->
+<section id="showcase" class="showcase">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">产品展示</span>
+            <h2 class="section-title">实际效果演示</h2>
+        </div>
+        
+        <div class="showcase-grid" id="showcase-grid">
+            
+
+
+
+
+<div class="showcase-item">
+    <div class="showcase-image">
+        <img src="/mdf/themes/ob-plugin/detail-dual-pane.png" alt="双窗格界面" loading="lazy">
+    </div>
+    <div class="showcase-content">
+        <h3>双窗格界面</h3>
+        <div>
+            <p dir="auto">左侧导航树，右侧文件列表。拖拽调整大小。键盘 Tab 键切换窗格。</p>
+<ul>
+<li dir="auto">文件夹笔记 - 文件夹变成带关联笔记的可点击链接</li>
+<li dir="auto">显示子文件夹笔记 - 一次性查看所有子文件夹笔记</li>
+<li dir="auto">自动显示活动文件，支持展开和滚动</li>
+<li dir="auto">每个文件夹/标签的自定义排序和外观设置</li>
+</ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="showcase-item">
+    <div class="showcase-image">
+        <img src="/mdf/themes/ob-plugin/detail-tags.png" alt="标签管理" loading="lazy">
+    </div>
+    <div class="showcase-content">
+        <h3>标签管理</h3>
+        <div>
+            <p dir="auto">分层标签如 <a href="#项目/工作/紧急。拖拽即时添加/移除标签。" class="tag" target="_blank" rel="noopener nofollow">#项目/工作/紧急。拖拽即时添加/移除标签。</a></p>
+<ul>
+<li dir="auto">收藏标签 - 将常用标签固定到专用区域</li>
+<li dir="auto">拖拽到"未标记"以移除笔记的所有标签</li>
+<li dir="auto">基于层级的隐藏标签（例如，隐藏"存档"会隐藏"存档/2024"等）</li>
+<li dir="auto">上下文菜单进行精确标签操作</li>
+</ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="showcase-item">
+    <div class="showcase-image">
+        <img src="/mdf/themes/ob-plugin/detail-preview.png" alt="丰富的笔记预览" loading="lazy">
+    </div>
+    <div class="showcase-content">
+        <h3>丰富的笔记预览</h3>
+        <div>
+            <p dir="auto">可配置 1-5 行预览文本。使用特色图片插件自动生成缩略图。</p>
+<ul>
+<li dir="auto">来自 frontmatter 或第一个嵌入图片的特色图片</li>
+<li dir="auto">日期分组 - 今天、昨天、本周、上周</li>
+<li dir="auto">带自定义颜色的可点击标签，便于视觉组织</li>
+<li dir="auto">精简模式 - 需要时的紧凑视图，无预览</li>
+</ul>
+        </div>
+    </div>
+</div>
+
+
+
+        </div>
+    </div>
+</section>
+</p>
+<p dir="auto">
+
+
+
+<!-- Installation Section -->
+<section id="installation" class="installation">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">安装指南</span>
+            <h2 class="section-title">几秒钟即可开始使用</h2>
+        </div>
+        
+        <div class="install-card-single">
+            <div class="install-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+            </div>
+            <h3>从 Obsidian 安装</h3>
+            <ol class="install-steps">
+                <li>打开设置 → 社区插件</li>
+                <li>搜索 "Notebook Navigator"</li>
+                <li>点击安装，然后启用</li>
+            </ol>
+            <div class="install-actions" id="install-actions">
+                <!-- Actions will be populated by install-action shortcodes -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process inner content -->
+<div style="display: none;">
+    
+
+
+
+
+
+
+<div class="install-action-item">
+    <a href="obsidian://show-plugin?id=notebook-navigator" class="btn btn-primary">
+        
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            
+
+
+
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+<polyline points="7 10 12 15 17 10"></polyline>
+<line x1="12" y1="15" x2="12" y2="3"></line>
+
+
+        </svg>
+        
+        <span>在 Obsidian 中安装</span>
+    </a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const actionsContainer = document.getElementById('install-actions');
+    const actionItem = document.querySelector('.install-action-item');
+    if (actionsContainer && actionItem) {
+        actionsContainer.appendChild(actionItem.firstElementChild.cloneNode(true));
+        actionItem.remove();
+    }
+});
+</script>
+
+
+
+
+
+
+<div class="install-action-item">
+    <a href="/mdf/themes/ob-plugin/docs.html" class="btn btn-secondary">
+        
+        <span>查看文档</span>
+    </a>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const actionsContainer = document.getElementById('install-actions');
+    const actionItem = document.querySelector('.install-action-item');
+    if (actionsContainer && actionItem) {
+        actionsContainer.appendChild(actionItem.firstElementChild.cloneNode(true));
+        actionItem.remove();
+    }
+});
+</script>
+
+
+</div></p>
+<p dir="auto">
+
+
+
+
+<!-- About the Creator -->
+<section id="about" class="about-creator">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">关于</span>
+            <h2 class="section-title">由行业资深人士打造</h2>
+        </div>
+        
+        <div class="creator-content">
+            <div class="creator-card">
+                <div class="creator-info">
+                    <h3>Johan Sanneblad, PhD</h3>
+                    <p class="creator-title">编程热情</p>
+                    
+                    
+
+<style>
+.creator-bio a {
+    color: #8b5cf6;
+    text-decoration: underline;
+}
+
+.creator-bio a:hover {
+    color: #a78bfa;
+    text-decoration: underline;
+}
+</style>
+
+<div class="creator-bio">
+    <p dir="auto">拥有软件开发博士学位，并在 Apple、Electronic Arts、Google、Microsoft、LEGO 和沃尔沃汽车等公司拥有数十年产品开发经验的我，一年前决定看看能否突破用户对现代笔记应用的期望界限。经过六个月的规划和另外六个月的密集开发，Notebook Navigator 终于准备好全球发布了。</p>
+<p dir="auto">目前大多数笔记应用如 Apple Notes、Bear 和 Evernote 似乎都困在旧的遗留框架和复杂架构中，使得它们几乎无法创新新功能。是时候创建一个全新的最先进的笔记体验了，从头开始构建，专注于可扩展性、性能和用户体验。这是一个可以持续构建数年，甚至数十年的产品。</p>
+<p dir="auto">当您使用 Notebook Navigator 时，我希望您能体验到在当今科技行业中已经变得非常罕见的东西：设计如此完善的软件，感觉就像是您大脑的自然延伸。这正是 Notebook Navigator 给我的感觉，这也是我构建它的原因。</p>
+<p dir="auto">如果您有功能建议，请在我们的 <a data-tooltip-position="top" aria-label="https://github.com/johansan/notebook-navigator/wiki" rel="noopener nofollow" class="external-link" href="https://github.com/johansan/notebook-navigator/wiki" target="_blank">wiki</a> 中发布。如果您只是想打个招呼，非常欢迎加入我们的 <a data-tooltip-position="top" aria-label="https://discord.gg/6eeSUvzEJr" rel="noopener nofollow" class="external-link" href="https://discord.gg/6eeSUvzEJr" target="_blank">Discord 服务器</a>！</p>
+</div>
+
+
+<div class="creator-links">
+    
+
+
+
+
+
+<a href="https://www.linkedin.com/in/johansan/" target="_blank" class="creator-link" rel="noopener">
+    
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        
+
+
+
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+
+
+    </svg>
+    
+    <span>在 LinkedIn 上联系</span>
+</a>
+
+
+
+
+
+
+<a href="https://github.com/johansan" target="_blank" class="creator-link" rel="noopener">
+    
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        
+
+
+
+<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+
+
+    </svg>
+    
+    <span>在 GitHub 上关注</span>
+</a>
+
+
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section></p>
+<p dir="auto">
+
+
+<!-- Support Section -->
+<section id="support" class="support">
+    <div class="container">
+        <div class="support-content">
+            <div class="support-card">
+                <h2>支持项目</h2>
+                <p>Notebook Navigator 是免费开源的。如果您喜欢使用它，请考虑支持开发。</p>
+                <div class="support-actions">
+                    
+
+
+
+
+
+
+
+
+
+<!-- Regular button with icon -->
+<a href="https://github.com/sponsors/johansan" target="_blank" rel="noopener" class="btn btn-primary">
+    
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        
+
+
+
+<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+
+
+    </svg>
+    
+    <span>在 GitHub 上赞助</span>
+</a>
+
+
+
+
+
+
+
+
+
+<!-- Image-based button (e.g., Buy Me a Coffee) -->
+<a href="https://www.buymeacoffee.com/johansan" target="_blank" rel="noopener" style="display: inline-block;">
+    <img src="/mdf/themes/ob-plugin/default-yellow.png" alt="请我喝杯咖啡" style="height: 48px; width: auto;">
+</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section></p>
+
+    </main>
+    
+    <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <img src="/mdf/themes/ob-plugin/logo.svg" alt="Notebook Navigator" class="footer-logo">
+                    <span>Notebook Navigator</span>
+                </div>
+                <p class="footer-description">Obsidian 现代文件资源管理器</p>
+
+                <div class="footer-social">
+
+                    
+                    <a href="https://github.com/johansan/notebook-navigator" aria-label="github">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+</svg>
+                    </a>
+                    
+                    <a href="https://twitter.com/johan_sanneblad" aria-label="twitter">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+</svg>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/johan-sanneblad" aria-label="linkedin">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+</svg>
+                    </a>
+                    
+                    <a href="https://discord.gg/6eeSUvzEJr" aria-label="discord">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.201 0 2.157 1.086 2.157 2.42c0 1.333-.956 2.418-2.157 2.418z"></path>
+</svg>
+                    </a>
+                    
+
+                </div>
+            </div>
+
+            
+            <div class="footer-section">
+                <h4>产品</h4>
+                <ul>
+                    
+                    
+                    <li><a href="/mdf/themes/ob-plugin/#features">功能特性</a></li>
+                    
+                    <li><a href="/mdf/themes/ob-plugin/#showcase">产品展示</a></li>
+                    
+                    <li><a href="/mdf/themes/ob-plugin/#installation">安装指南</a></li>
+                    
+                    <li><a href="https://github.com/johansan/notebook-navigator/releases">更新日志</a></li>
+                    
+                    
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>资源</h4>
+                <ul>
+                    
+                    
+                    <li><a href="/mdf/themes/ob-plugin/docs.html">文档</a></li>
+                    
+                    <li><a href="https://github.com/johansan/notebook-navigator/blob/main/docs/api-reference.md">API 参考</a></li>
+                    
+                    <li><a href="https://github.com/johansan/notebook-navigator/blob/main/docs/theming-guide.md">主题指南</a></li>
+                    
+                    <li><a href="https://github.com/johansan/notebook-navigator/issues">技术支持</a></li>
+                    
+                    
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>社区</h4>
+                <ul>
+                    
+                    
+                    <li><a href="https://discord.gg/6eeSUvzEJr">Discord 服务器</a></li>
+                    
+                    <li><a href="https://obsidian.md/community">Obsidian 论坛</a></li>
+                    
+                    <li><a href="https://www.reddit.com/r/ObsidianMD/">Reddit 社区</a></li>
+                    
+                    <li><a href="https://github.com/johansan">GitHub 主页</a></li>
+                    
+                    
+                </ul>
+            </div>
+            
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Notebook Navigator. All rights reserved.</p>
+            <p>主题 <a href="https://theme-ob-plugin.mdfriday.com">Obsidian Plugin</a> 改编自 <a href="https://notebooknavigator.com/">Notebook Navigator</a></p>
+        </div>
+    </div>
+
+    
+  
+
+
+    
+
+</footer>
+    
+    <!-- Main JavaScript -->
+    <script src="/mdf/themes/ob-plugin/main.js"></script>
+</body>
+</html>

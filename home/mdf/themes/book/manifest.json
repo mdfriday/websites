@@ -1,0 +1,15 @@
+{
+  "name": "MDFriday Book",
+  "short_name": "MDFriday Book",
+  "start_url": "/mdf/themes/book/./",
+  "scope": "/mdf/themes/book/./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/mdf/themes/book/./favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}

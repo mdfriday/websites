@@ -1,0 +1,203 @@
+[
+	{
+		"id": 1,
+		"name": "Book",
+		"author": "Alex Shpak",
+		"version": "1.1",
+		"screenshot": "https://sunwei.xyz/mdf/tn-book.png",
+		"download_url": "https://sunwei.xyz/mdf/book.zip?version=1.1",
+		"demo_url": "https://sunwei.xyz/mdf/themes/book",
+		"demo_notes_url": "https://sunwei.xyz/mdf/book_example.zip?version=1.0",
+		"tags": [
+			"Book",
+			"Doc"
+		]
+	},
+	{
+		"id": 2,
+		"name": "Note",
+		"author": "MDFriday Team",
+		"version": "1.2",
+		"screenshot": "https://sunwei.xyz/mdf/tn-note.png",
+		"download_url": "https://sunwei.xyz/mdf/note.zip?version=1.2",
+		"demo_url": "https://sunwei.xyz/mdf/themes/notes",
+		"demo_notes_url": "https://sunwei.xyz/mdf/note_example.zip?version=1.0",
+		"tags": [
+			"Page",
+			"Obsidian",
+			"Notes"
+		]
+	},
+	{
+		"id": 3,
+		"name": "Obsidian Book",
+		"author": "MDFriday Team",
+		"version": "1.1",
+		"screenshot": "https://sunwei.xyz/mdf/tn_book_ob.jpg",
+		"download_url": "https://sunwei.xyz/mdf/book-ob.zip?version=1.1",
+		"demo_url": "https://theme-book-ob.mdfriday.com",
+		"demo_notes_url": "https://sunwei.xyz/mdf/book_ob_example.zip?version=1.0",
+		"tags": [
+			"Book",
+			"Obsidian",
+			"Doc"
+		]
+	},
+	{
+		"id": 4,
+		"name": "Base",
+		"author": "MDFriday Base",
+		"version": "1.3",
+		"screenshot": "https://sunwei.xyz/mdf/tn-base.jpg",
+		"download_url": "https://sunwei.xyz/mdf/base.zip?version=1.3",
+		"demo_url": "https://theme-base.mdfriday.com",
+		"tags": [
+		]
+	},
+	{
+		"id": 5,
+		"name": "Notebook Navigator",
+		"author": "MDFriday Team",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_notebook_navigator.png",
+		"download_url": "https://sunwei.xyz/mdf/notebook_navigator_theme.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/ob-plugin",
+		"demo_notes_url": "https://sunwei.xyz/mdf/notebook_navigator_example.zip?version=1.0",
+		"tags": ["Product"]
+	},
+	{
+		"id": 6,
+		"name": "Beautiful",
+		"author": "Michael Romero",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_beautiful.png",
+		"download_url": "https://sunwei.xyz/mdf/beautiful_theme.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/beautiful",
+		"demo_notes_url": "https://sunwei.xyz/mdf/beautiful_example.zip?version=1.0",
+		"tags": ["Blog"]
+	},
+	{
+		"id": 7,
+		"name": "Awesome",
+		"author": "Sid",
+		"version": "1.1",
+		"screenshot": "https://sunwei.xyz/mdf/tn_awesome.jpg",
+		"download_url": "https://sunwei.xyz/mdf/awesome_theme.zip?version=1.1",
+		"demo_url": "https://sunwei.xyz/mdf/themes/awesome",
+		"demo_notes_url": "https://sunwei.xyz/mdf/awesome_example.zip?version=1.1",
+		"tags": ["Blog"]
+	},
+	{
+		"id": 8,
+		"name": "Resume",
+		"author": "Jerry Kiely",
+		"version": "1.1",
+		"screenshot": "https://sunwei.xyz/mdf/tn_resume.png",
+		"download_url": "https://sunwei.xyz/mdf/resume_theme_east.zip?version=1.1",
+		"demo_url": "https://sunwei.xyz/mdf/themes/resume",
+		"demo_notes_url": "https://sunwei.xyz/mdf/resume_example.zip?version=1.1",
+		"tags": ["Resume"]
+	},
+	{
+		"id": 9,
+		"name": "Landing",
+		"author": "Jerry Kiely",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_landing.png",
+		"download_url": "https://sunwei.xyz/mdf/landing_theme.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/landing",
+		"demo_notes_url": "https://sunwei.xyz/mdf/landing_example.zip?version=1.0",
+		"tags": ["Landing"]
+	},
+	{
+		"id": 10,
+		"name": "Resume Clean",
+		"author": "MDFriday Team",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_resume_clean.png",
+		"download_url": "https://sunwei.xyz/mdf/resume_clean_theme_east.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/resume-clean",
+		"demo_notes_url": "https://sunwei.xyz/mdf/resume_clean_example.zip?version=1.0",
+		"tags": ["Resume"]
+	},
+	{
+		"id": 11,
+		"name": "Resume Table",
+		"author": "MDFriday Team",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_resume_table.png",
+		"download_url": "https://sunwei.xyz/mdf/resume_table_theme_east.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/resume-table",
+		"demo_notes_url": "https://sunwei.xyz/mdf/resume_table_example.zip?version=1.0",
+		"tags": ["Resume"]
+	},
+	{
+		"id": 12,
+		"name": "Slides",
+		"author": "MDFriday Team",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_slides.png",
+		"download_url": "https://sunwei.xyz/mdf/slides_theme_east.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/slides",
+		"demo_notes_url": "https://sunwei.xyz/mdf/slides_example.zip?version=1.0",
+		"tags": ["Slides"]
+	},
+	{
+		"id": 13,
+		"name": "Portfolio",
+		"author": "MDFriday Team",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_portfolio.png",
+		"download_url": "https://sunwei.xyz/mdf/portfolio_theme_east.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz",
+		"demo_notes_url": "https://sunwei.xyz/mdf/portfolio_example_east.zip?version=1.0",
+		"tags": ["Portfolio"]
+	},
+	{
+		"id": 14,
+		"name": "Company",
+		"author": "MDFriday Team",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_company.jpg",
+		"download_url": "https://sunwei.xyz/mdf/company_theme_east.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/company",
+		"demo_notes_url": "https://sunwei.xyz/mdf/company_example_east.zip?version=1.0",
+		"tags": ["Company"]
+	},
+	{
+		"id": 15,
+		"name": "Book Lock",
+		"author": "Alex Shpak",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn-book-lock.png",
+		"download_url": "https://sunwei.xyz/mdf/book_lock_theme_east.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/book-lock",
+		"demo_notes_url": "https://sunwei.xyz/mdf/book_lock_example_east.zip?version=1.0",
+		"tags": [
+			"Book",
+			"Doc"
+		]
+	},
+	{
+		"id": 16,
+		"name": "Slides Focus",
+		"author": "MDFriday Team",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_slides_focus.jpg",
+		"download_url": "https://sunwei.xyz/mdf/slides_focus_theme_east.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/slides-focus",
+		"demo_notes_url": "https://sunwei.xyz/mdf/slides_focus_example.zip?version=1.0",
+		"tags": ["Slides"]
+	},
+	{
+		"id": 17,
+		"name": "Showcase",
+		"author": "MDFriday Team",
+		"version": "1.0",
+		"screenshot": "https://sunwei.xyz/mdf/tn_showcase.jpg",
+		"download_url": "https://sunwei.xyz/mdf/showcase_theme_east.zip?version=1.0",
+		"demo_url": "https://sunwei.xyz/mdf/themes/showcase",
+		"demo_notes_url": "https://sunwei.xyz/mdf/showcase_example.zip?version=1.0",
+		"tags": ["Showcase"]
+	}
+]

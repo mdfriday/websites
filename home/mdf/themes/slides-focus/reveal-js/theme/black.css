@@ -1,0 +1,761 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+@import url(./fonts/source-sans-pro/source-sans-pro.css);
+section.has-light-background, section.has-light-background h1, section.has-light-background h2, section.has-light-background h3, section.has-light-background h4, section.has-light-background h5, section.has-light-background h6 {
+  color: #222;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+:root {
+  --r-background-color: #191919;
+  --r-main-font: Source Sans Pro, Helvetica, sans-serif;
+  --r-main-font-size: 42px;
+  --r-main-color: #fff;
+  --r-block-margin: 20px;
+  --r-heading-margin: 0 0 20px 0;
+  --r-heading-font: Source Sans Pro, Helvetica, sans-serif;
+  --r-heading-color: #fff;
+  --r-heading-line-height: 1.2;
+  --r-heading-letter-spacing: normal;
+  --r-heading-text-transform: uppercase;
+  --r-heading-text-shadow: none;
+  --r-heading-font-weight: 600;
+  --r-heading1-text-shadow: none;
+  --r-heading1-size: 2.5em;
+  --r-heading2-size: 1.6em;
+  --r-heading3-size: 1.3em;
+  --r-heading4-size: 1em;
+  --r-code-font: monospace;
+  --r-link-color: #42affa;
+  --r-link-color-dark: #068de9;
+  --r-link-color-hover: #8dcffc;
+  --r-selection-background-color: rgba(66, 175, 250, 0.75);
+  --r-selection-color: #fff;
+  --r-overlay-element-bg-color: 240, 240, 240;
+  --r-overlay-element-fg-color: 0, 0, 0;
+}
+
+.reveal-viewport {
+  background: #191919;
+  background-color: var(--r-background-color);
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  font-size: var(--r-main-font-size);
+  font-weight: normal;
+  color: var(--r-main-color);
+}
+
+.reveal ::selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  color: var(--r-selection-color);
+  background: var(--r-selection-background-color);
+  text-shadow: none;
+}
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/*********************************************
+ * HEADERS
+ *********************************************/
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: var(--r-heading-margin);
+  color: var(--r-heading-color);
+  font-family: var(--r-heading-font);
+  font-weight: var(--r-heading-font-weight);
+  line-height: var(--r-heading-line-height);
+  letter-spacing: var(--r-heading-letter-spacing);
+  text-transform: var(--r-heading-text-transform);
+  text-shadow: var(--r-heading-text-shadow);
+  word-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: var(--r-heading1-size);
+}
+
+.reveal h2 {
+  font-size: var(--r-heading2-size);
+}
+
+.reveal h3 {
+  font-size: var(--r-heading3-size);
+}
+
+.reveal h4 {
+  font-size: var(--r-heading4-size);
+}
+
+.reveal h1 {
+  text-shadow: var(--r-heading1-text-shadow);
+}
+
+/*********************************************
+ * OTHER
+ *********************************************/
+.reveal p {
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Remove trailing margins after titles */
+.reveal h1:last-child,
+.reveal h2:last-child,
+.reveal h3:last-child,
+.reveal h4:last-child,
+.reveal h5:last-child,
+.reveal h6:last-child {
+  margin-bottom: 0;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+
+.reveal ol {
+  list-style-type: decimal;
+}
+
+.reveal ul {
+  list-style-type: disc;
+}
+
+.reveal ul ul {
+  list-style-type: square;
+}
+
+.reveal ul ul ul {
+  list-style-type: circle;
+}
+
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+.reveal dt {
+  font-weight: bold;
+}
+
+.reveal dd {
+  margin-left: 40px;
+}
+
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: var(--r-block-margin) auto;
+  padding: 5px;
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: var(--r-block-margin) auto;
+  text-align: left;
+  font-size: 0.55em;
+  font-family: var(--r-code-font);
+  line-height: 1.2em;
+  word-wrap: break-word;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  text-transform: none;
+  tab-size: 2;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal .code-wrapper {
+  white-space: normal;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table th[align=center],
+.reveal table td[align=center] {
+  text-align: center;
+}
+
+.reveal table th[align=right],
+.reveal table td[align=right] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+.reveal img {
+  margin: var(--r-block-margin) 0;
+}
+
+/*********************************************
+ * LINKS
+ *********************************************/
+.reveal a {
+  color: var(--r-link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: var(--r-link-color-hover);
+  text-shadow: none;
+  border: none;
+}
+
+.reveal .roll span:after {
+  color: #fff;
+  background: var(--r-link-color-dark);
+}
+
+/*********************************************
+ * Frame helper
+ *********************************************/
+.reveal .r-frame {
+  border: 4px solid var(--r-main-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.reveal a .r-frame {
+  transition: all 0.15s linear;
+}
+
+.reveal a:hover .r-frame {
+  border-color: var(--r-link-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls {
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PROGRESS BAR
+ *********************************************/
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--r-link-color);
+}
+
+/*********************************************
+ * PRINT BACKGROUND
+ *********************************************/
+@media print {
+  .backgrounds {
+    background-color: var(--r-background-color);
+  }
+}
+
+
+/*********************************************
+ * Custom Slide Layout Styles
+ *********************************************/
+
+.slide-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Logo 左上角 */
+.slide-logo {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 20;
+  width: 60px;
+  height: 60px;
+}
+
+.slide-logo img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
+  border: none;
+}
+
+/* 幻灯片内容区域 */
+.slide-content {
+  width: 90%;
+  max-width: 1200px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+/* 标题样式 */
+.slide-content h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.slide-content h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.slide-content .subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.slide-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  max-width: 800px;
+}
+
+/* 背景装饰元素 - 基础样式 */
+.bg-decoration {
+  position: absolute;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/*********************************************
+ * DECORATION GROUP: DEFAULT (几何图形 - 左下)
+ *********************************************/
+.bg-decoration.corner-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 200px 200px 0;
+  border-color: transparent #ffffff transparent transparent;
+  top: 0;
+  right: 0;
+}
+
+.bg-decoration.large-shape-1 {
+  width: 600px;
+  height: 600px;
+  background: #ffffff;
+  transform: rotate(45deg);
+  bottom: -300px;
+  left: -300px;
+}
+
+.bg-decoration.large-shape-2 {
+  width: 500px;
+  height: 500px;
+  background: #ffffff;
+  transform: rotate(45deg);
+  bottom: -250px;
+  left: -100px;
+}
+
+/*********************************************
+ * DECORATION GROUP: MINIMAL (极简 - 单个小元素)
+ *********************************************/
+.bg-decoration.minimal-dot {
+  width: 100px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 50%;
+  top: 5%;
+  right: 8%;
+  opacity: 0.05;
+}
+
+.bg-decoration.minimal-square {
+  width: 80px;
+  height: 80px;
+  background: #ffffff;
+  transform: rotate(45deg);
+  bottom: 5%;
+  left: 5%;
+  opacity: 0.04;
+}
+
+/*********************************************
+ * DECORATION GROUP: GEOMETRIC (多几何图形)
+ *********************************************/
+.bg-decoration.geo-square-1 {
+  width: 300px;
+  height: 300px;
+  background: #ffffff;
+  transform: rotate(30deg);
+  top: -100px;
+  right: -100px;
+  opacity: 0.04;
+}
+
+.bg-decoration.geo-square-2 {
+  width: 200px;
+  height: 200px;
+  background: #ffffff;
+  transform: rotate(45deg);
+  top: 15%;
+  right: 10%;
+  opacity: 0.03;
+}
+
+.bg-decoration.geo-square-3 {
+  width: 400px;
+  height: 400px;
+  background: #ffffff;
+  transform: rotate(15deg);
+  bottom: -150px;
+  left: -150px;
+  opacity: 0.03;
+}
+
+.bg-decoration.geo-triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 250px 250px;
+  border-color: transparent transparent #ffffff transparent;
+  bottom: 0;
+  right: 0;
+  opacity: 0.04;
+}
+
+/*********************************************
+ * DECORATION GROUP: CIRCLES (圆形装饰)
+ *********************************************/
+.bg-decoration.circle-large {
+  width: 500px;
+  height: 500px;
+  background: #ffffff;
+  border-radius: 50%;
+  top: -200px;
+  right: -200px;
+  opacity: 0.04;
+}
+
+.bg-decoration.circle-medium {
+  width: 300px;
+  height: 300px;
+  background: #ffffff;
+  border-radius: 50%;
+  bottom: -100px;
+  left: -100px;
+  opacity: 0.03;
+}
+
+.bg-decoration.circle-small {
+  width: 150px;
+  height: 150px;
+  background: #ffffff;
+  border-radius: 50%;
+  bottom: 20%;
+  right: 15%;
+  opacity: 0.05;
+}
+
+/*********************************************
+ * DECORATION GROUP: LINES (线条装饰)
+ *********************************************/
+.bg-decoration.line-vertical-1 {
+  width: 3px;
+  height: 60%;
+  background: #ffffff;
+  top: 20%;
+  right: 15%;
+  opacity: 0.06;
+}
+
+.bg-decoration.line-vertical-2 {
+  width: 2px;
+  height: 40%;
+  background: #ffffff;
+  bottom: 10%;
+  right: 20%;
+  opacity: 0.05;
+}
+
+.bg-decoration.line-horizontal {
+  width: 50%;
+  height: 2px;
+  background: #ffffff;
+  bottom: 30%;
+  left: 10%;
+  opacity: 0.05;
+}
+
+.bg-decoration.line-diagonal {
+  width: 500px;
+  height: 3px;
+  background: #ffffff;
+  transform: rotate(45deg);
+  top: 30%;
+  right: -100px;
+  opacity: 0.04;
+}
+
+/*********************************************
+ * DECORATION GROUP: CORNERS (四角装饰)
+ *********************************************/
+.bg-decoration.corner-tl {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 150px 150px 0 0;
+  border-color: #ffffff transparent transparent transparent;
+  top: 0;
+  left: 0;
+  opacity: 0.05;
+}
+
+.bg-decoration.corner-tr {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 150px 150px 0;
+  border-color: transparent #ffffff transparent transparent;
+  top: 0;
+  right: 0;
+  opacity: 0.05;
+}
+
+.bg-decoration.corner-bl {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 150px 150px;
+  border-color: transparent transparent #ffffff transparent;
+  bottom: 0;
+  left: 0;
+  opacity: 0.05;
+}
+
+.bg-decoration.corner-br {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 150px 150px;
+  border-color: transparent transparent #ffffff transparent;
+  bottom: 0;
+  right: 0;
+  opacity: 0.05;
+}
+
+/*********************************************
+ * DECORATION GROUP: DYNAMIC (动态组合 - 右侧重点)
+ *********************************************/
+.bg-decoration.dynamic-shape-1 {
+  width: 450px;
+  height: 450px;
+  background: #ffffff;
+  transform: rotate(30deg);
+  top: -150px;
+  right: -150px;
+  opacity: 0.04;
+}
+
+.bg-decoration.dynamic-shape-2 {
+  width: 350px;
+  height: 350px;
+  background: #ffffff;
+  transform: rotate(60deg);
+  top: 20%;
+  right: 5%;
+  opacity: 0.03;
+}
+
+.bg-decoration.dynamic-circle {
+  width: 200px;
+  height: 200px;
+  background: #ffffff;
+  border-radius: 50%;
+  bottom: 15%;
+  right: 10%;
+  opacity: 0.04;
+}
+
+/*********************************************
+ * CONTENT SHORTCODE LAYOUT
+ *********************************************/
+
+/* Content slide with body - 从上到下布局 title, subtitle, content */
+.slide-content.slide-content-with-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-right: 8%;
+  gap: 1.5rem;
+}
+
+/* Title 保持原有样式，不额外修改 */
+.slide-content.slide-content-with-body h1 {
+  margin-bottom: 0;
+}
+
+/* Subtitle 保持原有样式，不额外修改 */
+.slide-content.slide-content-with-body .subtitle {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Body area - 占据剩余空间 */
+.slide-content-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  overflow: auto;
+}
+
+/*********************************************
+ * COLUMNS LAYOUT (COLS/COL)
+ *********************************************/
+
+/* Columns container - 使用 flexbox 自动平分空间 */
+.slide-cols {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  width: 100%;
+  flex: 1;
+  align-items: stretch;
+}
+
+/* Single column - flex: 1 让所有列平分空间 */
+.slide-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* 防止内容溢出 */
+  text-align: left; /* 列内内容默认左对齐 */
+}
+
+/* 响应式：小屏幕下垂直堆叠 */
+@media (max-width: 768px) {
+  .slide-cols {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

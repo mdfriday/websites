@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta charset="utf-8">
+<title>MDFriday | Markdown Syntax Guide</title>
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<link href='/mdf/themes/company/fontawesome/css/all.css' rel="stylesheet" type="text/css">
+<link href='/mdf/themes/company/css/style.css' rel="stylesheet" type="text/css">
+<link href='/mdf/themes/company/css/style.min.css' rel="stylesheet" type="text/css">
+<link href='/mdf/themes/company/css/swiper-bundle.min.css' rel="stylesheet" type="text/css">
+<link href='/mdf/themes/company/css/sweetalert2.min.css' rel="stylesheet" type="text/css">
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "MDFriday",
+    
+    "url": "/mdf/themes/company"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "MDFriday Inc.",
+  "url": "/mdf/themes/company",
+   "description": "MDFriday is a powerful Markdown editor and note-taking app.",
+   "vision": "Focus on creating, MDFriday makes your sites shine.",
+   "logo": "/mdf/themes/company/img/logo/logo.svg",
+   "address": "Remote, Global",
+   "email": "team@mdfriday.org",
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "/mdf/themes/company",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "/mdf/themes/company/posts/003-markdown-syntax.html",
+          "name": "Markdown syntax guide"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "MDFriday Authors"
+  },
+  "headline": "Markdown Syntax Guide",
+  "description" : "Sample article showcasing basic Markdown syntax and formatting for HTML elements.",
+  "inLanguage" : "en",
+  "wordCount": 494,
+  "datePublished" : "Sat Feb 11 2023 08:00:00 GMT+0800 (China Standard Time)",
+  "dateModified" : "Sat Feb 11 2023 08:00:00 GMT+0800 (China Standard Time)",
+  "image" : "/mdf/themes/company/",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "/mdf/themes/company/posts/003-markdown-syntax.html",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "/mdf/themes/company",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "/mdf/themes/company/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+
+<meta property="og:title" content="Markdown Syntax Guide" />
+<meta property="og:description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements.">
+<meta property="og:url" content="/mdf/themes/company/posts/003-markdown-syntax.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="MDFriday" />
+
+  <meta name="twitter:title" content="Markdown Syntax Guide" />
+  <meta name="twitter:description" content="Sample article showcasing basic Markdown syntax and formatting for HTML elements.">
+  <meta name="twitter:card" content="summary_large_image" />
+
+
+</head>
+
+<body class="flex flex-col min-h-screen">
+<main class="flex-grow">
+<div class="bg-red-600 py-2">
+    <p class="ml-2 text-md text-white text-center">>> 15 Jun 2024 🚀 MDFriday 2.0 is here! Explore the new features and enhancements in our latest release. </p>
+</div>
+<header>
+    <div id="overlay">
+        <ul class="text-center list-none text-white text-3xl"><li class="p-2">
+                    <a href="/mdf/themes/company/products">
+                        <span>Products</span>
+                    </a>
+                </li><li class="p-2">
+                    <a href="/mdf/themes/company/posts">
+                        <span>Blog</span>
+                    </a>
+                </li><li class="p-2">
+                    <a href="/mdf/themes/company/about.html">
+                        <span>About</span>
+                    </a>
+                </li><li class="p-2">
+                    <a href="/mdf/themes/company/contact.html">
+                        <span>Contact</span>
+                    </a>
+                </li></ul>
+    </div>
+    <nav class="flex items-center justify-between flex-wrap bg-opacity-100 p-8">
+        <div class="flex items-center flex-shrink-0 text-xl text-grey-900 mr-6">
+            <a href="/mdf/themes/company"><img alt="MDFriday Inc."
+                     class="h-14 mr-3"
+                     src="/mdf/themes/company/img/logo/logo.svg"></a>
+        </div>
+        <div class="block lg:hidden">
+            <div id="hamburgerbtn" class="flex cursor-pointer items-center w-14 h-10 py-2 rounded mopen">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+        <div class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto" id="mobileMenu">
+            <div class="text-lg lg:flex-grow">
+            </div>
+            <div class="text-lg"><a href="/mdf/themes/company/products"
+                        class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-black hover:opacity-60 mr-8">
+                        Products
+                    </a><a href="/mdf/themes/company/posts"
+                        class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-black hover:opacity-60 mr-8 font-bold">
+                        Blog
+                    </a><a href="/mdf/themes/company/about.html"
+                        class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-black hover:opacity-60 mr-8">
+                        About
+                    </a><a href="/mdf/themes/company/contact.html"
+                        class="duration-200 block mt-4 lg:inline-block lg:mt-0 text-black hover:opacity-60 mr-8">
+                        Contact
+                    </a></div>
+        </div>
+    </nav>
+</header><div class="scroll-top rounded-full">
+    <span class="icon-keyboard_arrow_up text-2xl"></span>
+  </div>
+<div class="mx-auto my-10 max-w-6xl">
+    <div class="mx-3 col-span-3 lg:col-span-2 px-2">
+        <h1 class="title text-5xl font-bold mb-3">Markdown Syntax Guide</h1>
+        <section class="mb-4 text-lg">
+            <h4 id="date" class="flex flex-row items-center"><span class="icon-access_time text-2xl mr-2"></span>
+                11 Feb 2023 </h4>
+            
+            <h4 class="flex flex-row items-center"><span class="icon-person text-2xl mr-2"></span>MDFriday Authors
+            </h4>
+            
+            
+        </section>
+        
+        <div class="content prose md:prose-lg lg:prose-xl max-w-none py-1"><p dir="auto">Markdown is a lightweight markup language with plain-text-formatting syntax.</p>
+<p dir="auto"></p>
+<h2 data-heading="Headings" dir="auto" id="headings">Headings</h2>
+<p dir="auto">The following HTML <code>&lt;h1&gt;</code>—<code>&lt;h6&gt;</code> elements represent six levels of section headings. <code>&lt;h1&gt;</code> is the highest section level while <code>&lt;h6&gt;</code> is the lowest.</p>
+<h1 data-heading="H1" dir="auto" id="h1">H1</h1>
+<h2 data-heading="H2" dir="auto" id="h2">H2</h2>
+<h3 data-heading="H3" dir="auto" id="h3">H3</h3>
+<h4 data-heading="H4" dir="auto" id="h4">H4</h4>
+<h5 data-heading="H5" dir="auto" id="h5">H5</h5>
+<h6 data-heading="H6" dir="auto" id="h6">H6</h6>
+<h2 data-heading="Paragraph" dir="auto" id="paragraph">Paragraph</h2>
+<p dir="auto">Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.</p>
+<p dir="auto">Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.</p>
+<h2 data-heading="Image" dir="auto" id="image">Image</h2>
+<p dir="auto">You can use the following syntax to include an image. Path of the image should be relative to the <code>index.md</code> file.</p>
+<pre class="language-markdown"><code class="language-markdown is-loaded"><span class="token url"><span class="token operator">!</span>[<span class="token content">Landscape</span>](<span class="token url">1.jpg</span>)</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto"><span alt="Landscape" src="1.jpg" class="internal-embed is-loaded file-embed mod-empty-attachment">找不到“1.jpg”。</span></p>
+<p dir="auto">You can also include image from external sources.</p>
+<pre class="language-markdown"><code class="language-markdown is-loaded"><span class="token url"><span class="token operator">!</span>[<span class="token content">Image</span>](<span class="token url">https://picsum.photos/600/300</span>)</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<p dir="auto"><img alt="Image" src="https://picsum.photos/600/300" referrerpolicy="no-referrer"></p>
+<h2 data-heading="Blockquotes" dir="auto" id="blockquotes">Blockquotes</h2>
+<p dir="auto">The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element, and optionally with in-line changes such as annotations and abbreviations.</p>
+<h3 data-heading="Blockquote without attribution" dir="auto" id="blockquote-without-attribution">Blockquote without attribution</h3>
+<blockquote dir="auto">
+<p>You can use Markdown syntax within a blockquote, like <strong>bold</strong>,  <em>italics</em>, <a data-tooltip-position="top" aria-label="https://gohugo.io/" rel="noopener nofollow" class="external-link" href="https://gohugo.io/" target="_blank">links</a>, <code>code</code>.</p>
+</blockquote>
+<h3 data-heading="Blockquote with attribution" dir="auto" id="blockquote-with-attribution">Blockquote with attribution</h3>
+<blockquote dir="auto">
+<p>Don't communicate by sharing memory, share memory by communicating.<br><br>
+— <cite>Rob Pike<sup data-footnote-id="fnref-1-09719a8f81d6c4fd" class="footnote-ref" id="fnref-1-09719a8f81d6c4fd"><a data-footref="1" href="#fn-1-09719a8f81d6c4fd" class="footnote-link" target="_blank" rel="noopener nofollow">[1]</a></sup></cite></p>
+</blockquote>
+<h2 data-heading="Tables" dir="auto" id="tables">Tables</h2>
+<h3 data-heading="Markdown within tables" dir="auto" id="markdown-within-tables">Markdown within tables</h3>
+<table>
+<thead>
+<tr>
+<th>Italics</th>
+<th>Bold</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>italics</em></td>
+<td><strong>bold</strong></td>
+<td><code>code</code></td>
+</tr>
+</tbody>
+</table>
+<h2 data-heading="Code Blocks" dir="auto" id="code-blocks">Code Blocks</h2>
+<h3 data-heading="Code block with backticks" dir="auto" id="code-block-with-backticks">Code block with backticks</h3>
+<pre class="language-html"><code class="language-html is-loaded"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Example HTML5 Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>Test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<h3 data-heading="Code block indented with four spaces" dir="auto" id="code-block-indented-with-four-spaces">Code block indented with four spaces</h3>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;title&gt;Example HTML5 Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Test&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<h3 data-heading="Inline code" dir="auto" id="inline-code">Inline code</h3>
+<p dir="auto">Use the backtick to refer to a <code>variable</code> within a sentence.</p>
+<h2 data-heading="List Types" dir="auto" id="list-types">List Types</h2>
+<h3 data-heading="Ordered List" dir="auto" id="ordered-list">Ordered List</h3>
+<ol>
+<li dir="auto">First item</li>
+<li dir="auto">Second item with some <code>code</code> in it</li>
+<li dir="auto">Third item</li>
+</ol>
+<h3 data-heading="Unordered List" dir="auto" id="unordered-list">Unordered List</h3>
+<ul>
+<li dir="auto">List item</li>
+<li dir="auto">Another item with some <code>code</code> in it</li>
+<li dir="auto">And another item</li>
+</ul>
+<h3 data-heading="Nested list" dir="auto" id="nested-list">Nested list</h3>
+<ul>
+<li dir="auto">Fruit
+<ul>
+<li dir="auto">Apple</li>
+<li dir="auto">Orange</li>
+<li dir="auto">Banana</li>
+</ul>
+</li>
+<li dir="auto">Dairy
+<ul>
+<li dir="auto">Milk</li>
+<li dir="auto">Cheese</li>
+</ul>
+</li>
+</ul>
+<h2 data-heading="Other Elements — abbr, sub, sup, kbd, mark" dir="auto" id="other-elements-abbr-sub-sup-kbd-mark">Other Elements — abbr, sub, sup, kbd, mark</h2>
+<p dir="auto"><abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.</p>
+<p dir="auto">H<sub>2</sub>O</p>
+<p dir="auto">X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
+<p dir="auto">Press <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd> to end the session.</p>
+<p dir="auto">Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.</p>
+
+
+<section class="footnotes"><hr><ol>
+<li data-footnote-id="fn-1-09719a8f81d6c4fd" id="fn-1-09719a8f81d6c4fd" dir="auto"><p>The above quote is excerpted from Rob Pike's <a data-tooltip-position="top" aria-label="https://www.youtube.com/watch?v=PAAkCSZUG1c" rel="noopener nofollow" class="external-link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c" target="_blank">talk</a> during Gopherfest, November 18, 2015.<a href="#fnref-1-09719a8f81d6c4fd" class="footnote-backref footnote-link" target="_blank" rel="noopener nofollow">↩︎</a></p></li>
+</ol></section></div>
+
+        <div class="share m-2 grid grid-cols-2 lg:grid-cols-3 gap-2">
+            <a href="#" class="share-button x" data-share="twitter" target="_blank" title="Post">
+                <div class="text-white text-center">
+                    <span class="icon-x text-lg mr-2"></span>X
+                </div>
+            </a>
+            <a href="#" class="share-button facebook" data-share="facebook" target="_blank" title="Facebook">
+                <div class="text-white text-center">
+                    <span class="icon-facebook text-lg mr-2"></span>Facebook
+                </div>
+            </a>
+            <a href="#" class="share-button hatena" data-share="hatena" target="_blank" title="Hatena">
+                <div class="text-white text-center">
+                    <span class="icon-hatenabookmark text-lg mr-2"></span>Hatena
+                </div>
+            </a>
+            <a href="#" class="share-button pocket" data-share="pocket" target="_blank" title="Pocket">
+                <div class="text-white text-center">
+                    <span class="icon-get-pocket text-lg mr-2"></span>Pocket
+                </div>
+            </a>
+            <a href="#" class="share-button line" data-share="line" target="_blank">
+                <div class="text-white text-center">
+                    <span class="icon-line text-lg mr-2"></span>LINE
+                </div>
+            </a>
+            <a href="javascript:OnClickURL();" class="share-button url" title="Copy to Clipboard" id="url">
+                <div class="text-white text-center">
+                    <span class="icon-link text-lg mr-2"></span>Copy
+                </div>
+            </a>
+        </div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUrl = window.location.href;
+            const pageTitle = encodeURIComponent('Markdown Syntax Guide');
+            
+            // 为每个分享按钮设置正确的 URL
+            document.querySelectorAll('[data-share]').forEach(function(link) {
+                const shareType = link.getAttribute('data-share');
+                let shareUrl = '';
+                
+                switch(shareType) {
+                    case 'twitter':
+                        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${pageTitle}`;
+                        break;
+                    case 'facebook':
+                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}&t=${pageTitle}`;
+                        break;
+                    case 'hatena':
+                        shareUrl = `https://b.hatena.ne.jp/add?mode=confirm&url=${encodeURIComponent(currentUrl)}&title=${pageTitle}`;
+                        break;
+                    case 'pocket':
+                        shareUrl = `https://getpocket.com/edit?url=${encodeURIComponent(currentUrl)}&title=${pageTitle}`;
+                        break;
+                    case 'line':
+                        shareUrl = `https://timeline.line.me/social-plugin/share?url=${encodeURIComponent(currentUrl)}`;
+                        break;
+                }
+                
+                if (shareUrl) {
+                    link.href = shareUrl;
+                }
+            });
+            
+            // 更新复制按钮的数据
+            const copyButton = document.getElementById('url');
+            if (copyButton) {
+                copyButton.setAttribute('data-clipboard-text', `Markdown Syntax Guide ${currentUrl}`);
+            }
+        });
+        </script>
+
+        
+
+
+    </div>
+</div>
+
+</main><footer class="bg-tlgray-100">
+  
+  <script src='/mdf/themes/company/js/clipboard.min.js'></script>
+  <script src='/mdf/themes/company/js/highlight.min.js'></script>
+  <script src='/mdf/themes/company/js/highlightjs-line-numbers.min.js'></script>
+  <script src='/mdf/themes/company/js/sweetalert2.min.js'></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    new ClipboardJS('.url');
+
+    function OnClickURL() {
+      Swal.fire({
+        icon: 'success',
+        title: 'Copied!',
+        text: 'Copied the URL and title.'
+      })
+    }
+  </script>
+  
+  <script>
+    function toggleNav() {
+      var hamburger = document.getElementById("hamburgerbtn");
+      var overlay = document.getElementById("overlay");
+      var body = document.body;
+
+      hamburger.addEventListener("click", function () {
+        overlay.classList.toggle("open");
+        hamburger.classList.toggle("is-open");
+        body.classList.toggle("scroll-lock");
+      });
+    }
+    toggleNav();
+
+    document.querySelector('.scroll-top').addEventListener('click', () => {
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+  
+  <link href='/mdf/themes/company/css/webfonts.min.css' rel="stylesheet" />
+  
+  <div class="flex items-center justify-between flex-wrap bg-gray-800 p-8 text-white">
+    <div class="items-center text-xl text-grey-900 mr-6">MDFriday Inc.</div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto" id="mobileMenu">
+      <div class="text-lg lg:flex-grow">
+      </div>
+      <div class="flex flex-row items-center text-lg"><a href="https://yourwebsite.com" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-6" title="Website" target="_blank" rel="noopener">
+              <i class="fas fa-globe text-xl"></i>
+            </a><a href="mailto:youremail@domain.com" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-6" title="Email" target="_blank" rel="noopener">
+              <i class="fas fa-envelope text-xl"></i>
+            </a><a href="https://facebook.com/username" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-6" title="Facebook" target="_blank" rel="noopener">
+              <i class="fab fa-facebook text-xl"></i>
+            </a><a href="https://github.com/username" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-6" title="Github" target="_blank" rel="noopener">
+              <i class="fab fa-github text-xl"></i>
+            </a><a href="https://twitter.com/username" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-6" title="Twitter" target="_blank" rel="noopener">
+              <i class="fab fa-x-twitter text-xl"></i>
+            </a><a href="https://linkedin.com/in/username" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-6" title="Linkedin" target="_blank" rel="noopener">
+              <i class="fab fa-linkedin text-xl"></i>
+            </a><a href="https://instagram.com/username" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-6" title="Instagram" target="_blank" rel="noopener">
+              <i class="fab fa-instagram text-xl"></i>
+            </a><a href="https://youtube.com/user/username" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-6" title="Youtube" target="_blank" rel="noopener">
+              <i class="fab fa-youtube text-xl"></i>
+            </a><a href="https://medium.com/@username" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-6" title="Medium" target="_blank" rel="noopener">
+              <i class="fab fa-medium text-xl"></i>
+            </a>
+      </div>
+    </div>
+  </div>
+  <div class="copy pl-8 py-5 bg-tlgray-700 text-white text-md">
+    &copy; 2025 All Rights Reserved.
+  </div>
+
+  
+  
+
+
+  
+</footer>
+</body>
+
+</html>

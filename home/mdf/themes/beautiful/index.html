@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<!-- Site Title, Description, Author, and Favicon -->
+<link rel="icon" href="/mdf/themes/beautiful/favicon.svg" >
+<title>
+
+
+  
+
+
+Home
+ | Beautiful MDFriday</title>
+<meta name="description" content="">
+<meta name="author" content="Sun Wei"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Beautiful MDFriday",
+    
+    "url": "/mdf/themes/beautiful"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "MDFriday Inc.",
+  "url": "/mdf/themes/beautiful",
+   "description": "MDFriday is a powerful Markdown editor and note-taking app.",
+   "vision": "Focus on creating, MDFriday makes your sites shine.",
+   "logo": "/mdf/themes/beautiful/images/logo.png",
+   "address": "Remote, Global",
+   "email": "team@mdfriday.org",
+}
+</script>
+
+<meta property="og:title" content="Home" />
+<meta property="og:description" content="This is the home page of the example site for the beautifulhugo theme.">
+<meta property="og:url" content="http://mdf/themes/beautiful/mdf/themes/beautiful/index.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Beautiful MDFriday" />
+
+  <meta name="twitter:title" content="Home" />
+  <meta name="twitter:description" content="This is the home page of the example site for the beautifulhugo theme.">
+  <meta name="twitter:card" content="summary_large_image" />
+<link rel="alternate" href="/mdf/themes/beautiful/index.xml" type="application/rss+xml" title="Beautiful MDFriday">
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/katex.min.css" />
+  <link rel="stylesheet" href="/mdf/themes/beautiful/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/main.css" />
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/fonts.css" />
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/highlight.min.css" />
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/codeblock.css" />
+
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/photoswipe.min.css" />
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/photoswipe.default-skin.min.css" /><!--
+If you want to include any custom html just before </head>, put it in /layouts/partials/head_custom.html
+Do not put anything in this file - it's only here so that hugo won't throw an error if /layouts/partials/head_custom.html doesn't exist.
+-->
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/mdf/themes/beautiful/">Beautiful MDFriday</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+
+        
+        
+        <li>
+          <a title="Home" href="/mdf/themes/beautiful/index.html">Home</a>
+        </li>
+        
+        
+        
+        <li class="navlinks-container">
+          <a class="navlinks-parent" role="button" tabindex="0">Blog</a>
+          <div class="navlinks-children">
+            
+            <a href="/mdf/themes/beautiful/posts/2015-01-04-first-post.html">Getting Started</a>
+            
+            <a href="/mdf/themes/beautiful/posts/2017-03-07-bigimg-sample.html">Big Image Sample</a>
+            
+          </div>
+        </li>
+        
+        
+        
+        <li>
+          <a title="About Us" href="/mdf/themes/beautiful/about.html">About Us</a>
+        </li>
+        
+        
+        
+        <li>
+          <a title="Tags" href="/mdf/themes/beautiful/tags">Tags</a>
+        </li>
+        
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/mdf/themes/beautiful/zh/index.html">中文</a>
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a title="Beautiful MDFriday" href="/mdf/themes/beautiful/">
+          <img class="avatar-img" src=/mdf/themes/beautiful/logo.png alt="Beautiful MDFriday" />
+        </a>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Search Modal -->
+
+
+    <!--
+Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
+-->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- Background of PhotoSwipe.
+     It's a separate element, as animating opacity is faster than rgba(). -->
+<div class="pswp__bg"></div>
+<!-- Slides wrapper with overflow:hidden. -->
+<div class="pswp__scroll-wrap">
+    <!-- Container that holds slides.
+      PhotoSwipe keeps only 3 of them in DOM to save memory.
+      Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      <!--  Controls are self-explanatory. Order can be changed. -->
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+      <!-- element will get class pswp__preloader--active when preloader is running -->
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+  
+    <div id="header-big-imgs" data-num-img=3
+      
+         data-img-src-1="/mdf/themes/beautiful/img/triangle.jpg"
+      
+         data-img-src-2="/mdf/themes/beautiful/img/sphere.jpg"
+      
+         data-img-src-3="/mdf/themes/beautiful/img/hexagon.jpg"
+      ></div>
+  
+
+  <header class="header-section has-img">
+    
+      
+      <div class="intro-header big-img" style="background-image: url('img/triangle.jpg');">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="page-heading">
+                <h1>Home</h1>
+                  
+                    
+                      <hr class="small">
+                      <span class="page-subheading">Build a beautiful and simple website in minutes</span>
+                    
+                  
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="page-heading">
+              
+                <h1>Home</h1>
+              
+              
+                <hr class="small">
+              
+              
+                
+                  <span class="page-subheading">Build a beautiful and simple website in minutes</span>
+                
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </header>
+
+
+    
+  <div role="main" class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+          <div class="well">
+            <h2 data-heading="Front Page Content" dir="auto" id="front-page-content">Front Page Content</h2>
+<p dir="auto"><code>beautifulhugo</code> supports content on your front page. Edit <code>/content/_index.md</code> to change what appears here. Delete <code>/content/_index.md</code> if you don't want any content here.</p>
+          </div>
+        
+
+        <div class="posts-list">
+          
+          
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2017-03-20-photoswipe-gallery-sample.html">
+        <h2 class="post-title">Photoswipe Gallery Sample</h2>
+        
+        <h3 class="post-subtitle">
+            Making a Gallery
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  3/20/2017
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;227&nbsp;words
+
+
+  
+    
+      
+        &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Wayde Sun
+      
+        &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;MDFriday
+      
+    
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">Beautiful Hugo adds a few custom shortcodes created by <a data-tooltip-position="top" aria-label="https://www.liwen.id.au/heg/" rel="noopener nofollow" class="external-link" href="https://www.liwen.id.au/heg/" target="_blank">Li-Wen Yip</a> and <a data-tooltip-position="top" aria-label="https://github.com/GjjvdBurg/HugoPhotoSwipe" rel="noopener nofollow" class="external-link" href="https://github.com/GjjvdBurg/HugoPhotoSwipe" target="_blank">Gert-Jan van den Berg</a> for making galleries with <a data-tooltip-position="top" aria-label="https://photoswipe.com" rel="noopener nofollow" class="external-link" href="https://photoswipe.com" target="_blank">PhotoSwipe</a> . </p>
+<p dir="auto"><!--
+Put this file in /layouts/shortcodes/gallery.html
+Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
+-->
+<!-- count how many times we've called this shortcode; load the css if it's the first time -->
+<div class="gallery caption-position-bottom caption-effect-fade hover-effect-zoom hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+<!-- If no directory was specified, include any figure shortcodes called within the gallery -->
+	
+  <!--
+  Put this file in /layouts/shortcodes/figure.html
+  NB this overrides Hugo's built-in "figure" shortcode but is backwards compatible
+  Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
+  -->
+  <!-- count how many times we've called this shortcode; load the css if it's the first time -->
+  <link rel="stylesheet" href="/mdf/themes/beautiful/css/hugo-easy-gallery.css" />
+  <!-- use either src or link-thumb for thumbnail image --><div class="box" >
+    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <div class="img" style="background-image: url('/mdf/themes/beautiful/img/hexagon-thumb.jpg');">
+        <img itemprop="thumbnail" src="/mdf/themes/beautiful/img/hexagon.jpg" alt="/mdf/themes/beautiful/img/hexagon-thumb.jpg"/><!-- <img> hidden if in .gallery -->
+      </div>
+      <a href="/mdf/themes/beautiful/img/hexagon.jpg" itemprop="contentUrl"></a>
+    </figure>
+  </div>
+  
+  <!--
+  Put this file in /layouts/shortcodes/figure.html
+  NB this overrides Hugo's built-in "figure" shortcode but is backwards compatible
+  Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
+  -->
+  <!-- count how many times we've called this shortcode; load the css if it's the first time --><!-- use either src or link-thumb for thumbnail image --><div class="box" >
+    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <div class="img" style="background-image: url('/mdf/themes/beautiful/img/sphere-thumb.jpg');">
+        <img itemprop="thumbnail" src="/mdf/themes/beautiful/img/sphere.jpg" alt="Sphere"/><!-- <img> hidden if in .gallery -->
+      </div>
+      <a href="/mdf/themes/beautiful/img/sphere.jpg" itemprop="contentUrl"></a>
+        <figcaption>
+            <p>Sphere</p>
+        </figcaption>
+    </figure>
+  </div>
+  
+  <!--
+  Put this file in /layouts/shortcodes/figure.html
+  NB this overrides Hugo's built-in "figure" shortcode but is backwards compatible
+  Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
+  -->
+  <!-- count how many times we've called this shortcode; load the css if it's the first time --><!-- use either src or link-thumb for thumbnail image --><div class="box" >
+    <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <div class="img" style="background-image: url('/mdf/themes/beautiful/img/triangle-thumb.jpg');">
+        <img itemprop="thumbnail" src="/mdf/themes/beautiful/img/triangle.jpg" alt="This is a long comment about a triangle"/><!-- <img> hidden if in .gallery -->
+      </div>
+      <a href="/mdf/themes/beautiful/img/triangle.jpg" itemprop="contentUrl"></a>
+        <figcaption>
+            <p>Triangle</p>
+        </figcaption>
+    </figure>
+  </div>
+  
+
+</div>
+</p>
+<p dir="auto">
+        <a href="/mdf/themes/beautiful/posts/2017-03-20-photoswipe-gallery-sample.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    <div class="blog-tags">
+        
+        <a href="/mdf/themes/beautiful/tags/example/index.html">example</a>, 
+        <a href="/mdf/themes/beautiful/tags/photoswipe/index.html">photoswipe</a>
+    </div>
+    
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2015-01-15-pirates.html">
+        <h2 class="post-title">Pirates arrrr</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  1/15/2015
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;78&nbsp;words
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">Piracy is typically an act of robbery or criminal violence at sea. The term can include acts committed on land, in the air, or in other major bodies of water or on a shore. It does not normally include crimes committed against persons traveling on the same vessel as the perpetrator (e.g. one passeng...</p>
+        <a href="/mdf/themes/beautiful/posts/2015-01-15-pirates.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2015-01-19-soccer.html">
+        <h2 class="post-title">Soccer</h2>
+        
+        <h3 class="post-subtitle">
+            Best sport ever!
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  1/19/2015
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;216&nbsp;words
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">From Wikipedia:</p>
+<p dir="auto">Association football, more commonly known as football or soccer,[2] is a sport played between two teams of eleven players with a spherical ball. It is played by 250 million players in over 200 countries, making it the world's most popular sport.[3][4][5][6] The game is played on a r...</p>
+        <a href="/mdf/themes/beautiful/posts/2015-01-19-soccer.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2015-01-27-dear-diary.html">
+        <h2 class="post-title">Dear diary</h2>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  1/27/2015
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;78&nbsp;words
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">What is it with that Mary girl?  Dragging me to school every day. As if I had a choice.  What you don't hear in those nursery rhymes is that she starves me if I don't go to school with her; it's the only way I can stay alive!  I'm thinking about being adopted by Little Bo Peep, sure I may get lost,...</p>
+        <a href="/mdf/themes/beautiful/posts/2015-01-27-dear-diary.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2015-02-13-hamlet-monologue.html">
+        <h2 class="post-title">To be</h2>
+        
+        <h3 class="post-subtitle">
+            ... or not to be?
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  2/13/2015
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;275&nbsp;words
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">To be, or not to be--that is the question:<br>
+Whether 'tis nobler in the mind to suffer<br>
+The slings and arrows of outrageous fortune<br>
+Or to take arms against a sea of troubles<br>
+And by opposing end them. To die, to sleep--<br>
+No more--and by a sleep to say we end<br>
+The heartache, and the thousand natural shocks...</p>
+        <a href="/mdf/themes/beautiful/posts/2015-02-13-hamlet-monologue.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2015-02-20-test-markdown.html">
+        <h2 class="post-title">Test markdown</h2>
+        
+        <h3 class="post-subtitle">
+            Each post also has a subtitle
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  2/20/2015
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;125&nbsp;words
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">You can write regular <a data-tooltip-position="top" aria-label="https://markdowntutorial.com/" rel="noopener nofollow" class="external-link" href="https://markdowntutorial.com/" target="_blank">markdown</a> here and <a data-tooltip-position="top" aria-label="https://gohugo.io" rel="noopener nofollow" class="external-link" href="https://gohugo.io" target="_blank">Hugo</a> will automatically convert it to a nice webpage.  I strongly encourage you to <a data-tooltip-position="top" aria-label="https://markdowntutorial.com/" rel="noopener nofollow" class="external-link" href="https://markdowntutorial.com/" target="_blank">take 5 minutes to learn how to write in markdown</a> - it'll teach you how to transform regula...</p>
+        <a href="/mdf/themes/beautiful/posts/2015-02-20-test-markdown.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    <div class="blog-tags">
+        
+        <a href="/mdf/themes/beautiful/tags/example/index.html">example</a>, 
+        <a href="/mdf/themes/beautiful/tags/markdown/index.html">markdown</a>
+    </div>
+    
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2015-02-26-flake-it-till-you-make-it.html">
+        <h2 class="post-title">Flake it till you make it</h2>
+        
+        <h3 class="post-subtitle">
+            Excerpt from Soulshaping by Jeff Brown
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  2/26/2015
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;443&nbsp;words
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who hit me, no one would say that I had a commitment probl...</p>
+        <a href="/mdf/themes/beautiful/posts/2015-02-26-flake-it-till-you-make-it.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2016-03-08-code-sample.html">
+        <h2 class="post-title">Code Sample</h2>
+        
+        <h3 class="post-subtitle">
+            Using Hugo or Pygments
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  3/8/2016
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;113&nbsp;words
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">The following are two code samples using syntax highlighting.</p>
+<p dir="auto">
+        <a href="/mdf/themes/beautiful/posts/2016-03-08-code-sample.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    <div class="blog-tags">
+        
+        <a href="/mdf/themes/beautiful/tags/code/index.html">code</a>, 
+        <a href="/mdf/themes/beautiful/tags/example/index.html">example</a>
+    </div>
+    
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2017-03-05-math-sample.html">
+        <h2 class="post-title">Math Sample</h2>
+        
+        <h3 class="post-subtitle">
+            Using KaTeX
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  3/5/2017
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;131&nbsp;words
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">KaTeX can be used to generate complex math formulas server-side. </p>
+<div class="math math-block is-loaded"><mjx-container class="MathJax" jax="CHTML" display="true"><mjx-math display="true" class="MJX-TEX" style="margin-left: 0px; margin-right: 0px;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mfrac space="4"><mjx-frac type="d"><mjx-num><mjx-nstrut type="d"></mjx-nstrut><mjx-mrow><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msqrt space="3"><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.163em;"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-box></mjx-sqrt></mjx-msqrt><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-mrow></mjx-num><mjx-dbox><mjx-dtable><mjx-line type="d"></mjx-line><mjx-row><mjx-den><mjx-dstrut type="d"></mjx-dstrut><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c36"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c37"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c22EF"></mjx-c></mjx-mo></mjx-math></mjx-container></div>
+<p dir="auto">Additional details can be found on <a data-tooltip-position="top" aria-label="https://github.com/KaTeX/KaTeX" rel="noopener nofollow" class="external-link" href="https://github.com/KaTeX/KaTeX" target="_blank">GitHub</a> or on the <a data-tooltip-position="top" aria-label="https://katex.org/" rel="noopener nofollow" class="external-link" href="https://katex.org/" target="_blank">project homepage</a>.</p>
+<p dir="auto">
+        <a href="/mdf/themes/beautiful/posts/2017-03-05-math-sample.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    <div class="blog-tags">
+        
+        <a href="/mdf/themes/beautiful/tags/example/index.html">example</a>, 
+        <a href="/mdf/themes/beautiful/tags/math/index.html">math</a>
+    </div>
+    
+    
+
+</article>
+          
+            <article class="post-preview">
+    <a href="/mdf/themes/beautiful/posts/2017-03-07-bigimg-sample.html">
+        <h2 class="post-title">Big Image Sample</h2>
+        
+        <h3 class="post-subtitle">
+            Using Multiple Images
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  <i class="fas fa-calendar"></i>&nbsp;Posted on  3/7/2017
+  |&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  |&nbsp;<i class="fas fa-book"></i>&nbsp;200&nbsp;words
+
+
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Sun Wei
+  
+
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        <p dir="auto">The image banners at the top of the page are refered to as "bigimg" in this theme. They are optional, and one more more can be specified. If more than one is specified, the images rotate every 10 seconds. In the front matter, bigimgs are specified using an array of hashes.</p>
+<p dir="auto">
+        <a href="/mdf/themes/beautiful/posts/2017-03-07-bigimg-sample.html" class="post-read-more">[Read More]</a>
+        
+    </div>
+
+    
+    
+    <div class="blog-tags">
+        
+        <a href="/mdf/themes/beautiful/tags/bigimg/index.html">bigimg</a>, 
+        <a href="/mdf/themes/beautiful/tags/example/index.html">example</a>
+    </div>
+    
+    
+
+</article>
+          
+        </div>
+
+        
+          <ul class="pager main-pager">
+            
+            
+              <li class="next">
+                <a href="/mdf/themes/beautiful/page/2/">Older Posts &rarr;</a>
+              </li>
+            
+          </ul>
+        
+      </div>
+    </div>
+  </div>
+
+      
+
+<footer>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+            <li>
+              <a href="https://github.com/username" title="github">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://twitter.com/username" title="twitter">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://linkedin.com/in/username" title="linkedin">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://yourwebsite.com" title="website">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-link fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="mailto:youremail@domain.com" title="email">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://facebook.com/username" title="facebook">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://gitlab.com/username" title="gitlab">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://bitbucket.org/username" title="bitbucket">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-bitbucket fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://reddit.com/user/username" title="reddit">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-reddit-alien fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://www.xing.com/profile/username" title="xing">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-xing fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://stackoverflow.com/users/XXXXXXX/username" title="stackoverflow">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://www.snapchat.com/add/username" title="snapchat">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-snapchat-ghost fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://instagram.com/username" title="instagram">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://youtube.com/user/username" title="youtube">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://soundcloud.com/username" title="soundcloud">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-soundcloud fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://open.spotify.com/user/username" title="spotify">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-spotify fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://username.bandcamp.com" title="bandcamp">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-bandcamp fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://username.itch.io" title="itchio">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-gamepad fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://vk.com/username" title="vk">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-vk fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://paypal.me/username" title="paypal">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-paypal fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://t.me/username" title="telegram">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-telegram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://500px.com/username" title="500px">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-500px fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://codepen.io/username" title="codepen">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-codepen fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://mastodon.social/@username" title="mastodon">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-mastodon fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://kaggle.com/username" title="kaggle">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-kaggle fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://weibo.com/username" title="weibo">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-weibo fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://username.slack.com" title="slack">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-slack fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://medium.com/@username" title="medium">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-medium fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://discord.gg/XXXXXXX" title="discord">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-discord fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://www.strava.com/athletes/userid" title="strava">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-strava fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://last.fm/user/username" title="lastfm">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-lastfm fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://bsky.app/profile/username" title="bluesky">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-bluesky fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+        </ul>
+        <p class="credits copyright text-muted">
+
+          
+            <a href="">Sun Wei</a>
+          &nbsp;&bull;&nbsp;
+          
+
+          &copy;2025
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="/mdf/themes/beautiful/">Beautiful MDFriday</a>
+          
+        </p>
+        <!-- Please don't remove this, keep my open source work credited :) -->
+        <p class="credits theme-by text-muted">
+          Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/mdf/themes/beautiful/js/katex.min.js"></script>
+<script defer src="/mdf/themes/beautiful/js/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<script src="/mdf/themes/beautiful/js/jquery-3.7.0.slim.min.js"></script>
+<script src="/mdf/themes/beautiful/js/bootstrap.min.js"></script>
+
+<script src="/mdf/themes/beautiful/js/main.js"></script>
+
+<script src="/mdf/themes/beautiful/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script>
+
+<script src="/mdf/themes/beautiful/js/photoswipe.min.js"></script>
+<script src="/mdf/themes/beautiful/js/photoswipe-ui-default.min.js"></script>
+
+<script src="/mdf/themes/beautiful/js/load-photoswipe.js"></script>
+
+
+  
+
+
+<!--
+If you want to include any custom html just before </body>, put it in /layouts/partials/footer_custom.html
+Do not put anything in this file - it's only here so that hugo won't throw an error if /layouts/partials/footer_custom.html doesn't exist.
+-->
+
+
+    
+  </body>
+</html>
+
