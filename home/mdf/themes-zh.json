@@ -191,6 +191,18 @@
 	},
 	{
 		"id": 17,
+		"name": "Quartz",
+		"author": "MDFriday Team",
+		"version": "1.0",
+		"screenshot": "https://mdfriday.com/mdf/tn_quartz.jpg",
+		"download_url": "https://mdfriday.com/mdf/quartz_theme.zip?version=1.0",
+		"demo_url": "https://help.mdfriday.com",
+		"demo_notes_url": "https://mdfriday.com/mdf/quartz_example.zip?version=1.0",
+		"tags": ["Wiki", "Book", "Doc"],
+		"kind": ["Creator"]
+	},
+	{
+		"id": 18,
 		"name": "Showcase",
 		"author": "MDFriday Team",
 		"version": "1.0",
