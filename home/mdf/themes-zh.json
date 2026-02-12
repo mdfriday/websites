@@ -195,9 +195,9 @@
 		"author": "MDFriday Team",
 		"version": "1.0",
 		"screenshot": "https://mdfriday.com/mdf/tn-quartz.jpg",
-		"download_url": "https://mdfriday.com/mdf/quartz_theme.zip?version=1.0",
+		"download_url": "https://mdfriday.com/mdf/quartz-theme.zip?version=1.0",
 		"demo_url": "https://help.mdfriday.com",
-		"demo_notes_url": "https://mdfriday.com/mdf/quartz_example.zip?version=1.0",
+		"demo_notes_url": "https://mdfriday.com/mdf/quartz-example.zip?version=1.0",
 		"tags": ["Wiki", "Book", "Doc"],
 		"kind": ["Creator"]
 	},
